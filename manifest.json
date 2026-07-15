@@ -6,6 +6,12 @@
       "sha256": "c469dd583ec167c1fca3290d58005450b9096a0313d6470dcf59c0a046f327ea",
       "minBytes": 300000,
       "version": 2
+    },
+    "NO": {
+      "url": "https://raw.githubusercontent.com/GBTechReviews/harmonikeyboard-dicts/refs/heads/main/no_words.txt",
+      "sha256": "668a0cc77a0aa7a1f87466ad6ce263d7074a1b65c4058bbdeff30f8b7bd9c867",
+      "minBytes": 4000,
+      "version": 1
     }
   }
 }
