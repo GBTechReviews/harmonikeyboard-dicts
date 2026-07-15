@@ -1,11 +1,11 @@
 {
-  "version": 2,
+  "version": 1,
   "dicts": {
     "PT": {
       "url": "https://raw.githubusercontent.com/GBTechReviews/harmonikeyboard-dicts/refs/heads/main/pt_words.txt",
       "sha256": "c469dd583ec167c1fca3290d58005450b9096a0313d6470dcf59c0a046f327ea",
       "minBytes": 300000,
-      "version": 1
+      "version": 2
     }
   }
 }
