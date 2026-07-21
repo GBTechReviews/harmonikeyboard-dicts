@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "dicts": {
     "PT": {
       "url": "https://raw.githubusercontent.com/GBTechReviews/harmonikeyboard-dicts/refs/heads/main/pt_words.txt",
@@ -9,9 +9,9 @@
     },
     "NO": {
       "url": "https://raw.githubusercontent.com/GBTechReviews/harmonikeyboard-dicts/refs/heads/main/no_words.txt",
-      "sha256": "668a0cc77a0aa7a1f87466ad6ce263d7074a1b65c4058bbdeff30f8b7bd9c867",
-      "minBytes": 4000,
-      "version": 1
+      "sha256": "168de890d96570e71736dadc362a80bf83688dc5ddd9633e96d881c7962630e2",
+      "minBytes": 380000,
+      "version": 2
     },
     "TR": {
       "url": "https://raw.githubusercontent.com/GBTechReviews/harmonikeyboard-dicts/refs/heads/main/tr_words.txt",
