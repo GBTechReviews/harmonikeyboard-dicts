@@ -18,6 +18,12 @@
       "sha256": "5dbd3fdfe33e735df5cc43902e5e99a27344a3d1153b48653cf3ceaa32097fb7",
       "minBytes": 350000,
       "version": 1
+    },
+    "RO": {
+      "url": "https://raw.githubusercontent.com/GBTechReviews/harmonikeyboard-dicts/refs/heads/main/ro_words.txt",
+      "sha256": "3fa2110d856edb82906ae0446ca5f425c6c1a42bdc620b90d4acb10e468f57b6",
+      "minBytes": 900000,
+      "version": 2
     }
   }
 }
