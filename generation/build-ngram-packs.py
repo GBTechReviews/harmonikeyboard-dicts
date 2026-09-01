@@ -34,6 +34,16 @@ META = {
                source="Tatoeba Project", corpus="tatoeba fra_sentences",
                source_url="https://downloads.tatoeba.org/exports/per_language/fra/fra_sentences.tsv.bz2",
                licence="CC BY 2.0 FR", attribution="Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR"),
+    # P13: English + Polish rebuilt from Tatoeba to retire the earlier Leipzig-derived
+    # packs (whose downloadable-corpus commercial terms could not be confirmed).
+    "en": dict(language="English (UK)", locale="en",
+               source="Tatoeba Project", corpus="tatoeba eng_sentences",
+               source_url="https://downloads.tatoeba.org/exports/per_language/eng/eng_sentences.tsv.bz2",
+               licence="CC BY 2.0 FR", attribution="Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR"),
+    "pl": dict(language="Polish", locale="pl",
+               source="Tatoeba Project", corpus="tatoeba pol_sentences",
+               source_url="https://downloads.tatoeba.org/exports/per_language/pol/pol_sentences.tsv.bz2",
+               licence="CC BY 2.0 FR", attribution="Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR"),
 }
 
 SCHEMA_VERSION = 1
@@ -105,8 +115,14 @@ def build(lang, retrieval_date, source_version, notes, check=False):
     prov["transformations"] = [
         "downloaded Tatoeba per-language sentence export (id<TAB>lang<TAB>text .tsv.bz2)",
         "bunzip2; kept column 3 (sentence text) only",
-        f"gen-ngrams.py --lang {lang} --letters <{lang} diacritics> --holdout 6 "
-        "--test-keep 400 --min-count 3 --max-bi 30000 --max-tri 25000",
+        "gen-ngrams.py: tokenise (letters + diacritics + apostrophe only, so URLs/emails/"
+        "digits fragment away), hold out every 6th sentence for the disjoint test set, "
+        "min-count 3, top-8 followers, caps per corpus size (see generation/README.md for "
+        "the exact per-language command)",
+    ] + ([
+        "--stop 'tom,mary': the dominant Tatoeba placeholder names are excluded from "
+        "n-grams so they do not dominate general predictions"
+    ] if lang in ("en", "pl") else []) + [
         "deterministic gzip (mtime=0, level 9, OS byte 0xFF)",
     ]
     with open(os.path.join(REPO, "provenance", f"{lang}_ngrams.v1.json"), "w", encoding="utf-8", newline="\n") as f:
@@ -129,7 +145,16 @@ def main():
         "es": "Spanish next-word context (bigram+trigram) from Tatoeba example sentences.",
         "fr": "French next-word context (bigram+trigram) from Tatoeba example sentences.",
     }
+    notes.setdefault("en", "English next-word context (bigram+trigram) from Tatoeba example sentences.")
+    notes.setdefault("pl", "Polish next-word context (bigram+trigram) from Tatoeba example sentences.")
     packs = [build(l, a.retrieval_date, a.source_version, notes[l], a.check) for l in langs]
+    # English ships one physical pack served to BOTH regional ids: add an English (US)
+    # manifest alias pointing at the same file/checksum so either variant can fetch it.
+    extra = []
+    for e in packs:
+        if e["language"] == "English (UK)":
+            us = dict(e); us["language"] = "English (US)"; extra.append(us)
+    packs = packs + extra
     manifest = {
         "schemaVersion": SCHEMA_VERSION,
         "generated": a.retrieval_date,

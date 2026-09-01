@@ -10,8 +10,11 @@ and a second run produce identical SHA-256s).
 | de | Tatoeba `deu_sentences` | https://downloads.tatoeba.org/exports/per_language/deu/deu_sentences.tsv.bz2 | CC BY 2.0 FR |
 | es | Tatoeba `spa_sentences` | https://downloads.tatoeba.org/exports/per_language/spa/spa_sentences.tsv.bz2 | CC BY 2.0 FR |
 | fr | Tatoeba `fra_sentences` | https://downloads.tatoeba.org/exports/per_language/fra/fra_sentences.tsv.bz2 | CC BY 2.0 FR |
+| en | Tatoeba `eng_sentences` | https://downloads.tatoeba.org/exports/per_language/eng/eng_sentences.tsv.bz2 | CC BY 2.0 FR |
+| pl | Tatoeba `pol_sentences` | https://downloads.tatoeba.org/exports/per_language/pol/pol_sentences.tsv.bz2 | CC BY 2.0 FR |
 
-Retrieved 2026-09-01. Licence verified against the primary source (tatoeba.org/en/downloads:
+English and Polish (P13) replaced earlier Leipzig-derived packs whose commercial terms
+could not be confirmed; all five packs are now Tatoeba. Retrieved 2026-09-01. Licence verified against the primary source (tatoeba.org/en/downloads:
 "These files are released under CC BY 2.0 FR."). See `../licences/TATOEBA.txt`.
 
 **The raw corpora are NOT committed** (size + they are re-downloadable). Only the
@@ -49,10 +52,21 @@ python gen-ngrams.py --lang es --source tatoeba-spa-2026-09-01 --letters "áéí
 python gen-ngrams.py --lang fr --source tatoeba-fra-2026-09-01 --letters "àâäçéèêëîïôûùüÿœæ" \
   --holdout 6 --test-keep 400 --min-count 3 --max-bi 30000 --max-tri 25000 \
   --out input/fr_ngrams.v1.txt --test fr_ngrams_test.tsv fra_text.txt
+# English: bigger corpus (~2M sentences) -> larger caps (scaled to corpus size); the
+# --stop filter drops Tatoeba's dominant placeholder names (Tom/Mary).
+python gen-ngrams.py --lang en --source tatoeba-eng-2026-09-01 --stop "tom,mary" \
+  --holdout 6 --test-keep 400 --min-count 3 --max-bi 90000 --max-tri 75000 \
+  --out input/en_ngrams.v1.txt --test en_ngrams_test.tsv eng_text.txt
+python gen-ngrams.py --lang pl --source tatoeba-pol-2026-09-01 --letters "ąćęłńóśźż" --stop "tom,mary" \
+  --holdout 6 --test-keep 40 --min-count 3 --max-bi 30000 --max-tri 25000 \
+  --out input/pl_ngrams.v1.txt --test pl_ngrams_test.tsv pol_text.txt
 
 # 3. Deterministic gzip + manifest + provenance:
-python build-ngram-packs.py --check
+python build-ngram-packs.py --check de es fr en pl
 ```
+
+The English + Polish `.v1` packs are ALSO bundled in the app (gzipped) as the offline
+fallback for those languages; the app's copy is byte-identical to the pack here.
 
 ## Filtering / policy
 

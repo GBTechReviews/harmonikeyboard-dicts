@@ -14,6 +14,9 @@ packs/                   Optional NEXT-WORD (n-gram) context packs, gzipped + ve
   de_ngrams.v1.txt.gz    German  (Tatoeba, CC BY 2.0 FR)
   es_ngrams.v1.txt.gz    Spanish (Tatoeba, CC BY 2.0 FR)
   fr_ngrams.v1.txt.gz    French  (Tatoeba, CC BY 2.0 FR)
+  en_ngrams.v1.txt.gz    English (Tatoeba, CC BY 2.0 FR) - also bundled in-app
+  pl_ngrams.v1.txt.gz    Polish  (Tatoeba, CC BY 2.0 FR) - also bundled in-app
+                         (en/pl replaced earlier Leipzig-derived packs in P13)
 manifests/
   ngram-manifest.json    The n-gram pack manifest HKeyboard's PackDownloadManager reads.
 provenance/              One record per pack: source, licence, checksums, transformations.
