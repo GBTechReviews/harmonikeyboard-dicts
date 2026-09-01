@@ -1,0 +1,145 @@
+#!/usr/bin/env python3
+# build-ngram-packs.py - P12. Turn the plain-text NgramPack files produced by
+# gen-ngrams.py into the HOSTED artefacts for this repo: a DETERMINISTIC gzip pack
+# under packs/, a per-pack provenance record under provenance/, and a combined
+# manifests/ngram-manifest.json that HKeyboard's PackDownloadManager reads.
+#
+# DETERMINISM: gzip is written with mtime=0 and a fixed OS byte, so the same input
+# pack yields a byte-identical .gz (and therefore the same SHA-256) on every run.
+# Verified by --check (re-gzips and compares).
+#
+# IMMUTABLE FILENAMES: the pack filename carries its version (de_ngrams.v1.txt.gz).
+# A changed pack MUST be given a new version (v2) - this script refuses to overwrite
+# an existing .gz whose bytes would differ, so a published filename is never silently
+# replaced.
+#
+# INPUTS are the gen-ngrams.py outputs + a small metadata table (below). The raw
+# corpora are NOT part of this repo (see generation/README.md for how to fetch them);
+# only the reproducible scripts + the derived packs live here.
+import gzip, hashlib, io, json, os, sys, argparse, datetime
+
+REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# Per-language metadata. Keep in step with generation/README.md and provenance/.
+META = {
+    "de": dict(language="German", locale="de",
+               source="Tatoeba Project", corpus="tatoeba deu_sentences",
+               source_url="https://downloads.tatoeba.org/exports/per_language/deu/deu_sentences.tsv.bz2",
+               licence="CC BY 2.0 FR", attribution="Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR"),
+    "es": dict(language="Spanish", locale="es",
+               source="Tatoeba Project", corpus="tatoeba spa_sentences",
+               source_url="https://downloads.tatoeba.org/exports/per_language/spa/spa_sentences.tsv.bz2",
+               licence="CC BY 2.0 FR", attribution="Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR"),
+    "fr": dict(language="French", locale="fr",
+               source="Tatoeba Project", corpus="tatoeba fra_sentences",
+               source_url="https://downloads.tatoeba.org/exports/per_language/fra/fra_sentences.tsv.bz2",
+               licence="CC BY 2.0 FR", attribution="Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR"),
+}
+
+SCHEMA_VERSION = 1
+MIN_ENGINE_VERSION = 1
+MIN_APP_VERSION = 9            # HKeyboard versionCode that first understands ngram packs
+GEN_VERSION = "gen-ngrams.py v1 + build-ngram-packs.py v1"
+
+
+def sha256_bytes(b):
+    return hashlib.sha256(b).hexdigest()
+
+
+def deterministic_gzip(data: bytes) -> bytes:
+    buf = io.BytesIO()
+    # mtime=0 removes the timestamp; a fixed compresslevel makes the stream stable.
+    with gzip.GzipFile(fileobj=buf, mode="wb", compresslevel=9, mtime=0) as gz:
+        gz.write(data)
+    out = bytearray(buf.getvalue())
+    # Byte 9 of the gzip header is the OS field; pin it to 255 (unknown) so the
+    # result does not vary by build platform.
+    if len(out) > 9:
+        out[9] = 0xFF
+    return bytes(out)
+
+
+def build(lang, retrieval_date, source_version, notes, check=False):
+    m = META[lang]
+    src_txt = os.path.join(REPO, "generation", "input", f"{lang}_ngrams.v1.txt")
+    if not os.path.isfile(src_txt):
+        sys.exit(f"missing input pack {src_txt} (run gen-ngrams.py first; see README)")
+    raw = open(src_txt, "rb").read()
+    uncompressed_sha = sha256_bytes(raw)
+    gz = deterministic_gzip(raw)
+    if check:
+        assert deterministic_gzip(raw) == gz, "gzip not deterministic!"
+        assert gzip.decompress(gz) == raw, "gzip round-trip mismatch!"
+    fname = f"{lang}_ngrams.v1.txt.gz"
+    out_path = os.path.join(REPO, "packs", fname)
+    if os.path.isfile(out_path) and open(out_path, "rb").read() != gz:
+        sys.exit(f"REFUSING to overwrite published {fname} with different bytes - bump the version")
+    with open(out_path, "wb") as f:
+        f.write(gz)
+    gz_sha = sha256_bytes(gz)
+    entry = {
+        "language": m["language"],
+        "locale": m["locale"],
+        "packVersion": 1,
+        "minEngineVersion": MIN_ENGINE_VERSION,
+        "minAppVersion": MIN_APP_VERSION,
+        "file": fname,
+        "compression": "gzip",
+        "fileSize": len(gz),
+        "uncompressedSize": len(raw),
+        "sha256": gz_sha,
+        "uncompressedSha256": uncompressed_sha,
+        "source": m["source"],
+        "corpus": m["corpus"],
+        "sourceUrl": m["source_url"],
+        "sourceVersion": source_version,
+        "licence": m["licence"],
+        "attribution": m["attribution"],
+        "generationVersion": GEN_VERSION,
+        "creationDate": retrieval_date,
+        "retrievalDate": retrieval_date,
+        "releaseNotes": notes,
+    }
+    # provenance record (a superset, human-readable)
+    prov = dict(entry)
+    prov["transformations"] = [
+        "downloaded Tatoeba per-language sentence export (id<TAB>lang<TAB>text .tsv.bz2)",
+        "bunzip2; kept column 3 (sentence text) only",
+        f"gen-ngrams.py --lang {lang} --letters <{lang} diacritics> --holdout 6 "
+        "--test-keep 400 --min-count 3 --max-bi 30000 --max-tri 25000",
+        "deterministic gzip (mtime=0, level 9, OS byte 0xFF)",
+    ]
+    with open(os.path.join(REPO, "provenance", f"{lang}_ngrams.v1.json"), "w", encoding="utf-8", newline="\n") as f:
+        json.dump(prov, f, ensure_ascii=False, indent=2)
+        f.write("\n")
+    print(f"{lang}: {fname} gz={len(gz)} (uncompressed {len(raw)}) sha={gz_sha[:12]}...")
+    return entry
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--retrieval-date", default="2026-09-01")
+    ap.add_argument("--source-version", default="Tatoeba export 2026-09-01")
+    ap.add_argument("--check", action="store_true", help="verify gzip determinism + round-trip")
+    ap.add_argument("langs", nargs="*", default=["de", "es", "fr"])
+    a = ap.parse_args()
+    langs = a.langs or ["de", "es", "fr"]
+    notes = {
+        "de": "German next-word context (bigram+trigram) from Tatoeba example sentences.",
+        "es": "Spanish next-word context (bigram+trigram) from Tatoeba example sentences.",
+        "fr": "French next-word context (bigram+trigram) from Tatoeba example sentences.",
+    }
+    packs = [build(l, a.retrieval_date, a.source_version, notes[l], a.check) for l in langs]
+    manifest = {
+        "schemaVersion": SCHEMA_VERSION,
+        "generated": a.retrieval_date,
+        "packs": packs,
+    }
+    with open(os.path.join(REPO, "manifests", "ngram-manifest.json"), "w", encoding="utf-8", newline="\n") as f:
+        json.dump(manifest, f, ensure_ascii=False, indent=2)
+        f.write("\n")
+    print(f"manifest: {len(packs)} packs -> manifests/ngram-manifest.json")
+
+
+if __name__ == "__main__":
+    main()

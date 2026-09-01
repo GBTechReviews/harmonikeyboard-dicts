@@ -1,0 +1,28 @@
+Tatoeba sentence data - licence and attribution
+================================================
+
+The next-word context packs under packs/ (de_ngrams.*, es_ngrams.*, fr_ngrams.*)
+are DERIVED from sentence data published by the Tatoeba Project.
+
+Source:        Tatoeba Project - https://tatoeba.org
+Download:      https://downloads.tatoeba.org/exports/per_language/<lang>/<lang>_sentences.tsv.bz2
+               (deu, spa, fra)
+Retrieved:     2026-09-01
+Licence:       Creative Commons Attribution 2.0 France (CC BY 2.0 FR)
+               https://creativecommons.org/licenses/by/2.0/fr/deed.en
+Verified:      2026-09-01, primary source https://tatoeba.org/en/downloads
+               ("These files are released under CC BY 2.0 FR.")
+
+CC BY 2.0 FR permits use, redistribution and the creation and distribution of
+DERIVED works (such as these frequency/co-occurrence n-gram tables), including for
+COMMERCIAL purposes, provided attribution is given. There is NO share-alike / copyleft
+obligation, so the derived packs may be distributed under this project's own terms
+with the attribution below.
+
+REQUIRED ATTRIBUTION (ship this line in the app's licences screen and keep it here):
+
+    Next-word data derived from sentences by the Tatoeba Project
+    (https://tatoeba.org), licensed CC BY 2.0 FR.
+
+Note: the packs are TRANSFORMED derivations - bigram/trigram counts over tokenised
+sentences - and contain no verbatim reproduction of whole Tatoeba sentences.
