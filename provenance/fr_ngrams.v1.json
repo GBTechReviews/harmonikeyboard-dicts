@@ -1,0 +1,29 @@
+{
+  "language": "French",
+  "locale": "fr",
+  "packVersion": 1,
+  "minEngineVersion": 1,
+  "minAppVersion": 9,
+  "file": "fr_ngrams.v1.txt.gz",
+  "compression": "gzip",
+  "fileSize": 272678,
+  "uncompressedSize": 1032528,
+  "sha256": "2008e17544bc64533265a748a1c7ca7f88ee00333bbfd920e0b7dffe85aa3253",
+  "uncompressedSha256": "4e6564090f44e51a34332bf9790584389dbe17cdba3a791e5ac3e076262df253",
+  "source": "Tatoeba Project",
+  "corpus": "tatoeba fra_sentences",
+  "sourceUrl": "https://downloads.tatoeba.org/exports/per_language/fra/fra_sentences.tsv.bz2",
+  "sourceVersion": "Tatoeba export 2026-09-01",
+  "licence": "CC BY 2.0 FR",
+  "attribution": "Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR",
+  "generationVersion": "gen-ngrams.py v1 + build-ngram-packs.py v1",
+  "creationDate": "2026-09-01",
+  "retrievalDate": "2026-09-01",
+  "releaseNotes": "French next-word context (bigram+trigram) from Tatoeba example sentences.",
+  "transformations": [
+    "downloaded Tatoeba per-language sentence export (id<TAB>lang<TAB>text .tsv.bz2)",
+    "bunzip2; kept column 3 (sentence text) only",
+    "gen-ngrams.py --lang fr --letters <fr diacritics> --holdout 6 --test-keep 400 --min-count 3 --max-bi 30000 --max-tri 25000",
+    "deterministic gzip (mtime=0, level 9, OS byte 0xFF)"
+  ]
+}

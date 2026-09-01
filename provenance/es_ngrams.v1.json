@@ -1,0 +1,29 @@
+{
+  "language": "Spanish",
+  "locale": "es",
+  "packVersion": 1,
+  "minEngineVersion": 1,
+  "minAppVersion": 9,
+  "file": "es_ngrams.v1.txt.gz",
+  "compression": "gzip",
+  "fileSize": 264829,
+  "uncompressedSize": 989224,
+  "sha256": "d01d02e404255bd129abb0e0e6e90e476f4059d49d479de2257154624c1365c1",
+  "uncompressedSha256": "47b7a34dbed753d0b00590adad7ac1b1ba8462343def22d242e9ea126b1cdfd9",
+  "source": "Tatoeba Project",
+  "corpus": "tatoeba spa_sentences",
+  "sourceUrl": "https://downloads.tatoeba.org/exports/per_language/spa/spa_sentences.tsv.bz2",
+  "sourceVersion": "Tatoeba export 2026-09-01",
+  "licence": "CC BY 2.0 FR",
+  "attribution": "Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR",
+  "generationVersion": "gen-ngrams.py v1 + build-ngram-packs.py v1",
+  "creationDate": "2026-09-01",
+  "retrievalDate": "2026-09-01",
+  "releaseNotes": "Spanish next-word context (bigram+trigram) from Tatoeba example sentences.",
+  "transformations": [
+    "downloaded Tatoeba per-language sentence export (id<TAB>lang<TAB>text .tsv.bz2)",
+    "bunzip2; kept column 3 (sentence text) only",
+    "gen-ngrams.py --lang es --letters <es diacritics> --holdout 6 --test-keep 400 --min-count 3 --max-bi 30000 --max-tri 25000",
+    "deterministic gzip (mtime=0, level 9, OS byte 0xFF)"
+  ]
+}
