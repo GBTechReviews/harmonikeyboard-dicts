@@ -1,0 +1,28 @@
+{
+  "language": "Marathi",
+  "locale": "mr-IN",
+  "file": "mr_words.txt",
+  "role": "frequency-ordered word list (full list; the app bundles its head as the seed)",
+  "lines": 9512,
+  "fileSize": 189611,
+  "sha256": "8bf220ef8da63325e6e85df0791b56504613b142e700180e29960e67cdadbe17",
+  "seedOnly": false,
+  "source": "Tatoeba Project",
+  "corpus": "tatoeba mar_sentences",
+  "sourceUrl": "https://downloads.tatoeba.org/exports/per_language/mar/mar_sentences.tsv.bz2",
+  "sourceSha256": "e1cfa7378756429164456d922547516eaf64a2e9fff67cfb649e9e95925e7c1d",
+  "sourceVersion": "Tatoeba export 2026-09-02",
+  "licence": "CC BY 2.0 FR",
+  "attribution": "Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR",
+  "generationVersion": "gen-tatoeba-words.py v1 (HKeyboard scripts/; Batch 8 added the devanagari script filter, whose vowel signs / virama / anusvara are letters of the word)",
+  "generationCommand": "python gen-tatoeba-words.py --lang mr --script devanagari --min-count 3 --stop \"टॉम,टॉमला,टॉमने,मेरी,मेरीला,टॉमची,मेरीने,टॉमकडे,टॉमच्या,टॉमचा,टॉमशी,टॉमचं,टॉमबरोबर,जॉन,मेरीच्या,टॉमचे,मेरीची,मेरीचा,टॉमवर,मेरीशी,टॉमसोबत,मेरीचं,टॉमसाठी,मेरीबरोबर,टॉमबद्दल,मेरीसाठी,मेरीपेक्षा,टॉमनेच,मेरीकडे,जॉनला,टॉमसुद्धा,मेरीवर,मेरीचे,टॉमकडून,टॉमपेक्षा,मेरीसोबत,टॉमच,टॉमदेखील,मेरीकडून,जॉनने,टॉमसारखा,जॉनचा,मेरीबद्दल,टॉमस,टॉमसारखी,टॉमशिवाय,जॉनच्या,टॉमसला,टॉमसारखे,टॉमी,टॉमही,जॉनबद्दल,जॉनशी,जॉनी,टॉमलाही,टॉमना,टॉमइतकी,टॉमइतका,जॉनसाठी,टॉमपासून,मेरीजवळ,जॉनबरोबर,टॉमसारख्या,टॉमसारखं,टॉमलाच,मेरीही,टॉमलासुद्धा\" --out mr_words.txt mar_text.txt",
+  "creationDate": "2026-09-02",
+  "retrievalDate": "2026-09-02",
+  "transformations": [
+    "downloaded Tatoeba per-language sentence export (id<TAB>lang<TAB>text .tsv.bz2)",
+    "bunzip2; kept column 3 (sentence text) only",
+    "gen-tatoeba-words.py: tokens of Devanagari letters and their combining marks; Tatoeba placeholder names dropped (--stop); words seen fewer than 3 times dropped; ordered by count desc then first occurrence",
+    "no corpus sentence is redistributed - the file is a word list only"
+  ],
+  "note": "The app bundles the top 900 lines as its seed and downloads this full list on the user's request."
+}

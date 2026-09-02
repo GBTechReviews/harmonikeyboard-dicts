@@ -1,0 +1,28 @@
+{
+  "language": "Gujarati",
+  "locale": "gu-IN",
+  "file": "gu_words.txt",
+  "role": "frequency-ordered word list (seed-only language: the app bundles the whole list, nothing to download)",
+  "lines": 127,
+  "fileSize": 1600,
+  "sha256": "6381081b7352ff9735e49fd832a6991317d7b2bb39a5ef55d55f6455a8080c36",
+  "seedOnly": true,
+  "source": "Tatoeba Project",
+  "corpus": "tatoeba guj_sentences",
+  "sourceUrl": "https://downloads.tatoeba.org/exports/per_language/guj/guj_sentences.tsv.bz2",
+  "sourceSha256": "1ff20e6ed3012bce0a45e2232d3eb8227a1fee19ff3d0009d7e299aeadedde05",
+  "sourceVersion": "Tatoeba export 2026-09-02",
+  "licence": "CC BY 2.0 FR",
+  "attribution": "Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR",
+  "generationVersion": "gen-tatoeba-words.py v1 (HKeyboard scripts/; Batch 8 added the gujarati script filter, whose vowel signs / virama / anusvara are letters of the word)",
+  "generationCommand": "python gen-tatoeba-words.py --lang gu --script gujarati --min-count 2 --stop \"ટોમ,મેરી\" --out gu_words.txt guj_text.txt",
+  "creationDate": "2026-09-02",
+  "retrievalDate": "2026-09-02",
+  "transformations": [
+    "downloaded Tatoeba per-language sentence export (id<TAB>lang<TAB>text .tsv.bz2)",
+    "bunzip2; kept column 3 (sentence text) only",
+    "gen-tatoeba-words.py: tokens of Gujarati letters and their combining marks; Tatoeba placeholder names dropped (--stop); words seen fewer than 2 times dropped; ordered by count desc then first occurrence",
+    "no corpus sentence is redistributed - the file is a word list only"
+  ],
+  "note": "The app bundles the whole list (Tatoeba attests only 127 words at min-count 2); nothing is downloaded."
+}

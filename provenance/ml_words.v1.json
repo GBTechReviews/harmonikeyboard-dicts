@@ -1,0 +1,28 @@
+{
+  "language": "Malayalam",
+  "locale": "ml-IN",
+  "file": "ml_words.txt",
+  "role": "frequency-ordered word list (seed-only language: the app bundles the whole list, nothing to download)",
+  "lines": 446,
+  "fileSize": 9506,
+  "sha256": "1adf9ed1dc98ed97b2e43a96bfbcd127e9154b95a2e5495909c1ab5db5bb331e",
+  "seedOnly": true,
+  "source": "Tatoeba Project",
+  "corpus": "tatoeba mal_sentences",
+  "sourceUrl": "https://downloads.tatoeba.org/exports/per_language/mal/mal_sentences.tsv.bz2",
+  "sourceSha256": "963324bfc52a9550033e269220b0da6bf6d39b81bab124c6968fec54f260b980",
+  "sourceVersion": "Tatoeba export 2026-09-02",
+  "licence": "CC BY 2.0 FR",
+  "attribution": "Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR",
+  "generationVersion": "gen-tatoeba-words.py v1 (HKeyboard scripts/; Batch 8 added the malayalam script filter, whose vowel signs / virama / anusvara are letters of the word)",
+  "generationCommand": "python gen-tatoeba-words.py --lang ml --script malayalam --min-count 2 --stop \"ടോം,മേരി\" --out ml_words.txt mal_text.txt",
+  "creationDate": "2026-09-02",
+  "retrievalDate": "2026-09-02",
+  "transformations": [
+    "downloaded Tatoeba per-language sentence export (id<TAB>lang<TAB>text .tsv.bz2)",
+    "bunzip2; kept column 3 (sentence text) only",
+    "gen-tatoeba-words.py: tokens of Malayalam letters and their combining marks; Tatoeba placeholder names dropped (--stop); words seen fewer than 2 times dropped; ordered by count desc then first occurrence",
+    "no corpus sentence is redistributed - the file is a word list only"
+  ],
+  "note": "The app bundles the whole list (Tatoeba attests only 446 words at min-count 2); nothing is downloaded."
+}

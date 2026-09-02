@@ -52,3 +52,19 @@ source export checksum are recorded per file in provenance/<code>_words.v1.json.
 ko_words.txt (Korean, Language Batch 5, 2026-09-02) is derived from the Tatoeba kor_sentences export under the same CC BY 2.0 FR licence and attribution (provenance/ko_words.v1.json).
 
 hi_words.txt (Hindi, Language Batch 7, 2026-09-02) is derived from the Tatoeba hin_sentences export under the same CC BY 2.0 FR licence and attribution (provenance/hi_words.v1.json).
+
+mr_words.txt (Marathi, Language Batch 8, 2026-09-02) is derived from the Tatoeba mar_sentences export under the same CC BY 2.0 FR licence and attribution (provenance/mr_words.v1.json).
+
+bn_words.txt (Bengali, Language Batch 8, 2026-09-02) is derived from the Tatoeba ben_sentences export under the same CC BY 2.0 FR licence and attribution (provenance/bn_words.v1.json).
+
+pa_words.txt (Punjabi, Language Batch 8, 2026-09-02) is derived from the Tatoeba pan_sentences export under the same CC BY 2.0 FR licence and attribution (provenance/pa_words.v1.json).
+
+gu_words.txt (Gujarati, Language Batch 8, 2026-09-02) is derived from the Tatoeba guj_sentences export under the same CC BY 2.0 FR licence and attribution (provenance/gu_words.v1.json).
+
+ta_words.txt (Tamil, Language Batch 8, 2026-09-02) is derived from the Tatoeba tam_sentences export under the same CC BY 2.0 FR licence and attribution (provenance/ta_words.v1.json).
+
+te_words.txt (Telugu, Language Batch 8, 2026-09-02) is derived from the Tatoeba tel_sentences export under the same CC BY 2.0 FR licence and attribution (provenance/te_words.v1.json).
+
+kn_words.txt (Kannada, Language Batch 8, 2026-09-02) is derived from the Tatoeba kan_sentences export under the same CC BY 2.0 FR licence and attribution (provenance/kn_words.v1.json).
+
+ml_words.txt (Malayalam, Language Batch 8, 2026-09-02) is derived from the Tatoeba mal_sentences export under the same CC BY 2.0 FR licence and attribution (provenance/ml_words.v1.json).

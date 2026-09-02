@@ -1,0 +1,28 @@
+{
+  "language": "Tamil",
+  "locale": "ta-IN",
+  "file": "ta_words.txt",
+  "role": "frequency-ordered word list (seed-only language: the app bundles the whole list, nothing to download)",
+  "lines": 299,
+  "fileSize": 6326,
+  "sha256": "55c0be4cea0a7bd94f349d2589c4f754859058c3f199b9f9a3c11c25e2fa82fc",
+  "seedOnly": true,
+  "source": "Tatoeba Project",
+  "corpus": "tatoeba tam_sentences",
+  "sourceUrl": "https://downloads.tatoeba.org/exports/per_language/tam/tam_sentences.tsv.bz2",
+  "sourceSha256": "c40ff7e21a1b57a7b753806cf0e737b71608151a8714aaa40831d7a25eac2139",
+  "sourceVersion": "Tatoeba export 2026-09-02",
+  "licence": "CC BY 2.0 FR",
+  "attribution": "Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR",
+  "generationVersion": "gen-tatoeba-words.py v1 (HKeyboard scripts/; Batch 8 added the tamil script filter, whose vowel signs / virama / anusvara are letters of the word)",
+  "generationCommand": "python gen-tatoeba-words.py --lang ta --script tamil --min-count 2 --stop \"டாம்,டோம்,மேரி,மேரியுடன்,மேரியை\" --out ta_words.txt tam_text.txt",
+  "creationDate": "2026-09-02",
+  "retrievalDate": "2026-09-02",
+  "transformations": [
+    "downloaded Tatoeba per-language sentence export (id<TAB>lang<TAB>text .tsv.bz2)",
+    "bunzip2; kept column 3 (sentence text) only",
+    "gen-tatoeba-words.py: tokens of Tamil letters and their combining marks; Tatoeba placeholder names dropped (--stop); words seen fewer than 2 times dropped; ordered by count desc then first occurrence",
+    "no corpus sentence is redistributed - the file is a word list only"
+  ],
+  "note": "The app bundles the whole list (Tatoeba attests only 299 words at min-count 2); nothing is downloaded."
+}

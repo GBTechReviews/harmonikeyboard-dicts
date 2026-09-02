@@ -1,0 +1,28 @@
+{
+  "language": "Punjabi",
+  "locale": "pa-IN",
+  "file": "pa_words.txt",
+  "role": "frequency-ordered word list (seed-only language: the app bundles the whole list, nothing to download)",
+  "lines": 178,
+  "fileSize": 2092,
+  "sha256": "a26841bacea28887d2638ea94da2dcbfa25405779e42f2cd020feb2bd363ce45",
+  "seedOnly": true,
+  "source": "Tatoeba Project",
+  "corpus": "tatoeba pan_sentences",
+  "sourceUrl": "https://downloads.tatoeba.org/exports/per_language/pan/pan_sentences.tsv.bz2",
+  "sourceSha256": "30673a1d9e9b07c9d4e27fbe54ce63bb1beeb716f90dab0687aa63f182cbc3c8",
+  "sourceVersion": "Tatoeba export 2026-09-02",
+  "licence": "CC BY 2.0 FR",
+  "attribution": "Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR",
+  "generationVersion": "gen-tatoeba-words.py v1 (HKeyboard scripts/; Batch 8 added the gurmukhi script filter, whose vowel signs / virama / anusvara are letters of the word)",
+  "generationCommand": "python gen-tatoeba-words.py --lang pa --script gurmukhi --min-count 2 --stop \"ਟੌਮ,ਟੋਮ,ਮੈਰੀ\" --out pa_words.txt pan_text.txt",
+  "creationDate": "2026-09-02",
+  "retrievalDate": "2026-09-02",
+  "transformations": [
+    "downloaded Tatoeba per-language sentence export (id<TAB>lang<TAB>text .tsv.bz2)",
+    "bunzip2; kept column 3 (sentence text) only",
+    "gen-tatoeba-words.py: tokens of Gurmukhi letters and their combining marks; Tatoeba placeholder names dropped (--stop); words seen fewer than 2 times dropped; ordered by count desc then first occurrence",
+    "no corpus sentence is redistributed - the file is a word list only"
+  ],
+  "note": "The app bundles the whole list (Tatoeba attests only 178 words at min-count 2); nothing is downloaded."
+}

@@ -1,0 +1,28 @@
+{
+  "language": "Bengali",
+  "locale": "bn-BD",
+  "file": "bn_words.txt",
+  "role": "frequency-ordered word list (full list; the app bundles its head as the seed)",
+  "lines": 5179,
+  "fileSize": 97879,
+  "sha256": "9d3cb4da252a182484519e76867d44a3e55db3231bb7b4f4d3ec046b8916479b",
+  "seedOnly": false,
+  "source": "Tatoeba Project",
+  "corpus": "tatoeba ben_sentences",
+  "sourceUrl": "https://downloads.tatoeba.org/exports/per_language/ben/ben_sentences.tsv.bz2",
+  "sourceSha256": "b8a7d57cc9d878fd047835ae73465097e0e6f321d8d641f048f43bede5467074",
+  "sourceVersion": "Tatoeba export 2026-09-02",
+  "licence": "CC BY 2.0 FR",
+  "attribution": "Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR",
+  "generationVersion": "gen-tatoeba-words.py v1 (HKeyboard scripts/; Batch 8 added the bengali script filter, whose vowel signs / virama / anusvara are letters of the word)",
+  "generationCommand": "python gen-tatoeba-words.py --lang bn --script bengali --min-count 3 --stop \"টম,টমের,টমকে,মেরি,মেরির,মেরিকে,টমও,টমেট\" --out bn_words.txt ben_text.txt",
+  "creationDate": "2026-09-02",
+  "retrievalDate": "2026-09-02",
+  "transformations": [
+    "downloaded Tatoeba per-language sentence export (id<TAB>lang<TAB>text .tsv.bz2)",
+    "bunzip2; kept column 3 (sentence text) only",
+    "gen-tatoeba-words.py: tokens of Bengali letters and their combining marks; Tatoeba placeholder names dropped (--stop); words seen fewer than 3 times dropped; ordered by count desc then first occurrence",
+    "no corpus sentence is redistributed - the file is a word list only"
+  ],
+  "note": "The app bundles the top 900 lines as its seed and downloads this full list on the user's request."
+}

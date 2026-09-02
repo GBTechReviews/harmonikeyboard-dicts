@@ -138,6 +138,18 @@
       "sha256": "dfd45f5612b1859ab984011ae8739d83662491beb26c57c45f156223528385dc",
       "minBytes": 17124,
       "version": 1
+    },
+    "MR": {
+      "url": "https://raw.githubusercontent.com/GBTechReviews/harmonikeyboard-dicts/refs/heads/main/mr_words.txt",
+      "sha256": "8bf220ef8da63325e6e85df0791b56504613b142e700180e29960e67cdadbe17",
+      "minBytes": 75844,
+      "version": 1
+    },
+    "BN": {
+      "url": "https://raw.githubusercontent.com/GBTechReviews/harmonikeyboard-dicts/refs/heads/main/bn_words.txt",
+      "sha256": "9d3cb4da252a182484519e76867d44a3e55db3231bb7b4f4d3ec046b8916479b",
+      "minBytes": 39151,
+      "version": 1
     }
   }
 }

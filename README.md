@@ -90,3 +90,11 @@ mixed-script Serbian corpus by the tokeniser's script filter (`sr` Cyrillic, `sr
 | `ku_words.txt` | Kurdish | kmr_sentences | 2264 | top 900 bundled, full list downloadable |
 | `ko_words.txt` | Korean (Language Batch 5, hand-wired) | kor_sentences | 3879 | top 900 bundled, full list downloadable |
 | `hi_words.txt` | Hindi (Language Batch 7, hand-wired) | hin_sentences | 2791 | top 900 bundled, full list downloadable |
+| `mr_words.txt` | Marathi (Language Batch 8, hand-wired) | mar_sentences | 9512 | top 900 bundled, full list downloadable |
+| `bn_words.txt` | Bengali (Language Batch 8, hand-wired) | ben_sentences | 5179 | top 900 bundled, full list downloadable |
+| `pa_words.txt` | Punjabi (Language Batch 8, hand-wired) | pan_sentences | 178 | whole list bundled, no download (seed-only) |
+| `gu_words.txt` | Gujarati (Language Batch 8, hand-wired) | guj_sentences | 127 | whole list bundled, no download (seed-only) |
+| `ta_words.txt` | Tamil (Language Batch 8, hand-wired) | tam_sentences | 299 | whole list bundled, no download (seed-only) |
+| `te_words.txt` | Telugu (Language Batch 8, hand-wired) | tel_sentences | 167 | whole list bundled, no download (seed-only) |
+| `kn_words.txt` | Kannada (Language Batch 8, hand-wired) | kan_sentences | 144 | whole list bundled, no download (seed-only) |
+| `ml_words.txt` | Malayalam (Language Batch 8, hand-wired) | mal_sentences | 446 | whole list bundled, no download (seed-only) |

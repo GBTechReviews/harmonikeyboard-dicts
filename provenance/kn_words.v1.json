@@ -1,0 +1,28 @@
+{
+  "language": "Kannada",
+  "locale": "kn-IN",
+  "file": "kn_words.txt",
+  "role": "frequency-ordered word list (seed-only language: the app bundles the whole list, nothing to download)",
+  "lines": 144,
+  "fileSize": 2451,
+  "sha256": "5ad8b14e50e0bd08e94441eeb64404f8cbd8ddb9907b76343f2fc4b06b7c2e4a",
+  "seedOnly": true,
+  "source": "Tatoeba Project",
+  "corpus": "tatoeba kan_sentences",
+  "sourceUrl": "https://downloads.tatoeba.org/exports/per_language/kan/kan_sentences.tsv.bz2",
+  "sourceSha256": "3a2d5fa828a278bf189c2ef77193d77e436b083b52539b93ed4ef52693284fe2",
+  "sourceVersion": "Tatoeba export 2026-09-02",
+  "licence": "CC BY 2.0 FR",
+  "attribution": "Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR",
+  "generationVersion": "gen-tatoeba-words.py v1 (HKeyboard scripts/; Batch 8 added the kannada script filter, whose vowel signs / virama / anusvara are letters of the word)",
+  "generationCommand": "python gen-tatoeba-words.py --lang kn --script kannada --min-count 2 --stop \"ಟಾಮ್,ಮೇರಿ\" --out kn_words.txt kan_text.txt",
+  "creationDate": "2026-09-02",
+  "retrievalDate": "2026-09-02",
+  "transformations": [
+    "downloaded Tatoeba per-language sentence export (id<TAB>lang<TAB>text .tsv.bz2)",
+    "bunzip2; kept column 3 (sentence text) only",
+    "gen-tatoeba-words.py: tokens of Kannada letters and their combining marks; Tatoeba placeholder names dropped (--stop); words seen fewer than 2 times dropped; ordered by count desc then first occurrence",
+    "no corpus sentence is redistributed - the file is a word list only"
+  ],
+  "note": "The app bundles the whole list (Tatoeba attests only 144 words at min-count 2); nothing is downloaded."
+}
