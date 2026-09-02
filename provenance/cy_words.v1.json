@@ -1,0 +1,28 @@
+{
+  "language": "Welsh",
+  "locale": "cy-GB",
+  "file": "cy_words.txt",
+  "role": "frequency-ordered word list (seed-only language: the app bundles the whole list, nothing to download)",
+  "lines": 928,
+  "fileSize": 5845,
+  "sha256": "82c1cf9a3c9f6bdc586863a18c177c015524f4a41eca4130ff5e35f64e87e8c2",
+  "seedOnly": true,
+  "source": "Tatoeba Project",
+  "corpus": "tatoeba cym_sentences",
+  "sourceUrl": "https://downloads.tatoeba.org/exports/per_language/cym/cym_sentences.tsv.bz2",
+  "sourceSha256": "2b5542d867336d3da8a1e03c7475b30d6249f860000eeb0e7d84f5277064fe8c",
+  "sourceVersion": "Tatoeba export 2026-09-02",
+  "licence": "CC BY 2.0 FR",
+  "attribution": "Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR",
+  "generationVersion": "gen-tatoeba-words.py v1 (HKeyboard scripts/; Batch 9 added --uzbek-apostrophes and the okina/glottal joiners)",
+  "generationCommand": "python gen-tatoeba-words.py --lang cy --script latin --min-count 2 --stop \"tom,mary,john,jim,mike,ken,sami,layla,jane,bill,bob,jack,maria,mari,tomas,tomos\" --out cy_words.txt cym_text.txt",
+  "creationDate": "2026-09-02",
+  "retrievalDate": "2026-09-02",
+  "transformations": [
+    "downloaded Tatoeba per-language sentence export (id<TAB>lang<TAB>text .tsv.bz2)",
+    "bunzip2; kept column 3 (sentence text) only",
+    "gen-tatoeba-words.py: tokens of Latin letters (+ apostrophe joiners); Tatoeba placeholder names dropped (--stop); words seen only once dropped (min-count 2 - a small corpus); ordered by count desc then first occurrence",
+    "no corpus sentence is redistributed - the file is a word list only"
+  ],
+  "note": "The app bundles the whole list (Tatoeba attests only 928 words at min-count 2); nothing is downloaded."
+}

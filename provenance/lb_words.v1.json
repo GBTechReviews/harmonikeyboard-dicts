@@ -1,0 +1,28 @@
+{
+  "language": "Luxembourgish",
+  "locale": "lb-LU",
+  "file": "lb_words.txt",
+  "role": "frequency-ordered word list (seed-only language: the app bundles the whole list, nothing to download)",
+  "lines": 495,
+  "fileSize": 3221,
+  "sha256": "d0e7e36dfa02258b49a70b59534b547bdfd42d815e6ab6c5f1ecdc9203553374",
+  "seedOnly": true,
+  "source": "Tatoeba Project",
+  "corpus": "tatoeba ltz_sentences",
+  "sourceUrl": "https://downloads.tatoeba.org/exports/per_language/ltz/ltz_sentences.tsv.bz2",
+  "sourceSha256": "64cb193d38520b3e8c43d875eaa2cf1502d7de21f8da1d00817f2f453f2f0af8",
+  "sourceVersion": "Tatoeba export 2026-09-02",
+  "licence": "CC BY 2.0 FR",
+  "attribution": "Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR",
+  "generationVersion": "gen-tatoeba-words.py v1 (HKeyboard scripts/; Batch 9 added --uzbek-apostrophes and the okina/glottal joiners)",
+  "generationCommand": "python gen-tatoeba-words.py --lang lb --script latin --min-count 2 --stop \"tom,mary,john,jim,mike,ken,sami,layla,jane,bill,bob,jack,maria,mari\" --out lb_words.txt ltz_text.txt",
+  "creationDate": "2026-09-02",
+  "retrievalDate": "2026-09-02",
+  "transformations": [
+    "downloaded Tatoeba per-language sentence export (id<TAB>lang<TAB>text .tsv.bz2)",
+    "bunzip2; kept column 3 (sentence text) only",
+    "gen-tatoeba-words.py: tokens of Latin letters (+ apostrophe joiners); Tatoeba placeholder names dropped (--stop); words seen only once dropped (min-count 2 - a small corpus); ordered by count desc then first occurrence",
+    "no corpus sentence is redistributed - the file is a word list only"
+  ],
+  "note": "The app bundles the whole list (Tatoeba attests only 495 words at min-count 2); nothing is downloaded."
+}

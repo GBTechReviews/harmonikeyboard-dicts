@@ -68,3 +68,21 @@ te_words.txt (Telugu, Language Batch 8, 2026-09-02) is derived from the Tatoeba 
 kn_words.txt (Kannada, Language Batch 8, 2026-09-02) is derived from the Tatoeba kan_sentences export under the same CC BY 2.0 FR licence and attribution (provenance/kn_words.v1.json).
 
 ml_words.txt (Malayalam, Language Batch 8, 2026-09-02) is derived from the Tatoeba mal_sentences export under the same CC BY 2.0 FR licence and attribution (provenance/ml_words.v1.json).
+
+ky_words.txt (Kyrgyz, Language Batch 9, 2026-09-02) is derived from the Tatoeba kir_sentences export under the same CC BY 2.0 FR licence and attribution (provenance/ky_words.v1.json).
+
+bs_words.txt (Bosnian, Language Batch 9, 2026-09-02) is derived from the Tatoeba bos_sentences export under the same CC BY 2.0 FR licence and attribution (provenance/bs_words.v1.json).
+
+uz_words.txt (Uzbek, Language Batch 9, 2026-09-02) is derived from the Tatoeba uzb_sentences export under the same CC BY 2.0 FR licence and attribution (provenance/uz_words.v1.json).
+
+ceb_words.txt (Cebuano, Language Batch 9, 2026-09-02) is derived from the Tatoeba ceb_sentences export under the same CC BY 2.0 FR licence and attribution (provenance/ceb_words.v1.json).
+
+jv_words.txt (Javanese, Language Batch 9, 2026-09-02) is derived from the Tatoeba jav_sentences export under the same CC BY 2.0 FR licence and attribution (provenance/jv_words.v1.json).
+
+su_words.txt (Sundanese, Language Batch 9, 2026-09-02) is derived from the Tatoeba sun_sentences export under the same CC BY 2.0 FR licence and attribution (provenance/su_words.v1.json).
+
+lb_words.txt (Luxembourgish, Language Batch 9, 2026-09-02) is derived from the Tatoeba ltz_sentences export under the same CC BY 2.0 FR licence and attribution (provenance/lb_words.v1.json).
+
+ga_words.txt (Irish, Language Batch 9, 2026-09-02) is derived from the Tatoeba gle_sentences export under the same CC BY 2.0 FR licence and attribution (provenance/ga_words.v1.json).
+
+cy_words.txt (Welsh, Language Batch 9, 2026-09-02) is derived from the Tatoeba cym_sentences export under the same CC BY 2.0 FR licence and attribution (provenance/cy_words.v1.json).

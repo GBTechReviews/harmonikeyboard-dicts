@@ -1,0 +1,28 @@
+{
+  "language": "Uzbek",
+  "locale": "uz-Latn-UZ",
+  "file": "uz_words.txt",
+  "role": "frequency-ordered word list (seed-only language: the app bundles the whole list, nothing to download)",
+  "lines": 507,
+  "fileSize": 3907,
+  "sha256": "2346775c66a3e514201e45561d2a3b126ac80c2215e69361557dd2f313e8a1f4",
+  "seedOnly": true,
+  "source": "Tatoeba Project",
+  "corpus": "tatoeba uzb_sentences",
+  "sourceUrl": "https://downloads.tatoeba.org/exports/per_language/uzb/uzb_sentences.tsv.bz2",
+  "sourceSha256": "08c5d375d6cd9bef2b1610ccf1ad9d39e3559c4c2536c5adfd60253d5292e048",
+  "sourceVersion": "Tatoeba export 2026-09-02",
+  "licence": "CC BY 2.0 FR",
+  "attribution": "Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR",
+  "generationVersion": "gen-tatoeba-words.py v1 (HKeyboard scripts/; Batch 9 added --uzbek-apostrophes and the okina/glottal joiners)",
+  "generationCommand": "python gen-tatoeba-words.py --lang uz --script latin --min-count 2 --stop \"tom,mary,john,jim,mike,ken,sami,layla,jane,bill,bob,jack,maria,mari,tomning,tomni,tomga\" --out uz_words.txt uzb_text.txt --uzbek-apostrophes",
+  "creationDate": "2026-09-02",
+  "retrievalDate": "2026-09-02",
+  "transformations": [
+    "downloaded Tatoeba per-language sentence export (id<TAB>lang<TAB>text .tsv.bz2)",
+    "bunzip2; kept column 3 (sentence text) only",
+    "gen-tatoeba-words.py: tokens of Latin letters (+ apostrophe joiners); Tatoeba placeholder names dropped (--stop); words seen only once dropped (min-count 2 - a small corpus); ordered by count desc then first occurrence; o'/g' spellings normalised to the CLDR okina U+02BB and other apostrophes to U+02BC",
+    "no corpus sentence is redistributed - the file is a word list only"
+  ],
+  "note": "The app bundles the whole list (Tatoeba attests only 507 words at min-count 2); nothing is downloaded."
+}

@@ -1,0 +1,28 @@
+{
+  "language": "Cebuano",
+  "locale": "ceb-PH",
+  "file": "ceb_words.txt",
+  "role": "frequency-ordered word list (seed-only language: the app bundles the whole list, nothing to download)",
+  "lines": 946,
+  "fileSize": 6359,
+  "sha256": "3d4b99bd6ebabbede19ae8b67ba9d3322e70de757623e04b2f071afb4e09483b",
+  "seedOnly": true,
+  "source": "Tatoeba Project",
+  "corpus": "tatoeba ceb_sentences",
+  "sourceUrl": "https://downloads.tatoeba.org/exports/per_language/ceb/ceb_sentences.tsv.bz2",
+  "sourceSha256": "13b9b4b8bff2e2a4233cae79bfd6ed701ed0c54bc03a5a6d6b86053a9caba8ad",
+  "sourceVersion": "Tatoeba export 2026-09-02",
+  "licence": "CC BY 2.0 FR",
+  "attribution": "Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR",
+  "generationVersion": "gen-tatoeba-words.py v1 (HKeyboard scripts/; Batch 9 added --uzbek-apostrophes and the okina/glottal joiners)",
+  "generationCommand": "python gen-tatoeba-words.py --lang ceb --script latin --min-count 2 --stop \"tom,mary,john,jim,mike,ken,sami,layla,jane,bill,bob,jack,maria,mari\" --out ceb_words.txt ceb_text.txt",
+  "creationDate": "2026-09-02",
+  "retrievalDate": "2026-09-02",
+  "transformations": [
+    "downloaded Tatoeba per-language sentence export (id<TAB>lang<TAB>text .tsv.bz2)",
+    "bunzip2; kept column 3 (sentence text) only",
+    "gen-tatoeba-words.py: tokens of Latin letters (+ apostrophe joiners); Tatoeba placeholder names dropped (--stop); words seen only once dropped (min-count 2 - a small corpus); ordered by count desc then first occurrence",
+    "no corpus sentence is redistributed - the file is a word list only"
+  ],
+  "note": "The app bundles the whole list (Tatoeba attests only 946 words at min-count 2); nothing is downloaded."
+}

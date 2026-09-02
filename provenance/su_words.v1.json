@@ -1,0 +1,28 @@
+{
+  "language": "Sundanese",
+  "locale": "su-ID",
+  "file": "su_words.txt",
+  "role": "frequency-ordered word list (seed-only language: the app bundles the whole list, nothing to download)",
+  "lines": 447,
+  "fileSize": 2996,
+  "sha256": "9ae5caf55d10a0d204864d3ea3cec279095edbe6ccb911ef5d3806e08c3da18d",
+  "seedOnly": true,
+  "source": "Tatoeba Project",
+  "corpus": "tatoeba sun_sentences",
+  "sourceUrl": "https://downloads.tatoeba.org/exports/per_language/sun/sun_sentences.tsv.bz2",
+  "sourceSha256": "54c4b64060fb584e04205e4adf3263856b03f58b3946cf71bf06636e28b70c30",
+  "sourceVersion": "Tatoeba export 2026-09-02",
+  "licence": "CC BY 2.0 FR",
+  "attribution": "Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR",
+  "generationVersion": "gen-tatoeba-words.py v1 (HKeyboard scripts/; Batch 9 added --uzbek-apostrophes and the okina/glottal joiners)",
+  "generationCommand": "python gen-tatoeba-words.py --lang su --script latin --min-count 2 --stop \"tom,mary,john,jim,mike,ken,sami,layla,jane,bill,bob,jack,maria,mari\" --out su_words.txt sun_text.txt",
+  "creationDate": "2026-09-02",
+  "retrievalDate": "2026-09-02",
+  "transformations": [
+    "downloaded Tatoeba per-language sentence export (id<TAB>lang<TAB>text .tsv.bz2)",
+    "bunzip2; kept column 3 (sentence text) only",
+    "gen-tatoeba-words.py: tokens of Latin letters (+ apostrophe joiners); Tatoeba placeholder names dropped (--stop); words seen only once dropped (min-count 2 - a small corpus); ordered by count desc then first occurrence",
+    "no corpus sentence is redistributed - the file is a word list only"
+  ],
+  "note": "The app bundles the whole list (Tatoeba attests only 447 words at min-count 2); nothing is downloaded."
+}

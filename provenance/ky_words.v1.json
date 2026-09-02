@@ -1,0 +1,28 @@
+{
+  "language": "Kyrgyz",
+  "locale": "ky-KG",
+  "file": "ky_words.txt",
+  "role": "frequency-ordered word list (seed-only language: the app bundles the whole list, nothing to download)",
+  "lines": 434,
+  "fileSize": 5356,
+  "sha256": "e708282f27da34d2b56bfbbcaa423d0c80d9410b11542f2ad01669f7580ff10d",
+  "seedOnly": true,
+  "source": "Tatoeba Project",
+  "corpus": "tatoeba kir_sentences",
+  "sourceUrl": "https://downloads.tatoeba.org/exports/per_language/kir/kir_sentences.tsv.bz2",
+  "sourceSha256": "16388bdcf66752c616860bf687c557f0256bc9a451ccfa3bfcd42309ef67fd5b",
+  "sourceVersion": "Tatoeba export 2026-09-02",
+  "licence": "CC BY 2.0 FR",
+  "attribution": "Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR",
+  "generationVersion": "gen-tatoeba-words.py v1 (HKeyboard scripts/; Batch 9 added --uzbek-apostrophes and the okina/glottal joiners)",
+  "generationCommand": "python gen-tatoeba-words.py --lang ky --script cyrillic --min-count 2 --stop \"tom,mary,john,jim,mike,ken,sami,layla,jane,bill,bob,jack,maria,mari,том,томдун\" --out ky_words.txt kir_text.txt",
+  "creationDate": "2026-09-02",
+  "retrievalDate": "2026-09-02",
+  "transformations": [
+    "downloaded Tatoeba per-language sentence export (id<TAB>lang<TAB>text .tsv.bz2)",
+    "bunzip2; kept column 3 (sentence text) only",
+    "gen-tatoeba-words.py: tokens of Cyrillic letters (+ apostrophe joiners); Tatoeba placeholder names dropped (--stop); words seen only once dropped (min-count 2 - a small corpus); ordered by count desc then first occurrence",
+    "no corpus sentence is redistributed - the file is a word list only"
+  ],
+  "note": "The app bundles the whole list (Tatoeba attests only 434 words at min-count 2); nothing is downloaded."
+}

@@ -1,0 +1,28 @@
+{
+  "language": "Irish",
+  "locale": "ga-IE",
+  "file": "ga_words.txt",
+  "role": "frequency-ordered word list (seed-only language: the app bundles the whole list, nothing to download)",
+  "lines": 1197,
+  "fileSize": 8708,
+  "sha256": "fd86e908804778ac521ec8446c2548ed683288e2a0e905fc4f47af564cad0fe6",
+  "seedOnly": true,
+  "source": "Tatoeba Project",
+  "corpus": "tatoeba gle_sentences",
+  "sourceUrl": "https://downloads.tatoeba.org/exports/per_language/gle/gle_sentences.tsv.bz2",
+  "sourceSha256": "10f57b1ab754cd7206bfaae7daee5c9195c5176b8bda18f3d25d2281dcbac8e6",
+  "sourceVersion": "Tatoeba export 2026-09-02",
+  "licence": "CC BY 2.0 FR",
+  "attribution": "Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR",
+  "generationVersion": "gen-tatoeba-words.py v1 (HKeyboard scripts/; Batch 9 added --uzbek-apostrophes and the okina/glottal joiners)",
+  "generationCommand": "python gen-tatoeba-words.py --lang ga --script latin --min-count 2 --stop \"tom,mary,john,jim,mike,ken,sami,layla,jane,bill,bob,jack,maria,mari,tomás,máire\" --out ga_words.txt gle_text.txt",
+  "creationDate": "2026-09-02",
+  "retrievalDate": "2026-09-02",
+  "transformations": [
+    "downloaded Tatoeba per-language sentence export (id<TAB>lang<TAB>text .tsv.bz2)",
+    "bunzip2; kept column 3 (sentence text) only",
+    "gen-tatoeba-words.py: tokens of Latin letters (+ apostrophe joiners); Tatoeba placeholder names dropped (--stop); words seen only once dropped (min-count 2 - a small corpus); ordered by count desc then first occurrence",
+    "no corpus sentence is redistributed - the file is a word list only"
+  ],
+  "note": "The app bundles the whole list (Tatoeba attests only 1197 words at min-count 2); nothing is downloaded."
+}

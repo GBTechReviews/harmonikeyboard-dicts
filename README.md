@@ -98,3 +98,12 @@ mixed-script Serbian corpus by the tokeniser's script filter (`sr` Cyrillic, `sr
 | `te_words.txt` | Telugu (Language Batch 8, hand-wired) | tel_sentences | 167 | whole list bundled, no download (seed-only) |
 | `kn_words.txt` | Kannada (Language Batch 8, hand-wired) | kan_sentences | 144 | whole list bundled, no download (seed-only) |
 | `ml_words.txt` | Malayalam (Language Batch 8, hand-wired) | mal_sentences | 446 | whole list bundled, no download (seed-only) |
+| `ky_words.txt` | Kyrgyz (Language Batch 9) | kir_sentences | 434 | whole list bundled, no download (seed-only) |
+| `bs_words.txt` | Bosnian (Language Batch 9) | bos_sentences | 914 | whole list bundled, no download (seed-only) |
+| `uz_words.txt` | Uzbek (Language Batch 9) | uzb_sentences | 507 | whole list bundled, no download (seed-only) |
+| `ceb_words.txt` | Cebuano (Language Batch 9) | ceb_sentences | 946 | whole list bundled, no download (seed-only) |
+| `jv_words.txt` | Javanese (Language Batch 9) | jav_sentences | 559 | whole list bundled, no download (seed-only) |
+| `su_words.txt` | Sundanese (Language Batch 9) | sun_sentences | 447 | whole list bundled, no download (seed-only) |
+| `lb_words.txt` | Luxembourgish (Language Batch 9) | ltz_sentences | 495 | whole list bundled, no download (seed-only) |
+| `ga_words.txt` | Irish (Language Batch 9) | gle_sentences | 1197 | whole list bundled, no download (seed-only) |
+| `cy_words.txt` | Welsh (Language Batch 9) | cym_sentences | 928 | whole list bundled, no download (seed-only) |

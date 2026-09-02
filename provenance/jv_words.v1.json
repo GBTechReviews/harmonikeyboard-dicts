@@ -1,0 +1,28 @@
+{
+  "language": "Javanese",
+  "locale": "jv-ID",
+  "file": "jv_words.txt",
+  "role": "frequency-ordered word list (seed-only language: the app bundles the whole list, nothing to download)",
+  "lines": 559,
+  "fileSize": 3734,
+  "sha256": "9a3a5ac7113d7cf7d1cb8460e1cb06ae6c4c43ffbaf876b1c30ff2670789d313",
+  "seedOnly": true,
+  "source": "Tatoeba Project",
+  "corpus": "tatoeba jav_sentences",
+  "sourceUrl": "https://downloads.tatoeba.org/exports/per_language/jav/jav_sentences.tsv.bz2",
+  "sourceSha256": "2e2bb861857e323df1bcaefd1dcff328a990212f58fba4ab9bf0eb1995d86300",
+  "sourceVersion": "Tatoeba export 2026-09-02",
+  "licence": "CC BY 2.0 FR",
+  "attribution": "Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR",
+  "generationVersion": "gen-tatoeba-words.py v1 (HKeyboard scripts/; Batch 9 added --uzbek-apostrophes and the okina/glottal joiners)",
+  "generationCommand": "python gen-tatoeba-words.py --lang jv --script latin --min-count 2 --stop \"tom,mary,john,jim,mike,ken,sami,layla,jane,bill,bob,jack,maria,mari\" --out jv_words.txt jav_text.txt",
+  "creationDate": "2026-09-02",
+  "retrievalDate": "2026-09-02",
+  "transformations": [
+    "downloaded Tatoeba per-language sentence export (id<TAB>lang<TAB>text .tsv.bz2)",
+    "bunzip2; kept column 3 (sentence text) only",
+    "gen-tatoeba-words.py: tokens of Latin letters (+ apostrophe joiners); Tatoeba placeholder names dropped (--stop); words seen only once dropped (min-count 2 - a small corpus); ordered by count desc then first occurrence",
+    "no corpus sentence is redistributed - the file is a word list only"
+  ],
+  "note": "The app bundles the whole list (Tatoeba attests only 559 words at min-count 2); nothing is downloaded."
+}
