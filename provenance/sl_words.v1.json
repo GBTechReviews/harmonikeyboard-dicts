@@ -1,0 +1,28 @@
+{
+  "language": "Slovenian",
+  "locale": "sl-SI",
+  "file": "sl_words.txt",
+  "role": "frequency-ordered word list (full list; the app bundles its head as the seed)",
+  "lines": 1060,
+  "fileSize": 7270,
+  "sha256": "43c9aa150842e994301446848d345a53d1f9bf6b0bcd9785f58c76eba540094e",
+  "seedOnly": true,
+  "source": "Tatoeba Project",
+  "corpus": "tatoeba slv_sentences",
+  "sourceUrl": "https://downloads.tatoeba.org/exports/per_language/slv/slv_sentences.tsv.bz2",
+  "sourceSha256": "573174070c2f1941903be27995963d894d20d4711cb6421feb22a0fb0ba46ae4",
+  "sourceVersion": "Tatoeba export 2026-09-02",
+  "licence": "CC BY 2.0 FR",
+  "attribution": "Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR",
+  "generationVersion": "gen-tatoeba-words.py v1 (HKeyboard scripts/)",
+  "generationCommand": "python gen-tatoeba-words.py --lang sl --script latin --stop \"tom,mary,john,jim,mike,ken,sami,layla,jane,bill,bob,jack,maria,mari,marija,janez\" --out sl_words.txt slv_text.txt",
+  "creationDate": "2026-09-02",
+  "retrievalDate": "2026-09-02",
+  "transformations": [
+    "downloaded Tatoeba per-language sentence export (id<TAB>lang<TAB>text .tsv.bz2)",
+    "bunzip2; kept column 3 (sentence text) only",
+    "gen-tatoeba-words.py: lowercased; tokens of the language's script letters plus an internal apostrophe / Catalan middle dot; Tatoeba placeholder names dropped (--stop); words seen fewer than 3 times dropped; ordered by count desc then first occurrence",
+    "no corpus sentence is redistributed - the file is a word list only"
+  ],
+  "note": "Tatoeba attests under ~2000 words for this language, so the app bundles the WHOLE list and offers no download."
+}

@@ -1,0 +1,28 @@
+{
+  "language": "Lithuanian",
+  "locale": "lt-LT",
+  "file": "lt_words.txt",
+  "role": "frequency-ordered word list (full list; the app bundles its head as the seed)",
+  "lines": 19887,
+  "fileSize": 187244,
+  "sha256": "83e3b3ba16d8af60e48bd01a8ce351bb1bce39bcddde949ea0a88fe91631c41b",
+  "seedOnly": false,
+  "source": "Tatoeba Project",
+  "corpus": "tatoeba lit_sentences",
+  "sourceUrl": "https://downloads.tatoeba.org/exports/per_language/lit/lit_sentences.tsv.bz2",
+  "sourceSha256": "a60c5737c14f6e0441db5fab8692ddf948f96579d135f99880be45995b43210d",
+  "sourceVersion": "Tatoeba export 2026-09-02",
+  "licence": "CC BY 2.0 FR",
+  "attribution": "Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR",
+  "generationVersion": "gen-tatoeba-words.py v1 (HKeyboard scripts/)",
+  "generationCommand": "python gen-tatoeba-words.py --lang lt --script latin --stop \"tom,mary,john,jim,mike,ken,sami,layla,jane,bill,bob,jack,maria,mari,tomas,tomui,tomo,tomą,tomu,tomai,tome,marija,marijos,marijai,mariją,marijoje,kenas,keno,bobas\" --out lt_words.txt lit_text.txt",
+  "creationDate": "2026-09-02",
+  "retrievalDate": "2026-09-02",
+  "transformations": [
+    "downloaded Tatoeba per-language sentence export (id<TAB>lang<TAB>text .tsv.bz2)",
+    "bunzip2; kept column 3 (sentence text) only",
+    "gen-tatoeba-words.py: lowercased; tokens of the language's script letters plus an internal apostrophe / Catalan middle dot; Tatoeba placeholder names dropped (--stop); words seen fewer than 3 times dropped; ordered by count desc then first occurrence",
+    "no corpus sentence is redistributed - the file is a word list only"
+  ],
+  "note": "The app bundles the top 900 lines as its seed and downloads this full list on the user's request."
+}

@@ -1,0 +1,28 @@
+{
+  "language": "Afrikaans",
+  "locale": "af-ZA",
+  "file": "af_words.txt",
+  "role": "frequency-ordered word list (full list; the app bundles its head as the seed)",
+  "lines": 1077,
+  "fileSize": 6964,
+  "sha256": "9c0936ada13b98d0fc44bdd55645964eaaeb163077e88e296b428b7ab2d8c2fb",
+  "seedOnly": true,
+  "source": "Tatoeba Project",
+  "corpus": "tatoeba afr_sentences",
+  "sourceUrl": "https://downloads.tatoeba.org/exports/per_language/afr/afr_sentences.tsv.bz2",
+  "sourceSha256": "062388fa98db83e84be2f3cc373f37fbfeea5b3557e69c0ab948fd6fddfee162",
+  "sourceVersion": "Tatoeba export 2026-09-02",
+  "licence": "CC BY 2.0 FR",
+  "attribution": "Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR",
+  "generationVersion": "gen-tatoeba-words.py v1 (HKeyboard scripts/)",
+  "generationCommand": "python gen-tatoeba-words.py --lang af --script latin --stop \"tom,mary,john,jim,mike,ken,sami,layla,jane,bill,bob,jack,maria,mari\" --out af_words.txt afr_text.txt",
+  "creationDate": "2026-09-02",
+  "retrievalDate": "2026-09-02",
+  "transformations": [
+    "downloaded Tatoeba per-language sentence export (id<TAB>lang<TAB>text .tsv.bz2)",
+    "bunzip2; kept column 3 (sentence text) only",
+    "gen-tatoeba-words.py: lowercased; tokens of the language's script letters plus an internal apostrophe / Catalan middle dot; Tatoeba placeholder names dropped (--stop); words seen fewer than 3 times dropped; ordered by count desc then first occurrence",
+    "no corpus sentence is redistributed - the file is a word list only"
+  ],
+  "note": "Tatoeba attests under ~2000 words for this language, so the app bundles the WHOLE list and offers no download."
+}

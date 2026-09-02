@@ -41,3 +41,29 @@ generation/              Reproducible generation scripts (gen-ngrams.py + build-
 The historical `<lang>_words.txt` files have no recorded upstream source or licence in this
 repo. That is a pre-existing item to resolve separately; the P12 work above does not depend
 on it and does not modify those files.
+
+## Batch 2 word lists (added 2026-09-02) - built from Tatoeba, CC BY 2.0 FR
+
+Sixteen NEW word lists are not historical uploads: each is BUILT from the Tatoeba per-language
+sentence export by HKeyboard's `scripts/gen-tatoeba-words.py` (the exact command is in the
+language's `provenance/<code>_words.v1.json`, with the source export's SHA-256). Licence
+CC BY 2.0 FR (see `licences/TATOEBA.txt`); attribution-only, commercial-safe.
+
+| file | language | Tatoeba corpus | words | in the app |
+|---|---|---|---|---|
+| `da_words.txt` | Danish | dan_sentences | 8729 | top 900 bundled, full list downloadable |
+| `sk_words.txt` | Slovak | slk_sentences | 6355 | top 900 bundled, full list downloadable |
+| `sl_words.txt` | Slovenian | slv_sentences | 1060 | whole list bundled, no download (seed-only) |
+| `et_words.txt` | Estonian | est_sentences | 1460 | whole list bundled, no download (seed-only) |
+| `lt_words.txt` | Lithuanian | lit_sentences | 19887 | top 900 bundled, full list downloadable |
+| `ca_words.txt` | Catalan | cat_sentences | 2944 | top 900 bundled, full list downloadable |
+| `gl_words.txt` | Galician | glg_sentences | 2788 | top 900 bundled, full list downloadable |
+| `eu_words.txt` | Basque | eus_sentences | 1665 | whole list bundled, no download (seed-only) |
+| `af_words.txt` | Afrikaans | afr_sentences | 1077 | whole list bundled, no download (seed-only) |
+| `sw_words.txt` | Swahili | swh_sentences | 1873 | whole list bundled, no download (seed-only) |
+| `tl_words.txt` | Filipino | tgl_sentences | 10867 | top 900 bundled, full list downloadable |
+| `ms_words.txt` | Malay | zsm_sentences | 1981 | top 900 bundled, full list downloadable |
+| `eo_words.txt` | Esperanto | epo_sentences | 57102 | top 900 bundled, full list downloadable |
+| `br_words.txt` | Breton | bre_sentences | 1715 | whole list bundled, no download (seed-only) |
+| `mk_words.txt` | Macedonian | mkd_sentences | 10070 | top 900 bundled, full list downloadable |
+| `be_words.txt` | Belarusian | bel_sentences | 3954 | top 900 bundled, full list downloadable |

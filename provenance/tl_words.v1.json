@@ -1,0 +1,28 @@
+{
+  "language": "Filipino",
+  "locale": "fil-PH",
+  "file": "tl_words.txt",
+  "role": "frequency-ordered word list (full list; the app bundles its head as the seed)",
+  "lines": 10867,
+  "fileSize": 95081,
+  "sha256": "2929d073aa6276a93d82c8eea7b27a19936b28e7580f73fd15b83a0e350127b0",
+  "seedOnly": false,
+  "source": "Tatoeba Project",
+  "corpus": "tatoeba tgl_sentences",
+  "sourceUrl": "https://downloads.tatoeba.org/exports/per_language/tgl/tgl_sentences.tsv.bz2",
+  "sourceSha256": "a7d04754e7595d80d9faf0ea775585757cdd8b2658ca41b0d9a6503203c663f6",
+  "sourceVersion": "Tatoeba export 2026-09-02",
+  "licence": "CC BY 2.0 FR",
+  "attribution": "Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR",
+  "generationVersion": "gen-tatoeba-words.py v1 (HKeyboard scripts/)",
+  "generationCommand": "python gen-tatoeba-words.py --lang tl --script latin --stop \"tom,mary,john,jim,mike,ken,sami,layla,jane,bill,bob,jack,maria,mari,tomas,jackson\" --out tl_words.txt tgl_text.txt",
+  "creationDate": "2026-09-02",
+  "retrievalDate": "2026-09-02",
+  "transformations": [
+    "downloaded Tatoeba per-language sentence export (id<TAB>lang<TAB>text .tsv.bz2)",
+    "bunzip2; kept column 3 (sentence text) only",
+    "gen-tatoeba-words.py: lowercased; tokens of the language's script letters plus an internal apostrophe / Catalan middle dot; Tatoeba placeholder names dropped (--stop); words seen fewer than 3 times dropped; ordered by count desc then first occurrence",
+    "no corpus sentence is redistributed - the file is a word list only"
+  ],
+  "note": "The app bundles the top 900 lines as its seed and downloads this full list on the user's request."
+}

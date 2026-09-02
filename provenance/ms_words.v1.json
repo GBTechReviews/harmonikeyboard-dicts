@@ -1,0 +1,28 @@
+{
+  "language": "Malay",
+  "locale": "ms-MY",
+  "file": "ms_words.txt",
+  "role": "frequency-ordered word list (full list; the app bundles its head as the seed)",
+  "lines": 1981,
+  "fileSize": 15234,
+  "sha256": "66da8c20d04fad580933320d109ce72a5703b5563dc91c504ff468b313c36779",
+  "seedOnly": false,
+  "source": "Tatoeba Project",
+  "corpus": "tatoeba zsm_sentences",
+  "sourceUrl": "https://downloads.tatoeba.org/exports/per_language/zsm/zsm_sentences.tsv.bz2",
+  "sourceSha256": "70d3632289dba332e94b2557c4dbaf8961ff75168f5cafc98c18a04755e38f08",
+  "sourceVersion": "Tatoeba export 2026-09-02",
+  "licence": "CC BY 2.0 FR",
+  "attribution": "Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR",
+  "generationVersion": "gen-tatoeba-words.py v1 (HKeyboard scripts/)",
+  "generationCommand": "python gen-tatoeba-words.py --lang ms --script latin --stop \"tom,mary,john,jim,mike,ken,sami,layla,jane,bill,bob,jack,maria,mari\" --out ms_words.txt zsm_text.txt",
+  "creationDate": "2026-09-02",
+  "retrievalDate": "2026-09-02",
+  "transformations": [
+    "downloaded Tatoeba per-language sentence export (id<TAB>lang<TAB>text .tsv.bz2)",
+    "bunzip2; kept column 3 (sentence text) only",
+    "gen-tatoeba-words.py: lowercased; tokens of the language's script letters plus an internal apostrophe / Catalan middle dot; Tatoeba placeholder names dropped (--stop); words seen fewer than 3 times dropped; ordered by count desc then first occurrence",
+    "no corpus sentence is redistributed - the file is a word list only"
+  ],
+  "note": "The app bundles the top 900 lines as its seed and downloads this full list on the user's request."
+}

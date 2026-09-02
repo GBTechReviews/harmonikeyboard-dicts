@@ -1,0 +1,28 @@
+{
+  "language": "Slovak",
+  "locale": "sk-SK",
+  "file": "sk_words.txt",
+  "role": "frequency-ordered word list (full list; the app bundles its head as the seed)",
+  "lines": 6355,
+  "fileSize": 52003,
+  "sha256": "fcfc99d7c035deee55940c2c4741de2cc207524c4bd4321498e361630daa768c",
+  "seedOnly": false,
+  "source": "Tatoeba Project",
+  "corpus": "tatoeba slk_sentences",
+  "sourceUrl": "https://downloads.tatoeba.org/exports/per_language/slk/slk_sentences.tsv.bz2",
+  "sourceSha256": "556d75ce169ee236839d258cfcc4f0bee5c3e3e21d834f871e06b39d65678d25",
+  "sourceVersion": "Tatoeba export 2026-09-02",
+  "licence": "CC BY 2.0 FR",
+  "attribution": "Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR",
+  "generationVersion": "gen-tatoeba-words.py v1 (HKeyboard scripts/)",
+  "generationCommand": "python gen-tatoeba-words.py --lang sk --script latin --stop \"tom,mary,john,jim,mike,ken,sami,layla,jane,bill,bob,jack,maria,mari,toma,tomovi,tomu,tomom,tomov,tomova,tomove,tomovo,tomáš,tomáša,tomášovi\" --out sk_words.txt slk_text.txt",
+  "creationDate": "2026-09-02",
+  "retrievalDate": "2026-09-02",
+  "transformations": [
+    "downloaded Tatoeba per-language sentence export (id<TAB>lang<TAB>text .tsv.bz2)",
+    "bunzip2; kept column 3 (sentence text) only",
+    "gen-tatoeba-words.py: lowercased; tokens of the language's script letters plus an internal apostrophe / Catalan middle dot; Tatoeba placeholder names dropped (--stop); words seen fewer than 3 times dropped; ordered by count desc then first occurrence",
+    "no corpus sentence is redistributed - the file is a word list only"
+  ],
+  "note": "The app bundles the top 900 lines as its seed and downloads this full list on the user's request."
+}

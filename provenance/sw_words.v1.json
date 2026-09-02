@@ -1,0 +1,28 @@
+{
+  "language": "Swahili",
+  "locale": "sw-TZ",
+  "file": "sw_words.txt",
+  "role": "frequency-ordered word list (full list; the app bundles its head as the seed)",
+  "lines": 1873,
+  "fileSize": 13420,
+  "sha256": "329614651c0276500da25f0cda72170f3e013e423d0738cf02a0a87e62c9db29",
+  "seedOnly": true,
+  "source": "Tatoeba Project",
+  "corpus": "tatoeba swh_sentences",
+  "sourceUrl": "https://downloads.tatoeba.org/exports/per_language/swh/swh_sentences.tsv.bz2",
+  "sourceSha256": "e0b2e777e61dcf75f3fc21410eec266c49e25d5b503d584d38f7afa2490d7744",
+  "sourceVersion": "Tatoeba export 2026-09-02",
+  "licence": "CC BY 2.0 FR",
+  "attribution": "Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR",
+  "generationVersion": "gen-tatoeba-words.py v1 (HKeyboard scripts/)",
+  "generationCommand": "python gen-tatoeba-words.py --lang sw --script latin --stop \"tom,mary,john,jim,mike,ken,sami,layla,jane,bill,bob,jack,maria,mari,jackson\" --out sw_words.txt swh_text.txt",
+  "creationDate": "2026-09-02",
+  "retrievalDate": "2026-09-02",
+  "transformations": [
+    "downloaded Tatoeba per-language sentence export (id<TAB>lang<TAB>text .tsv.bz2)",
+    "bunzip2; kept column 3 (sentence text) only",
+    "gen-tatoeba-words.py: lowercased; tokens of the language's script letters plus an internal apostrophe / Catalan middle dot; Tatoeba placeholder names dropped (--stop); words seen fewer than 3 times dropped; ordered by count desc then first occurrence",
+    "no corpus sentence is redistributed - the file is a word list only"
+  ],
+  "note": "Tatoeba attests under ~2000 words for this language, so the app bundles the WHOLE list and offers no download."
+}

@@ -1,0 +1,28 @@
+{
+  "language": "Breton",
+  "locale": "br-FR",
+  "file": "br_words.txt",
+  "role": "frequency-ordered word list (full list; the app bundles its head as the seed)",
+  "lines": 1715,
+  "fileSize": 11133,
+  "sha256": "d84d50ec268701d3669095023418e963ed164f291214e755fe3bf7d5751b38ac",
+  "seedOnly": true,
+  "source": "Tatoeba Project",
+  "corpus": "tatoeba bre_sentences",
+  "sourceUrl": "https://downloads.tatoeba.org/exports/per_language/bre/bre_sentences.tsv.bz2",
+  "sourceSha256": "e0d9eae093c8428e3527f68aa667d29485735673ece1a9c0acf669780775fdad",
+  "sourceVersion": "Tatoeba export 2026-09-02",
+  "licence": "CC BY 2.0 FR",
+  "attribution": "Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR",
+  "generationVersion": "gen-tatoeba-words.py v1 (HKeyboard scripts/)",
+  "generationCommand": "python gen-tatoeba-words.py --lang br --script latin --stop \"tom,mary,john,jim,mike,ken,sami,layla,jane,bill,bob,jack,maria,mari\" --out br_words.txt bre_text.txt",
+  "creationDate": "2026-09-02",
+  "retrievalDate": "2026-09-02",
+  "transformations": [
+    "downloaded Tatoeba per-language sentence export (id<TAB>lang<TAB>text .tsv.bz2)",
+    "bunzip2; kept column 3 (sentence text) only",
+    "gen-tatoeba-words.py: lowercased; tokens of the language's script letters plus an internal apostrophe / Catalan middle dot; Tatoeba placeholder names dropped (--stop); words seen fewer than 3 times dropped; ordered by count desc then first occurrence",
+    "no corpus sentence is redistributed - the file is a word list only"
+  ],
+  "note": "Tatoeba attests under ~2000 words for this language, so the app bundles the WHOLE list and offers no download."
+}

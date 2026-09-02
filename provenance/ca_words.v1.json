@@ -1,0 +1,28 @@
+{
+  "language": "Catalan",
+  "locale": "ca-ES",
+  "file": "ca_words.txt",
+  "role": "frequency-ordered word list (full list; the app bundles its head as the seed)",
+  "lines": 2944,
+  "fileSize": 21709,
+  "sha256": "ba56718c2e724e5a37412285b2222f30d142573afe65df741bf6e217e2e74461",
+  "seedOnly": false,
+  "source": "Tatoeba Project",
+  "corpus": "tatoeba cat_sentences",
+  "sourceUrl": "https://downloads.tatoeba.org/exports/per_language/cat/cat_sentences.tsv.bz2",
+  "sourceSha256": "9c1f0dcd6ac651bb295a53620dae21535039de872dc2cae1f8e944c27ae73ee7",
+  "sourceVersion": "Tatoeba export 2026-09-02",
+  "licence": "CC BY 2.0 FR",
+  "attribution": "Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR",
+  "generationVersion": "gen-tatoeba-words.py v1 (HKeyboard scripts/)",
+  "generationCommand": "python gen-tatoeba-words.py --lang ca --script latin --stop \"tom,mary,john,jim,mike,ken,sami,layla,jane,bill,bob,jack,maria,mari,tomàs\" --out ca_words.txt cat_text.txt",
+  "creationDate": "2026-09-02",
+  "retrievalDate": "2026-09-02",
+  "transformations": [
+    "downloaded Tatoeba per-language sentence export (id<TAB>lang<TAB>text .tsv.bz2)",
+    "bunzip2; kept column 3 (sentence text) only",
+    "gen-tatoeba-words.py: lowercased; tokens of the language's script letters plus an internal apostrophe / Catalan middle dot; Tatoeba placeholder names dropped (--stop); words seen fewer than 3 times dropped; ordered by count desc then first occurrence",
+    "no corpus sentence is redistributed - the file is a word list only"
+  ],
+  "note": "The app bundles the top 900 lines as its seed and downloads this full list on the user's request."
+}

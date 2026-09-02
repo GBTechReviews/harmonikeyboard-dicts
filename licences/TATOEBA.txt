@@ -27,3 +27,15 @@ REQUIRED ATTRIBUTION (ship this line in the app's licences screen and keep it he
 
 Note: the packs are TRANSFORMED derivations - bigram/trigram counts over tokenised
 sentences - and contain no verbatim reproduction of whole Tatoeba sentences.
+
+WORD LISTS (added 2026-09-02, Language Batch 2)
+-----------------------------------------------
+The word lists da_words.txt, sk_words.txt, sl_words.txt, et_words.txt, lt_words.txt, ca_words.txt, gl_words.txt, eu_words.txt, af_words.txt, sw_words.txt, tl_words.txt, ms_words.txt, eo_words.txt, br_words.txt, mk_words.txt, be_words.txt
+(Danish, Slovak, Slovenian, Estonian, Lithuanian, Catalan, Galician, Basque, Afrikaans, Swahili, Filipino, Malay, Esperanto, Breton, Macedonian, Belarusian) are ALSO derived from
+Tatoeba per-language sentence exports (dan, slk, slv, est, lit, cat, glg, eus, afr, swh, tgl, zsm, epo, bre, mkd, bel),
+retrieved 2026-09-02, under the same CC BY 2.0 FR licence and the same attribution.
+They are frequency lists only (no sentence is reproduced); the generation command and the
+source export checksum are recorded per file in provenance/<code>_words.v1.json.
+
+    Word-list data derived from sentences by the Tatoeba Project
+    (https://tatoeba.org), licensed CC BY 2.0 FR.
