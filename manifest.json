@@ -84,6 +84,48 @@
       "sha256": "7fbc5703e3c35a5067a67fc5fa92760372667d51b5b6f0633d0f57dc3e50cc44",
       "minBytes": 22051,
       "version": 1
+    },
+    "SR": {
+      "url": "https://raw.githubusercontent.com/GBTechReviews/harmonikeyboard-dicts/refs/heads/main/sr_words.txt",
+      "sha256": "cfad0100488cee10ff8bc037561f463dd0dcf2a722c64814a006a6e350a65e05",
+      "minBytes": 28486,
+      "version": 1
+    },
+    "TT": {
+      "url": "https://raw.githubusercontent.com/GBTechReviews/harmonikeyboard-dicts/refs/heads/main/tt_words.txt",
+      "sha256": "c720d22aa21d28a4d58147a9df87eecc2872a9d3999c386bfcedbe01083080a9",
+      "minBytes": 80042,
+      "version": 1
+    },
+    "HY": {
+      "url": "https://raw.githubusercontent.com/GBTechReviews/harmonikeyboard-dicts/refs/heads/main/hy_words.txt",
+      "sha256": "ae65db87d71d16e160b31cfe9d71e976f4ef23b9a2c17be5b639534889500c93",
+      "minBytes": 39876,
+      "version": 1
+    },
+    "RS": {
+      "url": "https://raw.githubusercontent.com/GBTechReviews/harmonikeyboard-dicts/refs/heads/main/srl_words.txt",
+      "sha256": "562397aaca456fa5d4a45b3a2f02eeee9d5919eca05cc0db109d87dad47cc21c",
+      "minBytes": 15179,
+      "version": 1
+    },
+    "LV": {
+      "url": "https://raw.githubusercontent.com/GBTechReviews/harmonikeyboard-dicts/refs/heads/main/lv_words.txt",
+      "sha256": "b79a5dd0171ac89b2ba488ad9f8c481c5718da0613b3b5f08f214b78ec60a7bd",
+      "minBytes": 15480,
+      "version": 1
+    },
+    "HA": {
+      "url": "https://raw.githubusercontent.com/GBTechReviews/harmonikeyboard-dicts/refs/heads/main/ha_words.txt",
+      "sha256": "4c844afa2ae5950d3d75faf112caf1c5205dad7c7cab5dc45f7926f6fec3dd9f",
+      "minBytes": 12613,
+      "version": 1
+    },
+    "KU": {
+      "url": "https://raw.githubusercontent.com/GBTechReviews/harmonikeyboard-dicts/refs/heads/main/ku_words.txt",
+      "sha256": "0aeddc540a1b450dcbdf2b7b5b2a13c65a21ff4c05f7b2a4cf94c13791c9def5",
+      "minBytes": 6720,
+      "version": 1
     }
   }
 }

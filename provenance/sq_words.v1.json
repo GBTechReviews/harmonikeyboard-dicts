@@ -1,0 +1,28 @@
+{
+  "language": "Albanian",
+  "locale": "sq-AL",
+  "file": "sq_words.txt",
+  "role": "frequency-ordered word list (full list; the app bundles its head as the seed)",
+  "lines": 755,
+  "fileSize": 5073,
+  "sha256": "9b81b6e3db89d0830e843075e6681a83db78e72b9d1f45360b0ec559c3993de6",
+  "seedOnly": true,
+  "source": "Tatoeba Project",
+  "corpus": "tatoeba sqi_sentences",
+  "sourceUrl": "https://downloads.tatoeba.org/exports/per_language/sqi/sqi_sentences.tsv.bz2",
+  "sourceSha256": "3058dfe321233d38feb2fa75dea8841dead4297dda9c2a99b71f21f9ea317ad4",
+  "sourceVersion": "Tatoeba export 2026-09-02",
+  "licence": "CC BY 2.0 FR",
+  "attribution": "Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR",
+  "generationVersion": "gen-tatoeba-words.py v1 (HKeyboard scripts/; Batch 4 added the georgian/armenian script filters)",
+  "generationCommand": "python gen-tatoeba-words.py --lang sq --script latin --stop \"tom,mary,john,jim,mike,ken,sami,layla,jane,bill,bob,jack,maria,mari,tomi,tomit,tomin,merit,merin\" --out sq_words.txt sqi_text.txt",
+  "creationDate": "2026-09-02",
+  "retrievalDate": "2026-09-02",
+  "transformations": [
+    "downloaded Tatoeba per-language sentence export (id<TAB>lang<TAB>text .tsv.bz2)",
+    "bunzip2; kept column 3 (sentence text) only",
+    "gen-tatoeba-words.py: lowercased; tokens of the language's script letters plus an internal apostrophe; Tatoeba placeholder names dropped (--stop); words seen fewer than 3 times dropped; ordered by count desc then first occurrence",
+    "no corpus sentence is redistributed - the file is a word list only"
+  ],
+  "note": "Tatoeba attests under ~2000 words for this language, so the app bundles the WHOLE list and offers no download."
+}

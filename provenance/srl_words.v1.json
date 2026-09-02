@@ -1,0 +1,28 @@
+{
+  "language": "Serbian (Latin)",
+  "locale": "sr-Latn-RS",
+  "file": "srl_words.txt",
+  "role": "frequency-ordered word list (full list; the app bundles its head as the seed)",
+  "lines": 5000,
+  "fileSize": 37948,
+  "sha256": "562397aaca456fa5d4a45b3a2f02eeee9d5919eca05cc0db109d87dad47cc21c",
+  "seedOnly": false,
+  "source": "Tatoeba Project",
+  "corpus": "tatoeba srp_sentences (the latin-script tokens only)",
+  "sourceUrl": "https://downloads.tatoeba.org/exports/per_language/srp/srp_sentences.tsv.bz2",
+  "sourceSha256": "615c9f60e26f244fe925f18ff561631fa887d1300899679c134d4df7d09d0681",
+  "sourceVersion": "Tatoeba export 2026-09-02",
+  "licence": "CC BY 2.0 FR",
+  "attribution": "Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR",
+  "generationVersion": "gen-tatoeba-words.py v1 (HKeyboard scripts/; Batch 4 added the georgian/armenian script filters)",
+  "generationCommand": "python gen-tatoeba-words.py --lang srl --script latin --stop \"tom,mary,john,jim,mike,ken,sami,layla,jane,bill,bob,jack,maria,mari,toma,tomu,tome,tomom,marija,marije,mariju,mariji,džon\" --out srl_words.txt srp_text.txt",
+  "creationDate": "2026-09-02",
+  "retrievalDate": "2026-09-02",
+  "transformations": [
+    "downloaded Tatoeba per-language sentence export (id<TAB>lang<TAB>text .tsv.bz2)",
+    "bunzip2; kept column 3 (sentence text) only",
+    "gen-tatoeba-words.py: lowercased; tokens of the language's script letters plus an internal apostrophe; Tatoeba placeholder names dropped (--stop); words seen fewer than 3 times dropped; ordered by count desc then first occurrence",
+    "no corpus sentence is redistributed - the file is a word list only"
+  ],
+  "note": "The app bundles the top 900 lines as its seed and downloads this full list on the user's request."
+}

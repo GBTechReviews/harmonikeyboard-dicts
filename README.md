@@ -67,3 +67,24 @@ CC BY 2.0 FR (see `licences/TATOEBA.txt`); attribution-only, commercial-safe.
 | `br_words.txt` | Breton | bre_sentences | 1715 | whole list bundled, no download (seed-only) |
 | `mk_words.txt` | Macedonian | mkd_sentences | 10070 | top 900 bundled, full list downloadable |
 | `be_words.txt` | Belarusian | bel_sentences | 3954 | top 900 bundled, full list downloadable |
+
+## Batch 4 word lists (added 2026-09-02) - Gboard's popular languages, built from Tatoeba, CC BY 2.0 FR
+
+Twelve more lists built the same way as Batch 2 (`scripts/gen-tatoeba-words.py`, exact command and
+source SHA-256 in `provenance/<code>_words.v1.json`). Serbian ships as TWO lists split from Tatoeba's
+mixed-script Serbian corpus by the tokeniser's script filter (`sr` Cyrillic, `srl` Latin).
+
+| file | language | Tatoeba corpus | words | in the app |
+|---|---|---|---|---|
+| `sr_words.txt` | Serbian (Cyrillic) | srp_sentences | 5349 | top 900 bundled, full list downloadable |
+| `kk_words.txt` | Kazakh | kaz_sentences | 1867 | whole list bundled, no download (seed-only) |
+| `tt_words.txt` | Tatar | tat_sentences | 13368 | top 900 bundled, full list downloadable |
+| `mn_words.txt` | Mongolian | mon_sentences | 820 | whole list bundled, no download (seed-only) |
+| `hy_words.txt` | Armenian | hye_sentences | 6625 | top 900 bundled, full list downloadable |
+| `ka_words.txt` | Georgian | kat_sentences | 1632 | whole list bundled, no download (seed-only) |
+| `srl_words.txt` | Serbian (Latin) | srp_sentences | 5000 | top 900 bundled, full list downloadable |
+| `lv_words.txt` | Latvian | lvs_sentences | 4552 | top 900 bundled, full list downloadable |
+| `tk_words.txt` | Turkmen | tuk_sentences | 1880 | whole list bundled, no download (seed-only) |
+| `sq_words.txt` | Albanian | sqi_sentences | 755 | whole list bundled, no download (seed-only) |
+| `ha_words.txt` | Hausa | hau_sentences | 4493 | top 900 bundled, full list downloadable |
+| `ku_words.txt` | Kurdish | kmr_sentences | 2264 | top 900 bundled, full list downloadable |

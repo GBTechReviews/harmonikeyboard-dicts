@@ -1,0 +1,28 @@
+{
+  "language": "Mongolian",
+  "locale": "mn-MN",
+  "file": "mn_words.txt",
+  "role": "frequency-ordered word list (full list; the app bundles its head as the seed)",
+  "lines": 820,
+  "fileSize": 10002,
+  "sha256": "2370a1bb30646de55e48000794b211742d5d43b8fe5bcf2b2afee6d178266ca2",
+  "seedOnly": true,
+  "source": "Tatoeba Project",
+  "corpus": "tatoeba mon_sentences",
+  "sourceUrl": "https://downloads.tatoeba.org/exports/per_language/mon/mon_sentences.tsv.bz2",
+  "sourceSha256": "8ac39172f1a2c58221e28e21f5806616c9cf096e66d165aa2df45dcab8b19bde",
+  "sourceVersion": "Tatoeba export 2026-09-02",
+  "licence": "CC BY 2.0 FR",
+  "attribution": "Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR",
+  "generationVersion": "gen-tatoeba-words.py v1 (HKeyboard scripts/; Batch 4 added the georgian/armenian script filters)",
+  "generationCommand": "python gen-tatoeba-words.py --lang mn --script cyrillic --stop \"tom,mary,john,jim,mike,ken,sami,layla,jane,bill,bob,jack,maria,mari,том,мэри,жон\" --out mn_words.txt mon_text.txt",
+  "creationDate": "2026-09-02",
+  "retrievalDate": "2026-09-02",
+  "transformations": [
+    "downloaded Tatoeba per-language sentence export (id<TAB>lang<TAB>text .tsv.bz2)",
+    "bunzip2; kept column 3 (sentence text) only",
+    "gen-tatoeba-words.py: lowercased; tokens of the language's script letters plus an internal apostrophe; Tatoeba placeholder names dropped (--stop); words seen fewer than 3 times dropped; ordered by count desc then first occurrence",
+    "no corpus sentence is redistributed - the file is a word list only"
+  ],
+  "note": "Tatoeba attests under ~2000 words for this language, so the app bundles the WHOLE list and offers no download."
+}

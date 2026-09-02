@@ -1,0 +1,28 @@
+{
+  "language": "Georgian",
+  "locale": "ka-GE",
+  "file": "ka_words.txt",
+  "role": "frequency-ordered word list (full list; the app bundles its head as the seed)",
+  "lines": 1632,
+  "fileSize": 34041,
+  "sha256": "f6f97d735300f6de36ec78b004e9059f20fe5fc23c5fba54c831889224cb7dbc",
+  "seedOnly": true,
+  "source": "Tatoeba Project",
+  "corpus": "tatoeba kat_sentences",
+  "sourceUrl": "https://downloads.tatoeba.org/exports/per_language/kat/kat_sentences.tsv.bz2",
+  "sourceSha256": "c244c247e5c20d7d65229e03c925418eba6835941b2dabe90b8b133b88afeb49",
+  "sourceVersion": "Tatoeba export 2026-09-02",
+  "licence": "CC BY 2.0 FR",
+  "attribution": "Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR",
+  "generationVersion": "gen-tatoeba-words.py v1 (HKeyboard scripts/; Batch 4 added the georgian/armenian script filters)",
+  "generationCommand": "python gen-tatoeba-words.py --lang ka --script georgian --stop \"tom,mary,john,jim,mike,ken,sami,layla,jane,bill,bob,jack,maria,mari,ტომი,ტომმა,ტომს,მერი,ჯონი\" --out ka_words.txt kat_text.txt",
+  "creationDate": "2026-09-02",
+  "retrievalDate": "2026-09-02",
+  "transformations": [
+    "downloaded Tatoeba per-language sentence export (id<TAB>lang<TAB>text .tsv.bz2)",
+    "bunzip2; kept column 3 (sentence text) only",
+    "gen-tatoeba-words.py: lowercased; tokens of the language's script letters plus an internal apostrophe; Tatoeba placeholder names dropped (--stop); words seen fewer than 3 times dropped; ordered by count desc then first occurrence",
+    "no corpus sentence is redistributed - the file is a word list only"
+  ],
+  "note": "Tatoeba attests under ~2000 words for this language, so the app bundles the WHOLE list and offers no download."
+}

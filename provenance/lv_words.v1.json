@@ -1,0 +1,28 @@
+{
+  "language": "Latvian",
+  "locale": "lv-LV",
+  "file": "lv_words.txt",
+  "role": "frequency-ordered word list (full list; the app bundles its head as the seed)",
+  "lines": 4552,
+  "fileSize": 38701,
+  "sha256": "b79a5dd0171ac89b2ba488ad9f8c481c5718da0613b3b5f08f214b78ec60a7bd",
+  "seedOnly": false,
+  "source": "Tatoeba Project",
+  "corpus": "tatoeba lvs_sentences",
+  "sourceUrl": "https://downloads.tatoeba.org/exports/per_language/lvs/lvs_sentences.tsv.bz2",
+  "sourceSha256": "7af19e01f7d1d4b1db2a4d898948cbe0ac6309a5725d2aa4b60388f965d9f85d",
+  "sourceVersion": "Tatoeba export 2026-09-02",
+  "licence": "CC BY 2.0 FR",
+  "attribution": "Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR",
+  "generationVersion": "gen-tatoeba-words.py v1 (HKeyboard scripts/; Batch 4 added the georgian/armenian script filters)",
+  "generationCommand": "python gen-tatoeba-words.py --lang lv --script latin --stop \"tom,mary,john,jim,mike,ken,sami,layla,jane,bill,bob,jack,maria,mari,toms,tomam,tomu,marija,marijai,mariju,džons\" --out lv_words.txt lvs_text.txt",
+  "creationDate": "2026-09-02",
+  "retrievalDate": "2026-09-02",
+  "transformations": [
+    "downloaded Tatoeba per-language sentence export (id<TAB>lang<TAB>text .tsv.bz2)",
+    "bunzip2; kept column 3 (sentence text) only",
+    "gen-tatoeba-words.py: lowercased; tokens of the language's script letters plus an internal apostrophe; Tatoeba placeholder names dropped (--stop); words seen fewer than 3 times dropped; ordered by count desc then first occurrence",
+    "no corpus sentence is redistributed - the file is a word list only"
+  ],
+  "note": "The app bundles the top 900 lines as its seed and downloads this full list on the user's request."
+}

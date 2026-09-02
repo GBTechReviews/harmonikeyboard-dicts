@@ -39,3 +39,12 @@ source export checksum are recorded per file in provenance/<code>_words.v1.json.
 
     Word-list data derived from sentences by the Tatoeba Project
     (https://tatoeba.org), licensed CC BY 2.0 FR.
+
+WORD LISTS (added 2026-09-02, Language Batch 4)
+-----------------------------------------------
+The word lists sr_words.txt, kk_words.txt, tt_words.txt, mn_words.txt, hy_words.txt, ka_words.txt, srl_words.txt, lv_words.txt, tk_words.txt, sq_words.txt, ha_words.txt, ku_words.txt
+(Serbian (Cyrillic), Kazakh, Tatar, Mongolian, Armenian, Georgian, Serbian (Latin), Latvian, Turkmen, Albanian, Hausa, Kurdish) are derived from
+Tatoeba per-language sentence exports (hau, hye, kat, kaz, kmr, lvs, mon, sqi, srp, tat, tuk),
+retrieved 2026-09-02, under the same CC BY 2.0 FR licence and the same attribution.
+They are frequency lists only (no sentence is reproduced); the generation command and the
+source export checksum are recorded per file in provenance/<code>_words.v1.json.

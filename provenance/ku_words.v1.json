@@ -1,0 +1,28 @@
+{
+  "language": "Kurdish",
+  "locale": "ku-TR",
+  "file": "ku_words.txt",
+  "role": "frequency-ordered word list (full list; the app bundles its head as the seed)",
+  "lines": 2264,
+  "fileSize": 16800,
+  "sha256": "0aeddc540a1b450dcbdf2b7b5b2a13c65a21ff4c05f7b2a4cf94c13791c9def5",
+  "seedOnly": false,
+  "source": "Tatoeba Project",
+  "corpus": "tatoeba kmr_sentences",
+  "sourceUrl": "https://downloads.tatoeba.org/exports/per_language/kmr/kmr_sentences.tsv.bz2",
+  "sourceSha256": "6eeda3356f88c9dfe97a60e8b7945d3e1976b3a2df717f81d6563dd82844d102",
+  "sourceVersion": "Tatoeba export 2026-09-02",
+  "licence": "CC BY 2.0 FR",
+  "attribution": "Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR",
+  "generationVersion": "gen-tatoeba-words.py v1 (HKeyboard scripts/; Batch 4 added the georgian/armenian script filters)",
+  "generationCommand": "python gen-tatoeba-words.py --lang ku --script latin --stop \"tom,mary,john,jim,mike,ken,sami,layla,jane,bill,bob,jack,maria,mari,tomê,merîê,merî\" --out ku_words.txt kmr_text.txt",
+  "creationDate": "2026-09-02",
+  "retrievalDate": "2026-09-02",
+  "transformations": [
+    "downloaded Tatoeba per-language sentence export (id<TAB>lang<TAB>text .tsv.bz2)",
+    "bunzip2; kept column 3 (sentence text) only",
+    "gen-tatoeba-words.py: lowercased; tokens of the language's script letters plus an internal apostrophe; Tatoeba placeholder names dropped (--stop); words seen fewer than 3 times dropped; ordered by count desc then first occurrence",
+    "no corpus sentence is redistributed - the file is a word list only"
+  ],
+  "note": "The app bundles the top 900 lines as its seed and downloads this full list on the user's request."
+}

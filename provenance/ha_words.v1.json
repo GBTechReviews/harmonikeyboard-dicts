@@ -1,0 +1,28 @@
+{
+  "language": "Hausa",
+  "locale": "ha-NG",
+  "file": "ha_words.txt",
+  "role": "frequency-ordered word list (full list; the app bundles its head as the seed)",
+  "lines": 4493,
+  "fileSize": 31534,
+  "sha256": "4c844afa2ae5950d3d75faf112caf1c5205dad7c7cab5dc45f7926f6fec3dd9f",
+  "seedOnly": false,
+  "source": "Tatoeba Project",
+  "corpus": "tatoeba hau_sentences",
+  "sourceUrl": "https://downloads.tatoeba.org/exports/per_language/hau/hau_sentences.tsv.bz2",
+  "sourceSha256": "19b2304f5d0217405cf376100ae1ad82451c5a3e90ae8074479975e3da880453",
+  "sourceVersion": "Tatoeba export 2026-09-02",
+  "licence": "CC BY 2.0 FR",
+  "attribution": "Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR",
+  "generationVersion": "gen-tatoeba-words.py v1 (HKeyboard scripts/; Batch 4 added the georgian/armenian script filters)",
+  "generationCommand": "python gen-tatoeba-words.py --lang ha --script latin --stop \"tom,mary,john,jim,mike,ken,sami,layla,jane,bill,bob,jack,maria,mari\" --out ha_words.txt hau_text.txt",
+  "creationDate": "2026-09-02",
+  "retrievalDate": "2026-09-02",
+  "transformations": [
+    "downloaded Tatoeba per-language sentence export (id<TAB>lang<TAB>text .tsv.bz2)",
+    "bunzip2; kept column 3 (sentence text) only",
+    "gen-tatoeba-words.py: lowercased; tokens of the language's script letters plus an internal apostrophe; Tatoeba placeholder names dropped (--stop); words seen fewer than 3 times dropped; ordered by count desc then first occurrence",
+    "no corpus sentence is redistributed - the file is a word list only"
+  ],
+  "note": "The app bundles the top 900 lines as its seed and downloads this full list on the user's request."
+}
