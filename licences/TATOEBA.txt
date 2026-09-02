@@ -48,3 +48,5 @@ Tatoeba per-language sentence exports (hau, hye, kat, kaz, kmr, lvs, mon, sqi, s
 retrieved 2026-09-02, under the same CC BY 2.0 FR licence and the same attribution.
 They are frequency lists only (no sentence is reproduced); the generation command and the
 source export checksum are recorded per file in provenance/<code>_words.v1.json.
+
+ko_words.txt (Korean, Language Batch 5, 2026-09-02) is derived from the Tatoeba kor_sentences export under the same CC BY 2.0 FR licence and attribution (provenance/ko_words.v1.json).

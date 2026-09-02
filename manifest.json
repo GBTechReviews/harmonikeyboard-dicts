@@ -126,6 +126,12 @@
       "sha256": "0aeddc540a1b450dcbdf2b7b5b2a13c65a21ff4c05f7b2a4cf94c13791c9def5",
       "minBytes": 6720,
       "version": 1
+    },
+    "KO": {
+      "url": "https://raw.githubusercontent.com/GBTechReviews/harmonikeyboard-dicts/refs/heads/main/ko_words.txt",
+      "sha256": "36a0e7f99ca08f7bcb61317d232e207dc3a6e4339fe50ad225d2b00c55dfbb97",
+      "minBytes": 14992,
+      "version": 1
     }
   }
 }

@@ -1,0 +1,28 @@
+{
+  "language": "Korean",
+  "locale": "ko-KR",
+  "file": "ko_words.txt",
+  "role": "frequency-ordered word list (full list; the app bundles its head as the seed)",
+  "lines": 3879,
+  "fileSize": 37480,
+  "sha256": "36a0e7f99ca08f7bcb61317d232e207dc3a6e4339fe50ad225d2b00c55dfbb97",
+  "seedOnly": false,
+  "source": "Tatoeba Project",
+  "corpus": "tatoeba kor_sentences",
+  "sourceUrl": "https://downloads.tatoeba.org/exports/per_language/kor/kor_sentences.tsv.bz2",
+  "sourceSha256": "6ddb636c5e598ca65c29e27c0a57e547d4854264fc594aaa1adc6af527eee095",
+  "sourceVersion": "Tatoeba export 2026-09-02",
+  "licence": "CC BY 2.0 FR",
+  "attribution": "Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR",
+  "generationVersion": "gen-tatoeba-words.py v1 (HKeyboard scripts/; Batch 5 added the hangul script filter)",
+  "generationCommand": "python gen-tatoeba-words.py --lang ko --script hangul --stop \"톰,톰은,톰이,톰을,톰의,톰과,톰에게,톰도,메리,메리는,메리가,메리를,존\" --out ko_words.txt kor_text.txt",
+  "creationDate": "2026-09-02",
+  "retrievalDate": "2026-09-02",
+  "transformations": [
+    "downloaded Tatoeba per-language sentence export (id<TAB>lang<TAB>text .tsv.bz2)",
+    "bunzip2; kept column 3 (sentence text) only",
+    "gen-tatoeba-words.py: tokens of Hangul syllables (eojeol - a word with its particles attached, as Korean spaces it); Tatoeba placeholder names dropped (--stop); words seen fewer than 3 times dropped; ordered by count desc then first occurrence",
+    "no corpus sentence is redistributed - the file is a word list only"
+  ],
+  "note": "The app bundles the top 900 lines as its seed and downloads this full list on the user's request."
+}
