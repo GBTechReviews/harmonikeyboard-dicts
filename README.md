@@ -107,3 +107,4 @@ mixed-script Serbian corpus by the tokeniser's script filter (`sr` Cyrillic, `sr
 | `lb_words.txt` | Luxembourgish (Language Batch 9) | ltz_sentences | 495 | whole list bundled, no download (seed-only) |
 | `ga_words.txt` | Irish (Language Batch 9) | gle_sentences | 1197 | whole list bundled, no download (seed-only) |
 | `cy_words.txt` | Welsh (Language Batch 9) | cym_sentences | 928 | whole list bundled, no download (seed-only) |
+| `th_words.txt` | Thai (Language Batch 10, hand-wired; segmented by ThaiSegment.java) | tha_sentences | 1617 | whole list bundled, no download (seed-only) |

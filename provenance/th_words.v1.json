@@ -1,0 +1,29 @@
+{
+  "language": "Thai",
+  "locale": "th-TH",
+  "file": "th_words.txt",
+  "role": "frequency-ordered word list (seed-only language: the app bundles the whole list, nothing to download)",
+  "lines": 1617,
+  "fileSize": 24114,
+  "sha256": "39fb73d59a3aaef9f3503d62b1bcd1fe6287e0384efb8978c60e7b8e9c7a572c",
+  "seedOnly": true,
+  "source": "Tatoeba Project",
+  "corpus": "tatoeba tha_sentences",
+  "sourceUrl": "https://downloads.tatoeba.org/exports/per_language/tha/tha_sentences.tsv.bz2",
+  "sourceSha256": "728ebfb9466e915503361c6ab78a5e6d48d25f925d5c7180349253c7f390d53d",
+  "sourceVersion": "Tatoeba export 2026-09-02",
+  "licence": "CC BY 2.0 FR",
+  "attribution": "Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR",
+  "generationVersion": "HKeyboard scripts/ThaiSegment.java (JDK 21.0.10 dictionary-based Thai BreakIterator) + gen-tatoeba-words.py v1 (Batch 10 added the thai script)",
+  "generationCommand": "java scripts/ThaiSegment.java tha_text.txt tha_seg.txt && python gen-tatoeba-words.py --lang th --script thai --min-count 2 --stop \"tom,mary,john,jim,mike,ken,sami,layla,jane,bill,bob,jack,maria,mari,ทอม,ท,อม,แมรี,แมรี่,จอห์น\" --out th_words.txt tha_seg.txt",
+  "creationDate": "2026-09-02",
+  "retrievalDate": "2026-09-02",
+  "transformations": [
+    "downloaded Tatoeba per-language sentence export (id<TAB>lang<TAB>text .tsv.bz2)",
+    "bunzip2; kept column 3 (sentence text) only",
+    "ThaiSegment.java: each sentence split into words by the JDK's dictionary-based Thai word BreakIterator (Thai writes no word spaces), written space-separated",
+    "gen-tatoeba-words.py: tokens of Thai letters and their combining marks; Tatoeba placeholder names dropped (--stop, including the segmenter's fragments of Tom); words seen only once dropped (min-count 2); ordered by count desc then first occurrence",
+    "no corpus sentence is redistributed - the file is a word list only"
+  ],
+  "note": "The app bundles the whole list (1617 words at min-count 2); nothing is downloaded. Word boundaries are the segmenter's - a Thai speaker should review compounds."
+}
