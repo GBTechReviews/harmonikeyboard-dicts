@@ -1,0 +1,29 @@
+{
+  "language": "Nepali",
+  "locale": "ne-NP",
+  "file": "ne_words.txt",
+  "role": "frequency-ordered word list (full list; the app bundles its head as the seed)",
+  "lines": 1221,
+  "fileSize": 21096,
+  "sha256": "a7fc2f63733b1eee1947c003148e736ead62ad6f6d16316aa200319dd41ec052",
+  "seedOnly": false,
+  "source": "Tatoeba Project",
+  "corpus": "tatoeba npi_sentences",
+  "sourceUrl": "https://downloads.tatoeba.org/exports/per_language/npi/npi_sentences.tsv.bz2",
+  "sourceSha256": "e6377d6ee63f26a45df86c5bbc02e72ecfb6c3c6e1534e06fbe2ee87acaf300c",
+  "sourceVersion": "Tatoeba export 2026-09-02",
+  "licence": "CC BY 2.0 FR",
+  "attribution": "Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR",
+  "generationVersion": "gen-tatoeba-words.py v1 (HKeyboard scripts/; devanagari script filter, whose vowel signs / virama / anusvara are letters of the word)",
+  "generationCommand": "python scripts/gen-tatoeba-words.py --lang ne --script devanagari --min-count 3 --stop <placeholder names> --out ne_words.txt npi_text.txt",
+  "stopWords": "tom,mary,john,jim,mike,ken,sami,layla,jane,bill,bob,jack,maria,mari,टम,टमले,टमलाई,टमको,मेरीलाई,मेरीले,टमसँग,मेरीको,मेरीसँग,टमकी,टमबाट,टमका",
+  "creationDate": "2026-09-02",
+  "retrievalDate": "2026-09-02",
+  "transformations": [
+    "downloaded Tatoeba per-language sentence export (id<TAB>lang<TAB>text .tsv.bz2)",
+    "bunzip2; kept column 3 (sentence text) only",
+    "gen-tatoeba-words.py: tokens of Devanagari letters and their combining marks; Tatoeba placeholder names dropped (--stop: Tom's and Mary's inflected forms - the bare 'meri' is kept, it is also the feminine 'my'); words seen fewer than 3 times dropped; ordered by count desc then first occurrence",
+    "no corpus sentence is redistributed - the file is a word list only"
+  ],
+  "note": "The app bundles the top 900 lines as its seed and downloads this full list on the user's request."
+}

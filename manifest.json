@@ -150,6 +150,12 @@
       "sha256": "9d3cb4da252a182484519e76867d44a3e55db3231bb7b4f4d3ec046b8916479b",
       "minBytes": 39151,
       "version": 1
+    },
+    "NE": {
+      "url": "https://raw.githubusercontent.com/GBTechReviews/harmonikeyboard-dicts/refs/heads/main/ne_words.txt",
+      "sha256": "a7fc2f63733b1eee1947c003148e736ead62ad6f6d16316aa200319dd41ec052",
+      "minBytes": 8438,
+      "version": 1
     }
   }
 }
