@@ -132,6 +132,12 @@
       "sha256": "36a0e7f99ca08f7bcb61317d232e207dc3a6e4339fe50ad225d2b00c55dfbb97",
       "minBytes": 14992,
       "version": 1
+    },
+    "HI": {
+      "url": "https://raw.githubusercontent.com/GBTechReviews/harmonikeyboard-dicts/refs/heads/main/hi_words.txt",
+      "sha256": "dfd45f5612b1859ab984011ae8739d83662491beb26c57c45f156223528385dc",
+      "minBytes": 17124,
+      "version": 1
     }
   }
 }

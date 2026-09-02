@@ -50,3 +50,5 @@ They are frequency lists only (no sentence is reproduced); the generation comman
 source export checksum are recorded per file in provenance/<code>_words.v1.json.
 
 ko_words.txt (Korean, Language Batch 5, 2026-09-02) is derived from the Tatoeba kor_sentences export under the same CC BY 2.0 FR licence and attribution (provenance/ko_words.v1.json).
+
+hi_words.txt (Hindi, Language Batch 7, 2026-09-02) is derived from the Tatoeba hin_sentences export under the same CC BY 2.0 FR licence and attribution (provenance/hi_words.v1.json).

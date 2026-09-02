@@ -89,3 +89,4 @@ mixed-script Serbian corpus by the tokeniser's script filter (`sr` Cyrillic, `sr
 | `ha_words.txt` | Hausa | hau_sentences | 4493 | top 900 bundled, full list downloadable |
 | `ku_words.txt` | Kurdish | kmr_sentences | 2264 | top 900 bundled, full list downloadable |
 | `ko_words.txt` | Korean (Language Batch 5, hand-wired) | kor_sentences | 3879 | top 900 bundled, full list downloadable |
+| `hi_words.txt` | Hindi (Language Batch 7, hand-wired) | hin_sentences | 2791 | top 900 bundled, full list downloadable |
