@@ -44,6 +44,13 @@ META = {
                source="Tatoeba Project", corpus="tatoeba pol_sentences",
                source_url="https://downloads.tatoeba.org/exports/per_language/pol/pol_sentences.tsv.bz2",
                licence="CC BY 2.0 FR", attribution="Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR"),
+    # P14: Portuguese, for the Portuguese (Brazil) engine migration. Tatoeba's
+    # por_sentences is mixed pt-BR / pt-PT; the pack is context data, and both
+    # versions share this vocabulary as they share the word list.
+    "pt": dict(language="Portuguese (Brazil)", locale="pt",
+               source="Tatoeba Project", corpus="tatoeba por_sentences",
+               source_url="https://downloads.tatoeba.org/exports/per_language/por/por_sentences.tsv.bz2",
+               licence="CC BY 2.0 FR", attribution="Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR"),
 }
 
 SCHEMA_VERSION = 1
@@ -122,7 +129,7 @@ def build(lang, retrieval_date, source_version, notes, check=False):
     ] + ([
         "--stop 'tom,mary': the dominant Tatoeba placeholder names are excluded from "
         "n-grams so they do not dominate general predictions"
-    ] if lang in ("en", "pl") else []) + [
+    ] if lang in ("en", "pl", "pt") else []) + [
         "deterministic gzip (mtime=0, level 9, OS byte 0xFF)",
     ]
     with open(os.path.join(REPO, "provenance", f"{lang}_ngrams.v1.json"), "w", encoding="utf-8", newline="\n") as f:
@@ -137,9 +144,12 @@ def main():
     ap.add_argument("--retrieval-date", default="2026-09-01")
     ap.add_argument("--source-version", default="Tatoeba export 2026-09-01")
     ap.add_argument("--check", action="store_true", help="verify gzip determinism + round-trip")
-    ap.add_argument("langs", nargs="*", default=["de", "es", "fr"])
+    # Every pack the manifest carries. The manifest is rewritten WHOLE from this
+    # list, so a short list here silently unpublishes the packs it omits.
+    ALL = ["de", "es", "fr", "en", "pl", "pt"]
+    ap.add_argument("langs", nargs="*", default=ALL)
     a = ap.parse_args()
-    langs = a.langs or ["de", "es", "fr"]
+    langs = a.langs or ALL
     notes = {
         "de": "German next-word context (bigram+trigram) from Tatoeba example sentences.",
         "es": "Spanish next-word context (bigram+trigram) from Tatoeba example sentences.",
@@ -147,7 +157,13 @@ def main():
     }
     notes.setdefault("en", "English next-word context (bigram+trigram) from Tatoeba example sentences.")
     notes.setdefault("pl", "Polish next-word context (bigram+trigram) from Tatoeba example sentences.")
-    packs = [build(l, a.retrieval_date, a.source_version, notes[l], a.check) for l in langs]
+    notes.setdefault("pt", "Portuguese next-word context (bigram+trigram) from Tatoeba example sentences.")
+    # Packs retrieved outside the original batch carry their own dates, so
+    # rebuilding does not relabel the existing entries.
+    retrieved = {"pt": "2026-09-05"}
+    versions = {"pt": "Tatoeba export 2026-09-05"}
+    packs = [build(l, retrieved.get(l, a.retrieval_date),
+                   versions.get(l, a.source_version), notes[l], a.check) for l in langs]
     # English ships one physical pack served to BOTH regional ids: add an English (US)
     # manifest alias pointing at the same file/checksum so either variant can fetch it.
     extra = []

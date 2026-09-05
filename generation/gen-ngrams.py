@@ -9,9 +9,10 @@
 #       --test app/src/test/resources/eval/en_ngrams_test.tsv \
 #       corpus1.txt [corpus2.txt ...]
 #
-# PRODUCTION NOTE: the shipped English pack should be built from the Leipzig
-# Corpus (CC BY - see THIRD_PARTY_DATA.md), which is conversational-register and
-# attribution-only. This script is the pipeline; the corpus is the only variable.
+# PRODUCTION NOTE: the shipped packs are built from Tatoeba sentence data (CC BY 2.0
+# FR - primary-source verified; see THIRD_PARTY_DATA.md). This script is the pipeline;
+# the corpus is the only variable. --stop drops dominant placeholder names (Tatoeba's
+# Tom/Mary) so they do not dominate general predictions.
 import argparse, hashlib, re, sys
 
 TRI_SEP = chr(1)                      # must match NgramPack.TRI_SEP
@@ -45,29 +46,44 @@ def main():
     # Tokens keep their diacritics because the keyboard commits accented words, so the
     # context words must match what the user has actually typed.
     ap.add_argument("--letters", default="")
+    # Comma-separated STOP tokens excluded from the n-grams (and from the held-out
+    # test). Its job is to keep dominant PLACEHOLDER NAMES out of general predictions:
+    # some corpora (notably Tatoeba English/Polish, where "Tom"/"Mary" are the standard
+    # example people) would otherwise put "and mary" among the top bigrams. Any n-gram
+    # whose context OR follower is a stop token is dropped; deterministic and documented.
+    ap.add_argument("--stop", default="")
     ap.add_argument("corpus", nargs="+")
     a = ap.parse_args()
 
     letters = "a-z" + re.escape(a.letters)
     word_re = re.compile(f"[{letters}][{letters}']*")
+    stop = set(t for t in a.stop.lower().split(",") if t)
 
     bi, tri = {}, {}
     test_lines = []
     ho = 0
     for i, toks in enumerate(sentences(a.corpus, word_re)):
         if a.holdout > 0 and i % a.holdout == 0:
-            # held-out: emit test cases (subsampled), do NOT train on it
+            # held-out: emit test cases (subsampled), do NOT train on it. Cases that
+            # touch a stop token are skipped too (predicting a placeholder name is not
+            # a meaningful measurement).
             emit = (ho % a.test_keep == 0)
             ho += 1
             if emit:
                 for j in range(1, len(toks)):
                     p2 = toks[j - 2] if j >= 2 else ""
+                    if toks[j] in stop or toks[j - 1] in stop or (p2 and p2 in stop):
+                        continue
                     test_lines.append(f"{p2}\t{toks[j-1]}\t{toks[j]}")
             continue
         for j in range(1, len(toks)):
+            if toks[j] in stop or toks[j - 1] in stop:
+                continue
             bi.setdefault(toks[j - 1], {}).__setitem__(
                 toks[j], bi[toks[j - 1]].get(toks[j], 0) + 1)
         for j in range(2, len(toks)):
+            if toks[j] in stop or toks[j - 1] in stop or toks[j - 2] in stop:
+                continue
             k = toks[j - 2] + TRI_SEP + toks[j - 1]
             tri.setdefault(k, {}).__setitem__(toks[j], tri[k].get(toks[j], 0) + 1)
 

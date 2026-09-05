@@ -12,6 +12,10 @@ and a second run produce identical SHA-256s).
 | fr | Tatoeba `fra_sentences` | https://downloads.tatoeba.org/exports/per_language/fra/fra_sentences.tsv.bz2 | CC BY 2.0 FR |
 | en | Tatoeba `eng_sentences` | https://downloads.tatoeba.org/exports/per_language/eng/eng_sentences.tsv.bz2 | CC BY 2.0 FR |
 | pl | Tatoeba `pol_sentences` | https://downloads.tatoeba.org/exports/per_language/pol/pol_sentences.tsv.bz2 | CC BY 2.0 FR |
+| pt | Tatoeba `por_sentences` | https://downloads.tatoeba.org/exports/per_language/por/por_sentences.tsv.bz2 | CC BY 2.0 FR |
+
+Portuguese (P14) was added for the Portuguese (Brazil) engine migration; `por_sentences` is
+mixed pt-BR / pt-PT, which matches the shared word list both versions use. Retrieved 2026-09-05.
 
 English and Polish (P13) replaced earlier Leipzig-derived packs whose commercial terms
 could not be confirmed; all five packs are now Tatoeba. Retrieved 2026-09-01. Licence verified against the primary source (tatoeba.org/en/downloads:
@@ -60,9 +64,18 @@ python gen-ngrams.py --lang en --source tatoeba-eng-2026-09-01 --stop "tom,mary"
 python gen-ngrams.py --lang pl --source tatoeba-pol-2026-09-01 --letters "ąćęłńóśźż" --stop "tom,mary" \
   --holdout 6 --test-keep 40 --min-count 3 --max-bi 30000 --max-tri 25000 \
   --out input/pl_ngrams.v1.txt --test pl_ngrams_test.tsv pol_text.txt
+# Portuguese: es/fr/de-scale corpus (444,157 sentences), so the same caps. Tatoeba's
+# Portuguese is translated from the English set, so Tom/Mary dominate it too - "tom" is
+# also the ordinary noun for "tone", which therefore loses its independent attestation
+# and falls to frequency-only authority. That is the accepted trade, as it is for English.
+python gen-ngrams.py --lang pt --source tatoeba-por-2026-09-05 --letters "áàâãéêíóôõúüç" --stop "tom,mary" \
+  --holdout 6 --test-keep 400 --min-count 3 --max-bi 30000 --max-tri 25000 \
+  --out input/pt_ngrams.v1.txt --test pt_ngrams_test.tsv por_text.txt
 
-# 3. Deterministic gzip + manifest + provenance:
-python build-ngram-packs.py --check de es fr en pl
+# 3. Deterministic gzip + manifest + provenance. The lang list is the WHOLE manifest:
+#    build-ngram-packs.py rewrites manifests/ngram-manifest.json from exactly these,
+#    so omitting one unpublishes it. Its default is now every pack, for that reason.
+python build-ngram-packs.py --check de es fr en pl pt
 ```
 
 The English + Polish `.v1` packs are ALSO bundled in the app (gzipped) as the offline
