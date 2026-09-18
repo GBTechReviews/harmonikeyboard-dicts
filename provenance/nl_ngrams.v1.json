@@ -1,0 +1,29 @@
+{
+  "language": "Dutch",
+  "locale": "nl",
+  "packVersion": 1,
+  "minEngineVersion": 1,
+  "minAppVersion": 9,
+  "file": "nl_ngrams.v1.txt.gz",
+  "compression": "gzip",
+  "fileSize": 191213,
+  "uncompressedSize": 696553,
+  "sha256": "a550079a06f7daf9aa0d73cc5155e3d7bdef0c3c2e52571dd22bff67fd1346c3",
+  "uncompressedSha256": "1517a4a4400fc3c9dab70e47d1058eec8e1528a977e01470ccf1b8b79e461b01",
+  "source": "Tatoeba Project",
+  "corpus": "tatoeba nld_sentences",
+  "sourceUrl": "https://downloads.tatoeba.org/exports/per_language/nld/nld_sentences.tsv.bz2",
+  "sourceVersion": "Tatoeba export 2026-09-18",
+  "licence": "CC BY 2.0 FR",
+  "attribution": "Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR",
+  "generationVersion": "gen-ngrams.py v1 + build-ngram-packs.py v1",
+  "creationDate": "2026-09-18",
+  "retrievalDate": "2026-09-18",
+  "releaseNotes": "Dutch next-word context (bigram+trigram) from Tatoeba example sentences.",
+  "transformations": [
+    "downloaded Tatoeba per-language sentence export (id<TAB>lang<TAB>text .tsv.bz2)",
+    "bunzip2; kept column 3 (sentence text) only",
+    "gen-ngrams.py: tokenise (letters + diacritics + apostrophe only, so URLs/emails/digits fragment away), hold out every 6th sentence for the disjoint test set, min-count 3, top-8 followers, caps per corpus size (see generation/README.md for the exact per-language command)",
+    "deterministic gzip (mtime=0, level 9, OS byte 0xFF)"
+  ]
+}

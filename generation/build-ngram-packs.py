@@ -58,6 +58,26 @@ META = {
                source="Tatoeba Project", corpus="tatoeba ell_sentences",
                source_url="https://downloads.tatoeba.org/exports/per_language/ell/ell_sentences.tsv.bz2",
                licence="CC BY 2.0 FR", attribution="Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR"),
+    # 2026-09-18 (HKeyboard's to-do batch: "add Italian to Next-Word packs, plus a few
+    # more languages"): Italian, Dutch, Russian, Turkish. Caps scaled to the corpus as
+    # English's were (ita 987k sentences, nld 201k, rus 1.22M, tur 749k); Tatoeba's
+    # placeholder names are stopped in each language's own inflections.
+    "it": dict(language="Italian", locale="it",
+               source="Tatoeba Project", corpus="tatoeba ita_sentences",
+               source_url="https://downloads.tatoeba.org/exports/per_language/ita/ita_sentences.tsv.bz2",
+               licence="CC BY 2.0 FR", attribution="Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR"),
+    "nl": dict(language="Dutch", locale="nl",
+               source="Tatoeba Project", corpus="tatoeba nld_sentences",
+               source_url="https://downloads.tatoeba.org/exports/per_language/nld/nld_sentences.tsv.bz2",
+               licence="CC BY 2.0 FR", attribution="Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR"),
+    "ru": dict(language="Russian", locale="ru",
+               source="Tatoeba Project", corpus="tatoeba rus_sentences",
+               source_url="https://downloads.tatoeba.org/exports/per_language/rus/rus_sentences.tsv.bz2",
+               licence="CC BY 2.0 FR", attribution="Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR"),
+    "tr": dict(language="Turkish", locale="tr",
+               source="Tatoeba Project", corpus="tatoeba tur_sentences",
+               source_url="https://downloads.tatoeba.org/exports/per_language/tur/tur_sentences.tsv.bz2",
+               licence="CC BY 2.0 FR", attribution="Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR"),
 }
 
 SCHEMA_VERSION = 1
@@ -153,7 +173,7 @@ def main():
     ap.add_argument("--check", action="store_true", help="verify gzip determinism + round-trip")
     # Every pack the manifest carries. The manifest is rewritten WHOLE from this
     # list, so a short list here silently unpublishes the packs it omits.
-    ALL = ["de", "es", "fr", "en", "pl", "pt", "el"]
+    ALL = ["de", "es", "fr", "en", "pl", "pt", "el", "it", "nl", "ru", "tr"]
     ap.add_argument("langs", nargs="*", default=ALL)
     a = ap.parse_args()
     langs = a.langs or ALL
@@ -166,10 +186,15 @@ def main():
     notes.setdefault("pl", "Polish next-word context (bigram+trigram) from Tatoeba example sentences.")
     notes.setdefault("pt", "Portuguese next-word context (bigram+trigram) from Tatoeba example sentences.")
     notes.setdefault("el", "Greek next-word context (bigram+trigram) from Tatoeba example sentences.")
+    notes.setdefault("it", "Italian next-word context (bigram+trigram) from Tatoeba example sentences.")
+    notes.setdefault("nl", "Dutch next-word context (bigram+trigram) from Tatoeba example sentences.")
+    notes.setdefault("ru", "Russian next-word context (bigram+trigram) from Tatoeba example sentences.")
+    notes.setdefault("tr", "Turkish next-word context (bigram+trigram) from Tatoeba example sentences.")
     # Packs retrieved outside the original batch carry their own dates, so
     # rebuilding does not relabel the existing entries.
-    retrieved = {"pt": "2026-09-05", "el": "2026-09-18"}
-    versions = {"pt": "Tatoeba export 2026-09-05", "el": "Tatoeba export 2026-09-18"}
+    retrieved = {"pt": "2026-09-05", "el": "2026-09-18", "it": "2026-09-18", "nl": "2026-09-18", "ru": "2026-09-18", "tr": "2026-09-18"}
+    versions = {"pt": "Tatoeba export 2026-09-05", "el": "Tatoeba export 2026-09-18", "it": "Tatoeba export 2026-09-18",
+                "nl": "Tatoeba export 2026-09-18", "ru": "Tatoeba export 2026-09-18", "tr": "Tatoeba export 2026-09-18"}
     packs = [build(l, retrieved.get(l, a.retrieval_date),
                    versions.get(l, a.source_version), notes[l], a.check) for l in langs]
     # English ships one physical pack served to BOTH regional ids: add an English (US)

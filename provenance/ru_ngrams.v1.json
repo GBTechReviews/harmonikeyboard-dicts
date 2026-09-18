@@ -1,0 +1,29 @@
+{
+  "language": "Russian",
+  "locale": "ru",
+  "packVersion": 1,
+  "minEngineVersion": 1,
+  "minAppVersion": 9,
+  "file": "ru_ngrams.v1.txt.gz",
+  "compression": "gzip",
+  "fileSize": 798149,
+  "uncompressedSize": 3951469,
+  "sha256": "ed0e60411c1807152593980942f08213e2058d94eb6fd09a39993aa96f95b4d4",
+  "uncompressedSha256": "e1caec17725a35239697be9c7de18c4c71e17a4f8181845304ec71d3f5efbe05",
+  "source": "Tatoeba Project",
+  "corpus": "tatoeba rus_sentences",
+  "sourceUrl": "https://downloads.tatoeba.org/exports/per_language/rus/rus_sentences.tsv.bz2",
+  "sourceVersion": "Tatoeba export 2026-09-18",
+  "licence": "CC BY 2.0 FR",
+  "attribution": "Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR",
+  "generationVersion": "gen-ngrams.py v1 + build-ngram-packs.py v1",
+  "creationDate": "2026-09-18",
+  "retrievalDate": "2026-09-18",
+  "releaseNotes": "Russian next-word context (bigram+trigram) from Tatoeba example sentences.",
+  "transformations": [
+    "downloaded Tatoeba per-language sentence export (id<TAB>lang<TAB>text .tsv.bz2)",
+    "bunzip2; kept column 3 (sentence text) only",
+    "gen-ngrams.py: tokenise (letters + diacritics + apostrophe only, so URLs/emails/digits fragment away), hold out every 6th sentence for the disjoint test set, min-count 3, top-8 followers, caps per corpus size (see generation/README.md for the exact per-language command)",
+    "deterministic gzip (mtime=0, level 9, OS byte 0xFF)"
+  ]
+}

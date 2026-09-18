@@ -14,6 +14,16 @@ and a second run produce identical SHA-256s).
 | pl | Tatoeba `pol_sentences` | https://downloads.tatoeba.org/exports/per_language/pol/pol_sentences.tsv.bz2 | CC BY 2.0 FR |
 | pt | Tatoeba `por_sentences` | https://downloads.tatoeba.org/exports/per_language/por/por_sentences.tsv.bz2 | CC BY 2.0 FR |
 | el | Tatoeba `ell_sentences` | https://downloads.tatoeba.org/exports/per_language/ell/ell_sentences.tsv.bz2 | CC BY 2.0 FR |
+| it | Tatoeba `ita_sentences` | https://downloads.tatoeba.org/exports/per_language/ita/ita_sentences.tsv.bz2 | CC BY 2.0 FR |
+| nl | Tatoeba `nld_sentences` | https://downloads.tatoeba.org/exports/per_language/nld/nld_sentences.tsv.bz2 | CC BY 2.0 FR |
+| ru | Tatoeba `rus_sentences` | https://downloads.tatoeba.org/exports/per_language/rus/rus_sentences.tsv.bz2 | CC BY 2.0 FR |
+| tr | Tatoeba `tur_sentences` | https://downloads.tatoeba.org/exports/per_language/tur/tur_sentences.tsv.bz2 | CC BY 2.0 FR |
+
+Italian, Dutch, Russian and Turkish were added 2026-09-18 (retrieved that day; SHA-256 of the
+archives: ita 71887aea917160bd71e492fd616f576ea3fa21df38fafa8e8361f2ced621d3b0, nld
+01e3002d07398832f71afd2265975308e0b2c3707a7a93f6f733c73c1bed7c24, rus
+b66604f9f87530eddf24d905ca07e89fa5b7f451460d675cfe62a56b0ef8b036, tur
+ea5e5c7dc551866407f69e08641ccfb6004b585ab2e1dc38fc6d481b14075bbf).
 
 Portuguese (P14) was added for the Portuguese (Brazil) engine migration; `por_sentences` is
 mixed pt-BR / pt-PT, which matches the shared word list both versions use. Retrieved 2026-09-05.
@@ -79,10 +89,29 @@ python gen-ngrams.py --lang pt --source tatoeba-por-2026-09-05 --letters "áàâ
 # rows. --letters is the whole Greek lowercase alphabet with its tonos / dialytika forms.
 python gen-ngrams.py --lang el --source tatoeba-ell-2026-09-18   --letters "αβγδεζηθικλμνξοπρσςτυφχψωάέήίόύώϊϋΐΰ"   --stop "τομ,θωμάς,θωμά,μαίρη,μαρία"   --holdout 6 --test-keep 40 --min-count 3 --max-bi 30000 --max-tri 25000   --out input/el_ngrams.v1.txt --test el_ngrams_test.tsv ell_text.txt
 
+# Italian / Dutch / Russian / Turkish (2026-09-18): caps scaled to the corpus size as
+# English's were; --letters is each language's own alphabet beyond a-z (Russian: the whole
+# Cyrillic lowercase block + yo); the placeholder names are stopped in their inflections
+# (Russian declines Tom, Turkish suffixes him with an apostrophe).
+python gen-ngrams.py --lang it --source tatoeba-ita-2026-09-18 --letters "àèéìíòóùú" --stop "tom,mary" \
+  --holdout 6 --test-keep 400 --min-count 3 --max-bi 60000 --max-tri 50000 \
+  --out input/it_ngrams.v1.txt --test it_ngrams_test.tsv ita_text.txt
+python gen-ngrams.py --lang nl --source tatoeba-nld-2026-09-18 --letters "éëïöüèáäó" --stop "tom,mary" \
+  --holdout 6 --test-keep 400 --min-count 3 --max-bi 30000 --max-tri 25000 \
+  --out input/nl_ngrams.v1.txt --test nl_ngrams_test.tsv nld_text.txt
+python gen-ngrams.py --lang ru --source tatoeba-rus-2026-09-18 --letters "<U+0430..U+044F + U+0451>" --stop "<tom in its six cases>,<mary>" \
+  --holdout 6 --test-keep 400 --min-count 3 --max-bi 75000 --max-tri 60000 \
+  --out input/ru_ngrams.v1.txt --test ru_ngrams_test.tsv rus_text.txt
+python gen-ngrams.py --lang tr --source tatoeba-tur-2026-09-18 --letters "çğıöşüâîû" --stop "tom,mary,tom'u,tom'un,tom'a,tom'la,tom'dan,tom'da,mary'i,mary'nin,mary'ye,mary'yle" \
+  --holdout 6 --test-keep 400 --min-count 3 --max-bi 45000 --max-tri 38000 \
+  --out input/tr_ngrams.v1.txt --test tr_ngrams_test.tsv tur_text.txt
+# (the exact argument strings, escapes resolved, are in the HKeyboard repo's session record;
+#  the provenance JSON beside each pack carries the generation command.)
+
 # 3. Deterministic gzip + manifest + provenance. The lang list is the WHOLE manifest:
 #    build-ngram-packs.py rewrites manifests/ngram-manifest.json from exactly these,
 #    so omitting one unpublishes it. Its default is now every pack, for that reason.
-python build-ngram-packs.py --check de es fr en pl pt el
+python build-ngram-packs.py --check de es fr en pl pt el it nl ru tr
 ```
 
 The English + Polish `.v1` packs are ALSO bundled in the app (gzipped) as the offline

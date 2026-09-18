@@ -1,0 +1,29 @@
+{
+  "language": "Italian",
+  "locale": "it",
+  "packVersion": 1,
+  "minEngineVersion": 1,
+  "minAppVersion": 9,
+  "file": "it_ngrams.v1.txt.gz",
+  "compression": "gzip",
+  "fileSize": 504762,
+  "uncompressedSize": 1930956,
+  "sha256": "4c6b8318e19ba051897652aa23a3e5b2eb3dfb5397d813c7294e6d39d361c24d",
+  "uncompressedSha256": "09f6c74814b02cdcd1eb4cd7ccc7992d72f0e8bdb259a31711874a5c34cc5fae",
+  "source": "Tatoeba Project",
+  "corpus": "tatoeba ita_sentences",
+  "sourceUrl": "https://downloads.tatoeba.org/exports/per_language/ita/ita_sentences.tsv.bz2",
+  "sourceVersion": "Tatoeba export 2026-09-18",
+  "licence": "CC BY 2.0 FR",
+  "attribution": "Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR",
+  "generationVersion": "gen-ngrams.py v1 + build-ngram-packs.py v1",
+  "creationDate": "2026-09-18",
+  "retrievalDate": "2026-09-18",
+  "releaseNotes": "Italian next-word context (bigram+trigram) from Tatoeba example sentences.",
+  "transformations": [
+    "downloaded Tatoeba per-language sentence export (id<TAB>lang<TAB>text .tsv.bz2)",
+    "bunzip2; kept column 3 (sentence text) only",
+    "gen-ngrams.py: tokenise (letters + diacritics + apostrophe only, so URLs/emails/digits fragment away), hold out every 6th sentence for the disjoint test set, min-count 3, top-8 followers, caps per corpus size (see generation/README.md for the exact per-language command)",
+    "deterministic gzip (mtime=0, level 9, OS byte 0xFF)"
+  ]
+}

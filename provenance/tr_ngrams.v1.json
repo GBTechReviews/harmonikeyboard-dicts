@@ -1,0 +1,29 @@
+{
+  "language": "Turkish",
+  "locale": "tr",
+  "packVersion": 1,
+  "minEngineVersion": 1,
+  "minAppVersion": 9,
+  "file": "tr_ngrams.v1.txt.gz",
+  "compression": "gzip",
+  "fileSize": 461285,
+  "uncompressedSize": 1881895,
+  "sha256": "b94d2a11274b9481151a965629a82f49890dbe0ed75888f2e4c8f08d6d111482",
+  "uncompressedSha256": "4cdd3851854034db8e086bb27197ff38a770bb01378dd0e9020bf533641f3281",
+  "source": "Tatoeba Project",
+  "corpus": "tatoeba tur_sentences",
+  "sourceUrl": "https://downloads.tatoeba.org/exports/per_language/tur/tur_sentences.tsv.bz2",
+  "sourceVersion": "Tatoeba export 2026-09-18",
+  "licence": "CC BY 2.0 FR",
+  "attribution": "Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR",
+  "generationVersion": "gen-ngrams.py v1 + build-ngram-packs.py v1",
+  "creationDate": "2026-09-18",
+  "retrievalDate": "2026-09-18",
+  "releaseNotes": "Turkish next-word context (bigram+trigram) from Tatoeba example sentences.",
+  "transformations": [
+    "downloaded Tatoeba per-language sentence export (id<TAB>lang<TAB>text .tsv.bz2)",
+    "bunzip2; kept column 3 (sentence text) only",
+    "gen-ngrams.py: tokenise (letters + diacritics + apostrophe only, so URLs/emails/digits fragment away), hold out every 6th sentence for the disjoint test set, min-count 3, top-8 followers, caps per corpus size (see generation/README.md for the exact per-language command)",
+    "deterministic gzip (mtime=0, level 9, OS byte 0xFF)"
+  ]
+}
