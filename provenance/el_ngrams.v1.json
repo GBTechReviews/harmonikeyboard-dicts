@@ -1,0 +1,29 @@
+{
+  "language": "Greek",
+  "locale": "el",
+  "packVersion": 1,
+  "minEngineVersion": 1,
+  "minAppVersion": 9,
+  "file": "el_ngrams.v1.txt.gz",
+  "compression": "gzip",
+  "fileSize": 51503,
+  "uncompressedSize": 244742,
+  "sha256": "fff42c30584f7c58b68bfb55eefdefe65cc9f2ec12ad4705e9320bf04320f139",
+  "uncompressedSha256": "2d26f9daa9d1f62e4eac74a496db0811c9dc21e1381765141be709faf5a16efa",
+  "source": "Tatoeba Project",
+  "corpus": "tatoeba ell_sentences",
+  "sourceUrl": "https://downloads.tatoeba.org/exports/per_language/ell/ell_sentences.tsv.bz2",
+  "sourceVersion": "Tatoeba export 2026-09-18",
+  "licence": "CC BY 2.0 FR",
+  "attribution": "Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR",
+  "generationVersion": "gen-ngrams.py v1 + build-ngram-packs.py v1",
+  "creationDate": "2026-09-18",
+  "retrievalDate": "2026-09-18",
+  "releaseNotes": "Greek next-word context (bigram+trigram) from Tatoeba example sentences.",
+  "transformations": [
+    "downloaded Tatoeba per-language sentence export (id<TAB>lang<TAB>text .tsv.bz2)",
+    "bunzip2; kept column 3 (sentence text) only",
+    "gen-ngrams.py: tokenise (letters + diacritics + apostrophe only, so URLs/emails/digits fragment away), hold out every 6th sentence for the disjoint test set, min-count 3, top-8 followers, caps per corpus size (see generation/README.md for the exact per-language command)",
+    "deterministic gzip (mtime=0, level 9, OS byte 0xFF)"
+  ]
+}

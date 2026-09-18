@@ -51,6 +51,13 @@ META = {
                source="Tatoeba Project", corpus="tatoeba por_sentences",
                source_url="https://downloads.tatoeba.org/exports/per_language/por/por_sentences.tsv.bz2",
                licence="CC BY 2.0 FR", attribution="Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR"),
+    # P15: Greek, for the Greek engine migration. A small corpus (42,482 sentences),
+    # so the pack is ~4,500 contexts each way; the Tatoeba placeholder names are
+    # Greek here (Thomas / Mary), stopped as Tom / Mary are elsewhere.
+    "el": dict(language="Greek", locale="el",
+               source="Tatoeba Project", corpus="tatoeba ell_sentences",
+               source_url="https://downloads.tatoeba.org/exports/per_language/ell/ell_sentences.tsv.bz2",
+               licence="CC BY 2.0 FR", attribution="Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR"),
 }
 
 SCHEMA_VERSION = 1
@@ -146,7 +153,7 @@ def main():
     ap.add_argument("--check", action="store_true", help="verify gzip determinism + round-trip")
     # Every pack the manifest carries. The manifest is rewritten WHOLE from this
     # list, so a short list here silently unpublishes the packs it omits.
-    ALL = ["de", "es", "fr", "en", "pl", "pt"]
+    ALL = ["de", "es", "fr", "en", "pl", "pt", "el"]
     ap.add_argument("langs", nargs="*", default=ALL)
     a = ap.parse_args()
     langs = a.langs or ALL
@@ -158,10 +165,11 @@ def main():
     notes.setdefault("en", "English next-word context (bigram+trigram) from Tatoeba example sentences.")
     notes.setdefault("pl", "Polish next-word context (bigram+trigram) from Tatoeba example sentences.")
     notes.setdefault("pt", "Portuguese next-word context (bigram+trigram) from Tatoeba example sentences.")
+    notes.setdefault("el", "Greek next-word context (bigram+trigram) from Tatoeba example sentences.")
     # Packs retrieved outside the original batch carry their own dates, so
     # rebuilding does not relabel the existing entries.
-    retrieved = {"pt": "2026-09-05"}
-    versions = {"pt": "Tatoeba export 2026-09-05"}
+    retrieved = {"pt": "2026-09-05", "el": "2026-09-18"}
+    versions = {"pt": "Tatoeba export 2026-09-05", "el": "Tatoeba export 2026-09-18"}
     packs = [build(l, retrieved.get(l, a.retrieval_date),
                    versions.get(l, a.source_version), notes[l], a.check) for l in langs]
     # English ships one physical pack served to BOTH regional ids: add an English (US)

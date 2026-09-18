@@ -13,6 +13,7 @@ and a second run produce identical SHA-256s).
 | en | Tatoeba `eng_sentences` | https://downloads.tatoeba.org/exports/per_language/eng/eng_sentences.tsv.bz2 | CC BY 2.0 FR |
 | pl | Tatoeba `pol_sentences` | https://downloads.tatoeba.org/exports/per_language/pol/pol_sentences.tsv.bz2 | CC BY 2.0 FR |
 | pt | Tatoeba `por_sentences` | https://downloads.tatoeba.org/exports/per_language/por/por_sentences.tsv.bz2 | CC BY 2.0 FR |
+| el | Tatoeba `ell_sentences` | https://downloads.tatoeba.org/exports/per_language/ell/ell_sentences.tsv.bz2 | CC BY 2.0 FR |
 
 Portuguese (P14) was added for the Portuguese (Brazil) engine migration; `por_sentences` is
 mixed pt-BR / pt-PT, which matches the shared word list both versions use. Retrieved 2026-09-05.
@@ -72,10 +73,16 @@ python gen-ngrams.py --lang pt --source tatoeba-por-2026-09-05 --letters "áàâ
   --holdout 6 --test-keep 400 --min-count 3 --max-bi 30000 --max-tri 25000 \
   --out input/pt_ngrams.v1.txt --test pt_ngrams_test.tsv por_text.txt
 
+# Greek (P15): a small corpus (42,482 sentences, retrieved 2026-09-18), so the pack is
+# ~4,500 contexts each way. Tatoeba's placeholder names are Greek here - Thomas (nominative
+# and accusative) and Mary - so those are the --stop tokens, with Tom for the untranslated
+# rows. --letters is the whole Greek lowercase alphabet with its tonos / dialytika forms.
+python gen-ngrams.py --lang el --source tatoeba-ell-2026-09-18   --letters "αβγδεζηθικλμνξοπρσςτυφχψωάέήίόύώϊϋΐΰ"   --stop "τομ,θωμάς,θωμά,μαίρη,μαρία"   --holdout 6 --test-keep 40 --min-count 3 --max-bi 30000 --max-tri 25000   --out input/el_ngrams.v1.txt --test el_ngrams_test.tsv ell_text.txt
+
 # 3. Deterministic gzip + manifest + provenance. The lang list is the WHOLE manifest:
 #    build-ngram-packs.py rewrites manifests/ngram-manifest.json from exactly these,
 #    so omitting one unpublishes it. Its default is now every pack, for that reason.
-python build-ngram-packs.py --check de es fr en pl pt
+python build-ngram-packs.py --check de es fr en pl pt el
 ```
 
 The English + Polish `.v1` packs are ALSO bundled in the app (gzipped) as the offline
