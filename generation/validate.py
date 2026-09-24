@@ -104,7 +104,7 @@ def provenance_index():
 
 def check_word_lists(prov):
     for name in sorted(os.listdir(REPO)):
-        if not name.endswith("_words.txt"):
+        if not (name.endswith("_words.txt") or re.search(r"_words\.v[0-9]+\.txt$", name)):
             continue
         path = os.path.join(REPO, name)
         with open(path, "rb") as f:

@@ -1,7 +1,7 @@
 Mozilla Common Voice sentence data - licence
 =============================================
 
-Used for: pa_words.txt, ta_words.txt, ky_words.txt (2026-09-24), together with Tatoeba
+Used for: pa_words.v2.txt, ta_words.v2.txt, ky_words.v2.txt (2026-09-24), together with Tatoeba
 sentences (see TATOEBA.txt). Each list's provenance record (provenance/<code>_words.v2.json)
 names the exact files and their SHA-256.
 

@@ -3,7 +3,12 @@
 All text files are UTF-8 without a byte-order mark, Unicode NFC, LF line endings.
 `generation/validate.py` enforces every rule below; CI runs it on every push.
 
-## `<code>_words.txt` - word lists
+## `<code>_words.txt`, `<code>_words.v<N>.txt` - word lists
+
+A published list is not rewritten in place: an app may pin its checksum. A changed
+list is published beside it as `<code>_words.v<N>.txt` (or, where the app reads
+`manifest.json`, declared there with its new checksum and a higher version) and each app
+adopts it deliberately.
 
 One word per line, most frequent first (the ORDER is meaning: HKeyboard's correctors
 break ties by line index). No blank lines, no duplicates, no surrounding whitespace.

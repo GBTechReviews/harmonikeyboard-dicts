@@ -1,7 +1,7 @@
 {
   "language": "Punjabi",
   "locale": "pa-IN",
-  "file": "pa_words.txt",
+  "file": "pa_words.v2.txt",
   "role": "word list (frequency-ordered)",
   "lines": 7641,
   "fileSize": 117693,
@@ -32,7 +32,7 @@
   "attribution": "Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR; Mozilla Common Voice sentence contributors (CC0)",
   "verification": "VERIFIED",
   "generationVersion": "gen-tatoeba-words.py (strict decoding, 2026-09-24)",
-  "generationCommand": "python gen-tatoeba-words.py --lang pa --script gurmukhi --min-count 2 --stop 'ਟੌਮ,ਟੋਮ,ਮੈਰੀ' --out pa_words.txt pan_text.txt pa-IN_sentence-collector.txt",
+  "generationCommand": "python gen-tatoeba-words.py --lang pa --script gurmukhi --min-count 2 --stop 'ਟੌਮ,ਟੋਮ,ਮੈਰੀ' --out pa_words.v2.txt pan_text.txt pa-IN_sentence-collector.txt",
   "inputPreparation": "pan_text.txt = column 3 of pan_sentences.tsv (one sentence per line); the Common Voice files are used as downloaded",
   "creationDate": "2026-09-24",
   "measurement": {
@@ -52,5 +52,6 @@
     "record": "pa_words.v1.json",
     "sha256": "a26841bacea28887d2638ea94da2dcbfa25405779e42f2cd020feb2bd363ce45",
     "lines": 178
-  }
+  },
+  "publishing": "published beside the original pa_words.txt, which is unchanged: HarmoniKeyboard bundles and pins the original, and neither app adopts a new list without its own measurement"
 }

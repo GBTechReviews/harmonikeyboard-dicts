@@ -1,7 +1,7 @@
 {
   "language": "Tamil",
   "locale": "ta-IN",
-  "file": "ta_words.txt",
+  "file": "ta_words.v2.txt",
   "role": "word list (frequency-ordered)",
   "lines": 3262,
   "fileSize": 71392,
@@ -32,7 +32,7 @@
   "attribution": "Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR; Mozilla Common Voice sentence contributors (CC0)",
   "verification": "VERIFIED",
   "generationVersion": "gen-tatoeba-words.py (strict decoding, 2026-09-24)",
-  "generationCommand": "python gen-tatoeba-words.py --lang ta --script tamil --min-count 2 --stop 'டாம்,டோம்,மேரி,மேரியுடன்,மேரியை' --out ta_words.txt tam_text.txt ta_sentence-collector.txt",
+  "generationCommand": "python gen-tatoeba-words.py --lang ta --script tamil --min-count 2 --stop 'டாம்,டோம்,மேரி,மேரியுடன்,மேரியை' --out ta_words.v2.txt tam_text.txt ta_sentence-collector.txt",
   "inputPreparation": "tam_text.txt = column 3 of tam_sentences.tsv (one sentence per line); the Common Voice files are used as downloaded",
   "creationDate": "2026-09-24",
   "measurement": {
@@ -52,5 +52,6 @@
     "record": "ta_words.v1.json",
     "sha256": "55c0be4cea0a7bd94f349d2589c4f754859058c3f199b9f9a3c11c25e2fa82fc",
     "lines": 299
-  }
+  },
+  "publishing": "published beside the original ta_words.txt, which is unchanged: HarmoniKeyboard bundles and pins the original, and neither app adopts a new list without its own measurement"
 }

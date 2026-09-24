@@ -24,9 +24,11 @@ not touched. Nothing has been pushed.
 - **The old evaluation leaked.** 1.5-8.2% of the v1 method's "held-out" sentences were
   duplicates of training sentences, and 78.6% of today's Greek test set was inside the
   published Greek v1's training. The v2 split makes both impossible by construction.
-- Data quality and records: 29 duplicate Azerbaijani words and 2 Urdu symbols removed;
+- Data quality and records: 29 duplicate Azerbaijani words and 2 Urdu symbols removed
+  (declared in manifest.json so apps that pin checksums keep working);
   provenance records for all 29 unrecorded datasets (marked UNVERIFIED, not cleared);
-  Punjabi, Tamil and Kyrgyz lists expanded 43x / 11x / 9x from CC0 sentences; a validator,
+  Punjabi, Tamil and Kyrgyz lists expanded 43x / 11x / 9x from CC0 sentences (published
+  as new `*_words.v2.txt` files beside the unchanged originals); a validator,
   a pack quality gate and CI; canonical locale tags; one-step rollback and corruption
   recovery in the app.
 
@@ -91,7 +93,7 @@ Dicts repository (local commits, unpushed):
 | 03a4319 | az duplicates, Urdu symbols removed (recorded in provenance) |
 | 71d368c | validate.py; provenance for the 29; FORMATS.md (incl. ur_roman.txt); manifest.json canonical tags; LICENSE (MIT, software only) |
 | 40e7b3f | gen-tatoeba-words.py + ThaiSegment.java vendored (strict decoding); CI workflow |
-| 474fb02 | pa / ta / ky lists expanded with CC0 Common Voice sentences |
+| 474fb02 | pa / ta / ky lists expanded with CC0 Common Voice sentences (moved to `*_words.v2.txt`, originals restored, in the commit after the packs) |
 | (next) | manifest.json AZ / UR rows declaring the changed lists (HarmoniKeyboard pins checksums) |
 | (this) | v2 packs, provenance, manifest, pack gate, CI, this report |
 

@@ -1,7 +1,7 @@
 {
   "language": "Kyrgyz",
   "locale": "ky-KG",
-  "file": "ky_words.txt",
+  "file": "ky_words.v2.txt",
   "role": "word list (frequency-ordered)",
   "lines": 3974,
   "fileSize": 59078,
@@ -42,7 +42,7 @@
   "attribution": "Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR; Mozilla Common Voice sentence contributors (CC0)",
   "verification": "VERIFIED",
   "generationVersion": "gen-tatoeba-words.py (strict decoding, 2026-09-24)",
-  "generationCommand": "python gen-tatoeba-words.py --lang ky --script cyrillic --min-count 2 --stop 'tom,mary,john,jim,mike,ken,sami,layla,jane,bill,bob,jack,maria,mari,том,томдун' --out ky_words.txt kir_text.txt ky_kloop.txt ky_sentence-collector.txt",
+  "generationCommand": "python gen-tatoeba-words.py --lang ky --script cyrillic --min-count 2 --stop 'tom,mary,john,jim,mike,ken,sami,layla,jane,bill,bob,jack,maria,mari,том,томдун' --out ky_words.v2.txt kir_text.txt ky_kloop.txt ky_sentence-collector.txt",
   "inputPreparation": "kir_text.txt = column 3 of kir_sentences.tsv (one sentence per line); the Common Voice files are used as downloaded",
   "creationDate": "2026-09-24",
   "measurement": {
@@ -62,5 +62,6 @@
     "record": "ky_words.v1.json",
     "sha256": "e708282f27da34d2b56bfbbcaa423d0c80d9410b11542f2ad01669f7580ff10d",
     "lines": 434
-  }
+  },
+  "publishing": "published beside the original ky_words.txt, which is unchanged: HarmoniKeyboard bundles and pins the original, and neither app adopts a new list without its own measurement"
 }
