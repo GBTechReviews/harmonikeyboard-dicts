@@ -182,6 +182,20 @@
       "minBytes": 8438,
       "version": 1,
       "tag": "ne"
+    },
+    "AZ": {
+      "url": "https://raw.githubusercontent.com/GBTechReviews/harmonikeyboard-dicts/refs/heads/main/az_words.txt",
+      "sha256": "c5f629b0b6e87c20dc196bc59ab3a25fb72ed87f78fd39264bc17de507e6940a",
+      "minBytes": 201685,
+      "version": 2,
+      "tag": "az"
+    },
+    "UR": {
+      "url": "https://raw.githubusercontent.com/GBTechReviews/harmonikeyboard-dicts/refs/heads/main/ur_words.txt",
+      "sha256": "e55695c401628b72effa096322d4fcd2f2e412052c33446278a63687fcf4b475",
+      "minBytes": 106831,
+      "version": 2,
+      "tag": "ur"
     }
   }
 }
