@@ -4,7 +4,7 @@
   "bytes": 469269,
   "entries": 22417,
   "verification": "UNVERIFIED",
-  "licence": "UNKNOWN",
+  "licence": "UNLICENSED (origin unresolved - no licence is granted for this file; it is not covered by the repository's MIT licence)",
   "redistribution": "NOT CONFIRMED - the upstream source and licence of this list were never recorded when it was uploaded; see determination",
   "determination": "github.com/GBTechReviews/harmonikeyboard-dicts ur_roman.txt (the reference app's 'Urdu (Roman)' remote index), whose generator applied UrduRoman.ets's skeleton rules to a romanised Urdu word list. The repo records no source or licence for the underlying word list.",
   "probableLicence": "UNKNOWN (probable CC BY-SA 4.0, OpenSubtitles-family vocabulary like ur_words.txt)",

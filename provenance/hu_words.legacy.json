@@ -4,7 +4,7 @@
   "bytes": 452903,
   "entries": 46368,
   "verification": "UNVERIFIED",
-  "licence": "UNKNOWN",
+  "licence": "UNLICENSED (origin unresolved - no licence is granted for this file; it is not covered by the repository's MIT licence)",
   "redistribution": "NOT CONFIRMED - the upstream source and licence of this list were never recorded when it was uploaded; see determination",
   "determination": "Frequency-ordered conversational word list. Vocabulary overlaps ~98-100% with the OpenSubtitles frequency lists (HermitDave FrequencyWords 2018), but the SPECIFIC ORDERING does NOT match HermitDave (ordered-subsequence test 2026-09-01: <5% of entries in HermitDave order), so this is STRONG CONTENT SIMILARITY to OpenSubtitles-family vocabulary, NOT a proven copy of a specific list - the top-N conversational words are common to most frequency sources. Bundled via github.com/GBTechReviews/harmonikeyboard-dicts, which records no source or licence. Specific source/ordering UNCONFIRMED (inference).",
   "probableLicence": "CC BY-SA 4.0 (probable - the OpenSubtitles/HermitDave data is CC BY-SA 4.0)",

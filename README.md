@@ -4,6 +4,18 @@ Downloadable data for **HKeyboard** (HProductions). Everything here is fetched o
 the user explicitly asks for it, over plain HTTPS from this repo's `raw.githubusercontent.com`
 URLs. Nothing is ever uploaded by the app.
 
+## Licences
+
+- **Scripts and original code** (`generation/*.py`, `generation/*.java`, `generation/tests/`,
+  `.github/workflows/`): MIT - see `LICENSE`, which names its scope.
+- **Data** is never MIT. Every word list, pack, test sample and generated file keeps its
+  source's licence and attribution: `DATA_LICENSES.md` (generated from `provenance/`),
+  full notices in `licences/`. Tatoeba-derived data is CC BY 2.0 FR (attribution required);
+  Common Voice sentence data is CC0.
+- **UNLICENSED**: the historical lists whose origin was never recorded (28 files, marked
+  in `DATA_LICENSES.md` and `provenance/*.legacy.json`). No licence is granted for them;
+  they get no new uses until their origin is resolved or they are replaced.
+
 ## Layout
 
 ```

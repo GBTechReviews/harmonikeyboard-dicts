@@ -1,13 +1,20 @@
-MIT License (software only)
+MIT License - scripts and original code ONLY
 
 Copyright (c) 2026 HProductions
 
-This licence covers the SOFTWARE in this repository: the scripts under generation/
-(including its tests) and the repository tooling. It does NOT cover the language
-data. Every data file keeps the licence of the source it was derived from, recorded
-per file under provenance/ and in full under licences/ (for example the Tatoeba-derived
-packs and word lists: CC BY 2.0 FR, attribution required). Files whose provenance
-record says "UNVERIFIED" have no confirmed licence - see README.md.
+SCOPE. This licence covers only the scripts and original source code in this
+repository:
+  - generation/*.py and generation/*.java, and generation/tests/
+  - .github/workflows/
+It does NOT cover, and grants nothing for, any DATA: the word lists (*_words*.txt),
+ur_roman.txt, the n-gram packs (packs/), their plain inputs, the held-out test samples
+(generation/*_ngrams_test*.tsv), build records (generation/builds/), provenance records,
+manifests, corpora, or any other generated data. Each data file keeps the licence and
+attribution of the source it was derived from - listed per file in DATA_LICENSES.md,
+recorded in provenance/, with full notices in licences/. Historical datasets whose origin
+is unresolved are UNLICENSED: no licence is granted for them.
+
+The licence text below applies to the files named in SCOPE.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this
 software and associated documentation files (the "Software"), to deal in the Software

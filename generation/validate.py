@@ -342,6 +342,13 @@ def check_provenance(prov):
             if not os.path.isfile(path):
                 fail("provenance/%s: %s does not exist" % (name, f))
                 continue
+            lic = str(rec.get("licence", ""))
+            if not lic:
+                fail("provenance/%s: no licence" % name)
+            if lic.strip().upper().startswith("MIT"):
+                fail("provenance/%s: a data file must not be MIT (LICENSE covers scripts only)" % name)
+            if rec.get("verification") == "UNVERIFIED" and not lic.startswith("UNLICENSED"):
+                fail("provenance/%s: an unverified dataset must be marked UNLICENSED" % name)
             status = rec.get("verification", "VERIFIED" if rec.get("licence") not in (None, "", "UNKNOWN") else "")
             if status not in ("VERIFIED", "UNVERIFIED"):
                 fail("provenance/%s: no licence and no verification status" % name)
@@ -350,8 +357,17 @@ def check_provenance(prov):
                      % (name, f, rec.get("recommendation", "no recommendation")))
 
 
+def check_data_licences():
+    import subprocess
+    r = subprocess.run([sys.executable, os.path.join(REPO, "generation", "data-licences.py"), "--check"],
+                       capture_output=True, text=True)
+    if r.returncode:
+        fail((r.stdout.strip() or "DATA_LICENSES.md check failed").replace("FAIL ", "", 1))
+
+
 def main():
     prov = provenance_index()
+    check_data_licences()
     check_word_lists(prov)
     check_ur_roman(prov)
     check_dict_manifest()

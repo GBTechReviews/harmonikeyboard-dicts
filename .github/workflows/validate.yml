@@ -1,4 +1,6 @@
 # The data gate. Runs on every push and pull request; a red run blocks a merge.
+#   - licences: DATA_LICENSES.md matches provenance; no data file is MIT; every
+#     unverified historical dataset is marked UNLICENSED (validate.py)
 #   - generation/validate.py: malformed word lists, missing provenance, invalid
 #     manifests (sizes, SHA-256s, versions, tags, aliases, dates), broken pack bodies
 #   - the generator tests: the cap regression, byte-identical output, strict decoding,
