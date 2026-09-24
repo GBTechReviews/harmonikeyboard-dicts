@@ -1,0 +1,15 @@
+{
+  "file": "it_words.txt",
+  "sha256": "8df41cd4d585f4b001058c81daf759a2c5edbc01fdd1a8952637385b5ecc22c8",
+  "bytes": 444329,
+  "entries": 50000,
+  "verification": "UNVERIFIED",
+  "licence": "UNKNOWN",
+  "redistribution": "NOT CONFIRMED - the upstream source and licence of this list were never recorded when it was uploaded; see determination",
+  "determination": "Frequency-ordered conversational word list. Vocabulary overlaps ~98-100% with the OpenSubtitles frequency lists (HermitDave FrequencyWords 2018), but the SPECIFIC ORDERING does NOT match HermitDave (ordered-subsequence test 2026-09-01: <5% of entries in HermitDave order), so this is STRONG CONTENT SIMILARITY to OpenSubtitles-family vocabulary, NOT a proven copy of a specific list - the top-N conversational words are common to most frequency sources. Bundled via github.com/GBTechReviews/harmonikeyboard-dicts, which records no source or licence. Specific source/ordering UNCONFIRMED (inference).",
+  "probableLicence": "CC BY-SA 4.0 (probable - the OpenSubtitles/HermitDave data is CC BY-SA 4.0)",
+  "determinationBy": "HKeyboard ASSET_PROVENANCE.json (ordered-subsequence and vocabulary-overlap tests 2026-09-01); copied here 2026-09-24",
+  "recommendation": "REPLACE with a list built reproducibly from a licence-verified source (Tatoeba via generation/gen-tatoeba-words.py, as the Batch 2-10 lists are) or confirm the upstream licence; until then do not add NEW uses of this file",
+  "changes": [],
+  "note": "HKeyboard's BUNDLED it list was replaced on 2026-09-19 by a Tatoeba-built list (CC BY 2.0 FR, VERIFIED); this repository file is the OLDER list and is not that one."
+}

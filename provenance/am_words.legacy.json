@@ -1,0 +1,14 @@
+{
+  "file": "am_words.txt",
+  "sha256": "f01c28fc5a9225714b0181d8596e9a198dadbfa7b23dae763ada4ef75d8991e7",
+  "bytes": 3237,
+  "entries": 321,
+  "verification": "VERIFIED",
+  "licence": "HProductions original work",
+  "redistribution": "CONFIRMED - assistant-authored for HKeyboard (321 words), no third-party text",
+  "determination": "The 321-word starter seed written for HKeyboard on 2026-08-31 (hand-curated, not a frequency corpus). HKeyboard itself now bundles a larger 5,047-word list and no longer downloads this file.",
+  "probableLicence": "n/a",
+  "determinationBy": "HKeyboard ASSET_PROVENANCE.json (ordered-subsequence and vocabulary-overlap tests 2026-09-01); copied here 2026-09-24",
+  "recommendation": "keep; a speaker review of the homophone letters is still owed",
+  "changes": []
+}

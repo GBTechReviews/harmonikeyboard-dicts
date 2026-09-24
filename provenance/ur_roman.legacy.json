@@ -1,0 +1,15 @@
+{
+  "file": "ur_roman.txt",
+  "sha256": "0c12076e895c9455cd2548ca2644b26ac98d408c98df6d73ca1ef02e2b7ef226",
+  "bytes": 469269,
+  "entries": 22417,
+  "verification": "UNVERIFIED",
+  "licence": "UNKNOWN",
+  "redistribution": "NOT CONFIRMED - the upstream source and licence of this list were never recorded when it was uploaded; see determination",
+  "determination": "github.com/GBTechReviews/harmonikeyboard-dicts ur_roman.txt (the reference app's 'Urdu (Roman)' remote index), whose generator applied UrduRoman.ets's skeleton rules to a romanised Urdu word list. The repo records no source or licence for the underlying word list.",
+  "probableLicence": "UNKNOWN (probable CC BY-SA 4.0, OpenSubtitles-family vocabulary like ur_words.txt)",
+  "determinationBy": "HKeyboard ASSET_PROVENANCE.json (ordered-subsequence and vocabulary-overlap tests 2026-09-01); copied here 2026-09-24",
+  "recommendation": "REPLACE with a list built reproducibly from a licence-verified source (Tatoeba via generation/gen-tatoeba-words.py, as the Batch 2-10 lists are) or confirm the upstream licence; until then do not add NEW uses of this file",
+  "changes": [],
+  "format": "three tab-separated columns: consonant-skeleton key (lowercase a-z), Urdu word, positive integer frequency; sorted by key; see FORMATS.md"
+}

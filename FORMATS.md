@@ -27,8 +27,8 @@ Three tab-separated columns, sorted by the first:
 A key may carry many words (one row each); a (key, word) pair appears once.
 The skeleton of a romanised word is: lowercase it; keep the first letter (a vowel there
 becomes `a`); drop every later `a e i o u y w`; collapse a letter repeated in a row.
-`mein`, `mei` and `mai` all give `mn`/`m` families, so any spelling a typist uses meets
-the same row. HKeyboard's `RomanUrdu.skeleton` is the same function (RomanUrduTest pins
+`mein` gives `mn`, `mei` and `mai` give `m`; the reader looks a typed skeleton up exactly
+and as a prefix, so the three spellings meet the same rows. HKeyboard's `RomanUrdu.skeleton` is the same function (RomanUrduTest pins
 that every key is its own skeleton). The file is sorted by key so a reader can binary
 search it; HKeyboard reads it whole into a map.
 
