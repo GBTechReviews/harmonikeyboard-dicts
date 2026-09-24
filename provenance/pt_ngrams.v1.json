@@ -24,7 +24,7 @@
     "downloaded Tatoeba per-language sentence export (id<TAB>lang<TAB>text .tsv.bz2)",
     "bunzip2; kept column 3 (sentence text) only",
     "gen-ngrams.py: tokenise (letters + diacritics + apostrophe only, so URLs/emails/digits fragment away), hold out every 6th sentence for the disjoint test set, min-count 3, top-8 followers, caps per corpus size (see generation/README.md for the exact per-language command)",
-    "--stop 'tom,mary': the dominant Tatoeba placeholder names are excluded from n-grams so they do not dominate general predictions",
+    "--stop: the dominant Tatoeba placeholder names (Tom/Mary and their local forms; the list is in generation/README.md) are excluded from n-grams so they do not dominate general predictions",
     "deterministic gzip (mtime=0, level 9, OS byte 0xFF)"
   ]
 }

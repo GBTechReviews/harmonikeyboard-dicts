@@ -19,14 +19,19 @@ TRI_SEP = chr(1)                      # must match NgramPack.TRI_SEP
 SENT_SPLIT = re.compile(r"[.!?\n]+")
 
 
-def sentences(paths, word_re):
+def sentences(paths, word_re, drops, dropped):
     for p in paths:
         with open(p, encoding="utf-8", errors="ignore") as f:
-            text = f.read().lower()
-        for chunk in SENT_SPLIT.split(text):
-            toks = word_re.findall(chunk)
-            if len(toks) >= 2:
-                yield toks
+            for line in f:
+                # --drop: a corpus line (one Tatoeba sentence) matching any of
+                # the patterns is skipped whole, before lowercasing, and counted.
+                if drops and any(d.search(line) for d in drops):
+                    dropped[0] += 1
+                    continue
+                for chunk in SENT_SPLIT.split(line.lower()):
+                    toks = word_re.findall(chunk)
+                    if len(toks) >= 2:
+                        yield toks
 
 
 def main():
@@ -52,17 +57,28 @@ def main():
     # example people) would otherwise put "and mary" among the top bigrams. Any n-gram
     # whose context OR follower is a stop token is dropped; deterministic and documented.
     ap.add_argument("--stop", default="")
+    # Regexes (repeatable) matched against each corpus LINE in its original case;
+    # a matching line is dropped whole and the count is printed, so the record
+    # can say how much. For machine-generated sentence grids that a corpus
+    # carries (Tatoeba Italian: ~40,000 "Vai a costruire ponti in Grecia" and
+    # ~14,000 "Di che nazionalita sono i tuoi genitori?" permutations), which
+    # would otherwise make "costruire" the top follower of "a" and put every
+    # country name above ordinary vocabulary. Same option as the word-list
+    # generator's (HKeyboard gen-tatoeba-words.py --drop).
+    ap.add_argument("--drop", action="append", default=[])
     ap.add_argument("corpus", nargs="+")
     a = ap.parse_args()
 
     letters = "a-z" + re.escape(a.letters)
     word_re = re.compile(f"[{letters}][{letters}']*")
     stop = set(t for t in a.stop.lower().split(",") if t)
+    drops = [re.compile(d) for d in a.drop]
+    dropped = [0]
 
     bi, tri = {}, {}
     test_lines = []
     ho = 0
-    for i, toks in enumerate(sentences(a.corpus, word_re)):
+    for i, toks in enumerate(sentences(a.corpus, word_re, drops, dropped)):
         if a.holdout > 0 and i % a.holdout == 0:
             # held-out: emit test cases (subsampled), do NOT train on it. Cases that
             # touch a stop token are skipped too (predicting a placeholder name is not
@@ -116,7 +132,8 @@ def main():
         f.write("\n".join(test_lines) + "\n")
 
     print(f"pack {a.out}: {len(bi_rows)} bigrams, {len(tri_rows)} trigrams, "
-          f"{len(body.encode('utf-8'))} bytes; test {a.test}: {len(test_lines)} cases")
+          f"{len(body.encode('utf-8'))} bytes; test {a.test}: {len(test_lines)} cases"
+          + (f"; dropped {dropped[0]} corpus lines (--drop)" if drops else ""))
 
 
 if __name__ == "__main__":

@@ -84,6 +84,22 @@ SCHEMA_VERSION = 1
 MIN_ENGINE_VERSION = 1
 MIN_APP_VERSION = 9            # HKeyboard versionCode that first understands ngram packs
 GEN_VERSION = "gen-ngrams.py v1 + build-ngram-packs.py v1"
+# The published version of each language's pack (1 unless bumped). A pack whose
+# bytes change gets the next number here and a new input file; the old file
+# stays for the apps that bundle or cache it.
+#   it v2 (2026-09-20): rebuilt with gen-ngrams.py --drop for the two
+#   machine-generated Tatoeba sentence grids ("Vai a costruire ponti in
+#   Grecia", "Di che nazionalita sono i tuoi genitori?" - 53,840 sentences)
+#   that made "costruire" the top follower of "a" and "nazionalita" of "che"
+#   in v1. Same export line, retrieved 2026-09-20.
+PACK_VERSION = {"it": 2}
+# Languages whose pack was built with --stop (placeholder names); the list per
+# language is in generation/README.md.
+STOP_LANGS = ("en", "pl", "pt", "el", "it", "nl", "ru", "tr")
+# --drop patterns recorded in the provenance, per (lang, version).
+DROPS = {("it", 2): "--drop '(?i)^(Non )?(vado|vai|va|andiamo|andate|vanno) a costruire ' "
+                    "--drop '^\"?Di che nazionalit. (sono|erano) (i|le) ': 53,840 machine-"
+                    "generated grid sentences dropped whole before counting"}
 
 
 def sha256_bytes(b):
@@ -105,7 +121,8 @@ def deterministic_gzip(data: bytes) -> bytes:
 
 def build(lang, retrieval_date, source_version, notes, check=False):
     m = META[lang]
-    src_txt = os.path.join(REPO, "generation", "input", f"{lang}_ngrams.v1.txt")
+    ver = PACK_VERSION.get(lang, 1)
+    src_txt = os.path.join(REPO, "generation", "input", f"{lang}_ngrams.v{ver}.txt")
     if not os.path.isfile(src_txt):
         sys.exit(f"missing input pack {src_txt} (run gen-ngrams.py first; see README)")
     raw = open(src_txt, "rb").read()
@@ -114,7 +131,7 @@ def build(lang, retrieval_date, source_version, notes, check=False):
     if check:
         assert deterministic_gzip(raw) == gz, "gzip not deterministic!"
         assert gzip.decompress(gz) == raw, "gzip round-trip mismatch!"
-    fname = f"{lang}_ngrams.v1.txt.gz"
+    fname = f"{lang}_ngrams.v{ver}.txt.gz"
     out_path = os.path.join(REPO, "packs", fname)
     if os.path.isfile(out_path) and open(out_path, "rb").read() != gz:
         sys.exit(f"REFUSING to overwrite published {fname} with different bytes - bump the version")
@@ -124,7 +141,7 @@ def build(lang, retrieval_date, source_version, notes, check=False):
     entry = {
         "language": m["language"],
         "locale": m["locale"],
-        "packVersion": 1,
+        "packVersion": ver,
         "minEngineVersion": MIN_ENGINE_VERSION,
         "minAppVersion": MIN_APP_VERSION,
         "file": fname,
@@ -154,12 +171,13 @@ def build(lang, retrieval_date, source_version, notes, check=False):
         "min-count 3, top-8 followers, caps per corpus size (see generation/README.md for "
         "the exact per-language command)",
     ] + ([
-        "--stop 'tom,mary': the dominant Tatoeba placeholder names are excluded from "
-        "n-grams so they do not dominate general predictions"
-    ] if lang in ("en", "pl", "pt") else []) + [
+        "--stop: the dominant Tatoeba placeholder names (Tom/Mary and their local "
+        "forms; the list is in generation/README.md) are excluded from n-grams so "
+        "they do not dominate general predictions"
+    ] if lang in STOP_LANGS else []) + ([DROPS[(lang, ver)]] if (lang, ver) in DROPS else []) + [
         "deterministic gzip (mtime=0, level 9, OS byte 0xFF)",
     ]
-    with open(os.path.join(REPO, "provenance", f"{lang}_ngrams.v1.json"), "w", encoding="utf-8", newline="\n") as f:
+    with open(os.path.join(REPO, "provenance", f"{lang}_ngrams.v{ver}.json"), "w", encoding="utf-8", newline="\n") as f:
         json.dump(prov, f, ensure_ascii=False, indent=2)
         f.write("\n")
     print(f"{lang}: {fname} gz={len(gz)} (uncompressed {len(raw)}) sha={gz_sha[:12]}...")
@@ -192,8 +210,8 @@ def main():
     notes.setdefault("tr", "Turkish next-word context (bigram+trigram) from Tatoeba example sentences.")
     # Packs retrieved outside the original batch carry their own dates, so
     # rebuilding does not relabel the existing entries.
-    retrieved = {"pt": "2026-09-05", "el": "2026-09-18", "it": "2026-09-18", "nl": "2026-09-18", "ru": "2026-09-18", "tr": "2026-09-18"}
-    versions = {"pt": "Tatoeba export 2026-09-05", "el": "Tatoeba export 2026-09-18", "it": "Tatoeba export 2026-09-18",
+    retrieved = {"pt": "2026-09-05", "el": "2026-09-18", "it": "2026-09-20", "nl": "2026-09-18", "ru": "2026-09-18", "tr": "2026-09-18"}
+    versions = {"pt": "Tatoeba export 2026-09-05", "el": "Tatoeba export 2026-09-18", "it": "Tatoeba export 2026-09-20",
                 "nl": "Tatoeba export 2026-09-18", "ru": "Tatoeba export 2026-09-18", "tr": "Tatoeba export 2026-09-18"}
     packs = [build(l, retrieved.get(l, a.retrieval_date),
                    versions.get(l, a.source_version), notes[l], a.check) for l in langs]

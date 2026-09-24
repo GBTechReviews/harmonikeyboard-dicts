@@ -96,6 +96,21 @@ python gen-ngrams.py --lang el --source tatoeba-ell-2026-09-18   --letters "αβ
 python gen-ngrams.py --lang it --source tatoeba-ita-2026-09-18 --letters "àèéìíòóùú" --stop "tom,mary" \
   --holdout 6 --test-keep 400 --min-count 3 --max-bi 60000 --max-tri 50000 \
   --out input/it_ngrams.v1.txt --test it_ngrams_test.tsv ita_text.txt
+# Italian v2 (2026-09-20): the export carries two MACHINE-GENERATED sentence grids
+# (~40,000 "Vai a costruire ponti in Grecia" - every person of andare x noun x
+# country - and ~14,000 "Di che nazionalita sono i tuoi genitori?"), which made
+# "costruire" the top follower of "a" (33,282) and "nazionalita" of "che" in v1.
+# --drop skips a matching corpus line whole, before counting (53,840 dropped;
+# the same two patterns HKeyboard's gen-tatoeba-words.py uses for the word list).
+# Export retrieved 2026-09-20, archive sha256
+# 4aa9d2b22e8316894bba71ff31479d757bc507ca508d9f5e9aec491ec38547a4
+# (unpacked tsv 7feb8fe61197d3f9787a3ccd8884b4e3b1b21298eea48f5fb9e341345366b2f6).
+# v1 stays published for the apps that bundle it.
+python gen-ngrams.py --lang it --source tatoeba-ita-2026-09-20 --letters "àèéìíòóùú" --stop "tom,mary" \
+  --drop '(?i)^(Non )?(vado|vai|va|andiamo|andate|vanno) a costruire ' \
+  --drop '^"?Di che nazionalit. (sono|erano) (i|le) ' \
+  --holdout 6 --test-keep 400 --min-count 3 --max-bi 60000 --max-tri 50000 \
+  --out input/it_ngrams.v2.txt --test it_ngrams_test.v2.tsv ita_text.txt
 python gen-ngrams.py --lang nl --source tatoeba-nld-2026-09-18 --letters "éëïöüèáäó" --stop "tom,mary" \
   --holdout 6 --test-keep 400 --min-count 3 --max-bi 30000 --max-tri 25000 \
   --out input/nl_ngrams.v1.txt --test nl_ngrams_test.tsv nld_text.txt
