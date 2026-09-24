@@ -221,6 +221,26 @@ def check_dict_manifest():
             fail("manifest.json %s: no canonical BCP 47 tag" % code)
 
 
+# The packs are compressed by the builder's Python, whose zlib is zlib-ng (CPython 3.14 for
+# Windows). Deflate output is only byte-stable for ONE compressor implementation: the same
+# content through stock zlib (the Linux CI runner's Python) gives different, equally valid
+# bytes. So the byte-for-byte rebuild check runs where the compressor matches; everywhere
+# else the gzip header is checked field by field and the content by its checksums.
+BUILD_ZLIB = "1.3.1.zlib-ng"
+NOTES = []
+
+
+def same_compressor():
+    import zlib
+    return zlib.ZLIB_RUNTIME_VERSION == BUILD_ZLIB
+
+
+def gzip_header_ok(gz):
+    # magic, deflate, no flags (no file name), mtime 0, XFL 2 (level 9), OS byte 0xFF
+    return (len(gz) > 18 and gz[:4] == bytes([0x1F, 0x8B, 8, 0]) and gz[4:8] == bytes(4)
+            and gz[8] == 2 and gz[9] == 0xFF)
+
+
 def regzip(data):
     # build-ngram-packs.py's deterministic_gzip, restated so the gate needs no import
     import io
@@ -293,7 +313,10 @@ def check_ngram_manifest(prov):
         except Exception as e:  # noqa: BLE001
             fail("ngram-manifest %s: packs/%s does not decompress (%s)" % (lang, f, e))
             continue
-        if regzip(raw) != gz:
+        if not gzip_header_ok(gz):
+            fail("ngram-manifest %s: packs/%s gzip header is not the deterministic one "
+                 "(no name, mtime 0, level 9, OS 0xFF)" % (lang, f))
+        if same_compressor() and regzip(raw) != gz:
             fail("ngram-manifest %s: packs/%s is not the deterministic gzip of its content "
                  "(mtime 0, level 9, OS 0xFF) - it cannot be rebuilt byte for byte" % (lang, f))
         if len(raw) != p.get("uncompressedSize"):
@@ -373,6 +396,12 @@ def main():
     check_dict_manifest()
     check_ngram_manifest(prov)
     check_provenance(prov)
+    if not same_compressor():
+        import zlib
+        NOTES.append("zlib %s is not the packs' builder (%s): the byte-for-byte gzip rebuild check "
+                     "was skipped; headers and content checksums were checked" % (zlib.ZLIB_RUNTIME_VERSION, BUILD_ZLIB))
+    for n in NOTES:
+        print("NOTE", n)
     for w in WARNS:
         print("WARN", w)
     for f in FAILS:
