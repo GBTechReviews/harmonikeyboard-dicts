@@ -194,7 +194,6 @@ film
 gələcək
 bölüm
 gel
-gel
 almaq
 Allah
 bəlli
@@ -665,7 +664,6 @@ düşünmə
 dərgi
 kömür
 qazanma
-amin
 amin
 başlıca
 dünyasında
@@ -1249,7 +1247,6 @@ qısıq
 almalı
 banu
 bayat
-bayat
 cisim
 dayanılmaz
 dənizaltı
@@ -1332,7 +1329,6 @@ anlayışlı
 anmaq
 azalan
 boyalı
-bərbər
 bərbər
 bəsləmə
 bəşəri
@@ -1890,8 +1886,6 @@ antropoloji
 aspirin
 boran
 bənzətmə
-bənzətmə
-cəsarətli
 cəsarətli
 faydasız
 fitil
@@ -10430,7 +10424,6 @@ bənzəmə
 bənzərli
 bənzərsizlik
 bənzətmək
-bənzətmək
 bənzətməli
 bənzətməsiz
 bənzəyiş
@@ -12087,7 +12080,6 @@ daraqlanma
 daraqlanmaq
 daraqlatma
 daraqlatmaq
-daraqlı
 daraqlı
 daraqlıca
 daraqlıq
@@ -15127,7 +15119,6 @@ döyüşdürmə
 döyüşdürmək
 döyüşdürülmə
 döyüşkən
-döyüşkən
 döyüşkənlik
 döyüşlü
 döyüşlərarası
@@ -17211,7 +17202,6 @@ ensiklopediyaşünaslıq
 ensiklopedizm
 ensiz
 ensizlik
-ensizlətmə
 ensizlətmə
 ensizləşdirilmə
 ensizləşdirilmək
@@ -20032,7 +20022,6 @@ göbələkbaş
 göbələkbaşlı
 göbələkboy
 göbələkboylu
-göbələkcik
 göbələkcik
 göbələkkimi
 göbələkli
@@ -23010,7 +22999,6 @@ ibrətsiz
 ibrətverici
 ibtida
 ibtidai
-ibtidai
 ibtidailik
 icadçı
 icadçılıq
@@ -25246,7 +25234,6 @@ iynəvari
 iynəvurma
 iynəyarpaq
 iynəyarpaqlı
-iynəyarpaqlı
 iynəyəoxşar
 iynəçi
 iynəşəkilli
@@ -27160,7 +27147,6 @@ kirpibalığı
 kirpibaş
 kirpiburun
 kirpikli
-kirpikli
 kirpiksiz
 kirpiksizlik
 kirpiotu
@@ -27740,7 +27726,6 @@ kommersiyalaşma
 kommersiyalaşmaq
 kommuna
 kommunal
-kommunikasiya
 kommunikasiya
 kommunikativ
 kommunikativistika
@@ -28971,7 +28956,6 @@ kvantlaşma
 kvantlaşmaq
 kvantor
 kvark
-kvark
 kvars
 kvarsit
 kvarslı
@@ -29910,7 +29894,6 @@ kəllədaxili
 kəlləgöz
 kəlləgözlük
 kəlləli
-kəlləli
 kəlləlik
 kəllələmə
 kəllələmək
@@ -29920,7 +29903,6 @@ kəlləmanqo
 kəlləmayallaq
 kəlləpaça
 kəlləpaçaçı
-kəlləsiz
 kəlləsiz
 kəlləçarx
 kəlləçarxçı
@@ -34646,14 +34628,9 @@ xırdalamaq
 xırdalanma
 xırdalanmaq
 xırdalatdırma
-xırdalatdırma
-xırdalatdırmaq
 xırdalatdırmaq
 xırdalatma
-xırdalatma
 xırdalatmaq
-xırdalatmaq
-xırdalayıcı
 xırdalayıcı
 xırdalaşdırma
 xırdalaşdırmaqxırdalaşma
@@ -34661,12 +34638,8 @@ xırdalaşdırılma
 xırdalaşdırılmaq
 xırdalaşma
 xırdalaşmaq
-xırdalaşmaq
-xırdalıq
 xırdalıq
 xırdaləçək
-xırdaləçək
-xırdaləçəkli
 xırdaləçəkli
 xırdameyvə
 xırdameyvəli
@@ -36120,7 +36093,6 @@ xəşəmbül
 çoxdiş
 çoxdişcikli
 çoxdişciklilik
-çoxdişli
 çoxdişli
 çoxdişlilik
 çoxdişəkli
@@ -37957,7 +37929,6 @@ xəşəmbül
 ərimək
 əriməz
 əriməzlik
-ərincək
 ərincək
 ərincəkkimi
 ərincəklik
