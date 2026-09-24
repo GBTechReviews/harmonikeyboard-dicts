@@ -1,0 +1,38 @@
+{
+  "language": "Italian",
+  "packLocale": "it",
+  "file": "it_ngrams.uncapped.v3.txt.gz",
+  "status": "CANDIDATE - not published; not in manifests/ngram-manifest.json",
+  "basedOn": "packs/it_ngrams.v3.txt.gz (same corpus, generator, settings and held-out split; only the row caps differ)",
+  "fileSize": 943541,
+  "uncompressedSize": 3664257,
+  "sha256": "435e89d9ef4c89f2dbf94b73e2e18d7d53dfbd570562ef5d478a5856f5309ff7",
+  "bodySha256": "1be195349eba139888f024ea12abdf10efb2e3e33a250caf7a19e81f39ada788",
+  "source": "Tatoeba Project",
+  "sourceUrl": "https://downloads.tatoeba.org/exports/per_language/ita/ita_sentences.tsv.bz2",
+  "sourceSha256": "4aa9d2b22e8316894bba71ff31479d757bc507ca508d9f5e9aec491ec38547a4",
+  "retrievalDate": "2026-09-20",
+  "licence": "CC BY 2.0 FR",
+  "attribution": "Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR",
+  "generationCommand": "python build-candidates.py --corpora <dir> it  (= python gen-ngrams.py --lang it --source tatoeba-ita-2026-09-20 --tsv --scripts latin --holdout 6 --test-keep 400 --min-count 3 --top-followers 8 --max-bi 100000000 --max-tri 100000000 --stop tom,mary --drop (?i)^(Non )?(vado|vai|va|andiamo|andate|vanno) a costruire  --drop ^\"?Di che nazionalit. (sono|erano) (i|le) )",
+  "heldOutTest": {
+    "file": "generation/it_ngrams_test.v3.tsv",
+    "sha256": "b428fa02ccc3c2ef459b934a0ab66e065a4fdb614d6563e90088f6347fdb1e52"
+  },
+  "capping": {
+    "bigram": {
+      "contexts_eligible": 16503,
+      "contexts_kept": 16503,
+      "rows_eligible": 50042,
+      "rows_kept": 50042,
+      "support_kept_share": 1.0
+    },
+    "trigram": {
+      "contexts_eligible": 66959,
+      "contexts_kept": 66959,
+      "rows_eligible": 131774,
+      "rows_kept": 131774,
+      "support_kept_share": 1.0
+    }
+  }
+}

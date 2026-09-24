@@ -119,3 +119,5 @@ CC BY 2.0 FR with the Tatoeba attribution.
 | `ur_words.txt` | UNLICENSED (origin unresolved - no licence is granted for this file; it is not covered by the repository's MIT licence) | UNVERIFIED | - | `provenance/ur_words.legacy.json` |
 | `uz_words.txt` | CC BY 2.0 FR | VERIFIED | Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR | `provenance/uz_words.v1.json` |
 | `vi_words.txt` | UNLICENSED (origin unresolved - no licence is granted for this file; it is not covered by the repository's MIT licence) | UNVERIFIED | - | `provenance/vi_words.legacy.json` |
+| `candidates/it_ngrams.uncapped.v3.txt.gz` | CC BY 2.0 FR | CANDIDATE (unpublished) | Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR | `candidates/it_ngrams.uncapped.v3.json` |
+| `candidates/ru_ngrams.uncapped.v2.txt.gz` | CC BY 2.0 FR | CANDIDATE (unpublished) | Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR | `candidates/ru_ngrams.uncapped.v2.json` |

@@ -28,6 +28,16 @@ def rows():
         if status == "UNVERIFIED":
             attribution = "-"
         out.append((where, r.get("licence", ""), status, attribution, "provenance/" + name))
+    # candidates/: unpublished candidate packs (generation/build-candidates.py), each with
+    # its record beside it - data like any other, so listed with its licence
+    cdir = os.path.join(REPO, "candidates")
+    if os.path.isdir(cdir):
+        for name in sorted(os.listdir(cdir)):
+            if not name.endswith(".json"):
+                continue
+            r = json.load(open(os.path.join(cdir, name), encoding="utf-8"))
+            out.append(("candidates/" + r["file"], r["licence"], "CANDIDATE (unpublished)",
+                        r.get("attribution", ""), "candidates/" + name))
     return out
 
 

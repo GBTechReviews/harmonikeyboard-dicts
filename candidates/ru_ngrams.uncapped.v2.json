@@ -1,0 +1,38 @@
+{
+  "language": "Russian",
+  "packLocale": "ru",
+  "file": "ru_ngrams.uncapped.v2.txt.gz",
+  "status": "CANDIDATE - not published; not in manifests/ngram-manifest.json",
+  "basedOn": "packs/ru_ngrams.v2.txt.gz (same corpus, generator, settings and held-out split; only the row caps differ)",
+  "fileSize": 1275089,
+  "uncompressedSize": 6459760,
+  "sha256": "98f2854106d0ae9dd8adfd61814162ba7e627468359655b32bb69e011865c97f",
+  "bodySha256": "6ca8c022222c679a95f841d50a1d8620df6904e97212a7374969b1d3a130961f",
+  "source": "Tatoeba Project",
+  "sourceUrl": "https://downloads.tatoeba.org/exports/per_language/rus/rus_sentences.tsv.bz2",
+  "sourceSha256": "e6406a4b2ea74efb37267b70a83ed00eb8e7c5ff34d15ed3e30b2e55077ffd07",
+  "retrievalDate": "2026-09-24",
+  "licence": "CC BY 2.0 FR",
+  "attribution": "Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR",
+  "generationCommand": "python build-candidates.py --corpora <dir> ru  (= python gen-ngrams.py --lang ru --source tatoeba-rus-2026-09-24 --tsv --scripts cyrillic --holdout 6 --test-keep 400 --min-count 3 --top-followers 8 --max-bi 100000000 --max-tri 100000000 --stop том,тома,тому,томом,томе,мэри,мэрии,мэрией)",
+  "heldOutTest": {
+    "file": "generation/ru_ngrams_test.v2.tsv",
+    "sha256": "fa61ba1d7b0f16d6dd8ff191c85d4baccce678bd621b108895b7e4239360a096"
+  },
+  "capping": {
+    "bigram": {
+      "contexts_eligible": 24883,
+      "contexts_kept": 24883,
+      "rows_eligible": 66184,
+      "rows_kept": 66184,
+      "support_kept_share": 1.0
+    },
+    "trigram": {
+      "contexts_eligible": 70837,
+      "contexts_kept": 70837,
+      "rows_eligible": 132095,
+      "rows_kept": 132095,
+      "support_kept_share": 1.0
+    }
+  }
+}
