@@ -1,0 +1,8 @@
+# Every text file is stored and checked out with LF. The published SHA-256 values are
+# over LF bytes (what raw.githubusercontent.com serves), so a CRLF checkout on Windows
+# made local hashes disagree with the manifests for no reason.
+* text=auto eol=lf
+*.gz binary
+*.bz2 binary
+*.webp binary
+*.png binary
