@@ -1,0 +1,56 @@
+{
+  "language": "Tamil",
+  "locale": "ta-IN",
+  "file": "ta_words.txt",
+  "role": "word list (frequency-ordered)",
+  "lines": 3262,
+  "fileSize": 71392,
+  "sha256": "043539b69ad8c10006877f7d364a2a185c1c7c03d24eecf65fe0044819507569",
+  "seedOnly": true,
+  "sources": [
+    {
+      "source": "Tatoeba Project",
+      "corpus": "tatoeba tam_sentences",
+      "sourceUrl": "https://downloads.tatoeba.org/exports/per_language/tam/tam_sentences.tsv.bz2",
+      "sourceSha256": "c40ff7e21a1b57a7b753806cf0e737b71608151a8714aaa40831d7a25eac2139",
+      "retrievalDate": "2026-09-24",
+      "licence": "CC BY 2.0 FR",
+      "attribution": "Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR"
+    },
+    {
+      "source": "Mozilla Common Voice sentence data",
+      "corpus": "common-voice/common-voice server/data/ta/sentence-collector.txt",
+      "sourceUrl": "https://raw.githubusercontent.com/common-voice/common-voice/d74285cca88c73ba8c54122bb25d4917d7e04973/server/data/ta/sentence-collector.txt",
+      "sourceSha256": "40c24978e11f06523ba9cadb85cfd56f7195cc0a4de5d7cfed1fd7c03ff964b5",
+      "retrievalDate": "2026-09-24",
+      "licence": "CC0 1.0 (public domain dedication)",
+      "licenceEvidence": "server/data/LICENSE in the same repository is the CC0 1.0 Universal text; the repository README: sentence text in /server/data is released under CC0 (the Europarl-derived files are the stated exception; none is used here)",
+      "attribution": "not required (CC0); credited: Mozilla Common Voice contributors"
+    }
+  ],
+  "licence": "CC BY 2.0 FR (the Tatoeba part; the Common Voice part is CC0)",
+  "attribution": "Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR; Mozilla Common Voice sentence contributors (CC0)",
+  "verification": "VERIFIED",
+  "generationVersion": "gen-tatoeba-words.py (strict decoding, 2026-09-24)",
+  "generationCommand": "python gen-tatoeba-words.py --lang ta --script tamil --min-count 2 --stop 'டாம்,டோம்,மேரி,மேரியுடன்,மேரியை' --out ta_words.txt tam_text.txt ta_sentence-collector.txt",
+  "inputPreparation": "tam_text.txt = column 3 of tam_sentences.tsv (one sentence per line); the Common Voice files are used as downloaded",
+  "creationDate": "2026-09-24",
+  "measurement": {
+    "heldOut": "1 in 6 Common Voice sentences held out by SHA-256 of the sentence; lists built from Tatoeba + the other 5 in 6 with the same settings; share of held-out word tokens the list contains",
+    "previousList": {
+      "words": 299,
+      "heldOutTokenCoverage": 0.082
+    },
+    "expandedList": {
+      "words": 2744,
+      "heldOutTokenCoverage": 0.2963
+    },
+    "heldOutTokens": 4023,
+    "note": "the shipped list is built from ALL the sentences (it is larger than the measured one)"
+  },
+  "previousVersion": {
+    "record": "ta_words.v1.json",
+    "sha256": "55c0be4cea0a7bd94f349d2589c4f754859058c3f199b9f9a3c11c25e2fa82fc",
+    "lines": 299
+  }
+}

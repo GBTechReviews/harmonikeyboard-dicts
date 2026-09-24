@@ -1,0 +1,66 @@
+{
+  "language": "Kyrgyz",
+  "locale": "ky-KG",
+  "file": "ky_words.txt",
+  "role": "word list (frequency-ordered)",
+  "lines": 3974,
+  "fileSize": 59078,
+  "sha256": "a2741b179caa0b0e0b06cbfc7706170ab15edea6755750ca37df9a190e225b0d",
+  "seedOnly": true,
+  "sources": [
+    {
+      "source": "Tatoeba Project",
+      "corpus": "tatoeba kir_sentences",
+      "sourceUrl": "https://downloads.tatoeba.org/exports/per_language/kir/kir_sentences.tsv.bz2",
+      "sourceSha256": "63daa7a606067aa79877d3a4ddccb1ed83b51dcf10a299f29ab419a4e450d26c",
+      "retrievalDate": "2026-09-24",
+      "licence": "CC BY 2.0 FR",
+      "attribution": "Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR"
+    },
+    {
+      "source": "Mozilla Common Voice sentence data",
+      "corpus": "common-voice/common-voice server/data/ky/kloop.txt",
+      "sourceUrl": "https://raw.githubusercontent.com/common-voice/common-voice/d74285cca88c73ba8c54122bb25d4917d7e04973/server/data/ky/kloop.txt",
+      "sourceSha256": "38c6926bf36dd80f39aa046c9dc639f4c482cd804dc06eaba7063dd11f94415c",
+      "retrievalDate": "2026-09-24",
+      "licence": "CC0 1.0 (public domain dedication)",
+      "licenceEvidence": "server/data/LICENSE in the same repository is the CC0 1.0 Universal text; the repository README: sentence text in /server/data is released under CC0 (the Europarl-derived files are the stated exception; none is used here)",
+      "attribution": "not required (CC0); credited: Mozilla Common Voice contributors"
+    },
+    {
+      "source": "Mozilla Common Voice sentence data",
+      "corpus": "common-voice/common-voice server/data/ky/sentence-collector.txt",
+      "sourceUrl": "https://raw.githubusercontent.com/common-voice/common-voice/d74285cca88c73ba8c54122bb25d4917d7e04973/server/data/ky/sentence-collector.txt",
+      "sourceSha256": "f29295fce1846b6c9073b2044e156736ba2a019a20f34f5982eb03de5cf8fe96",
+      "retrievalDate": "2026-09-24",
+      "licence": "CC0 1.0 (public domain dedication)",
+      "licenceEvidence": "server/data/LICENSE in the same repository is the CC0 1.0 Universal text; the repository README: sentence text in /server/data is released under CC0 (the Europarl-derived files are the stated exception; none is used here)",
+      "attribution": "not required (CC0); credited: Mozilla Common Voice contributors"
+    }
+  ],
+  "licence": "CC BY 2.0 FR (the Tatoeba part; the Common Voice part is CC0)",
+  "attribution": "Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR; Mozilla Common Voice sentence contributors (CC0)",
+  "verification": "VERIFIED",
+  "generationVersion": "gen-tatoeba-words.py (strict decoding, 2026-09-24)",
+  "generationCommand": "python gen-tatoeba-words.py --lang ky --script cyrillic --min-count 2 --stop 'tom,mary,john,jim,mike,ken,sami,layla,jane,bill,bob,jack,maria,mari,том,томдун' --out ky_words.txt kir_text.txt ky_kloop.txt ky_sentence-collector.txt",
+  "inputPreparation": "kir_text.txt = column 3 of kir_sentences.tsv (one sentence per line); the Common Voice files are used as downloaded",
+  "creationDate": "2026-09-24",
+  "measurement": {
+    "heldOut": "1 in 6 Common Voice sentences held out by SHA-256 of the sentence; lists built from Tatoeba + the other 5 in 6 with the same settings; share of held-out word tokens the list contains",
+    "previousList": {
+      "words": 434,
+      "heldOutTokenCoverage": 0.3153
+    },
+    "expandedList": {
+      "words": 3453,
+      "heldOutTokenCoverage": 0.6839
+    },
+    "heldOutTokens": 5738,
+    "note": "the shipped list is built from ALL the sentences (it is larger than the measured one)"
+  },
+  "previousVersion": {
+    "record": "ky_words.v1.json",
+    "sha256": "e708282f27da34d2b56bfbbcaa423d0c80d9410b11542f2ad01669f7580ff10d",
+    "lines": 434
+  }
+}

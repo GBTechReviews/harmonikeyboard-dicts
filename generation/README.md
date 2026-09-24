@@ -1,5 +1,43 @@
 # Generating the next-word (n-gram) packs
 
+## Generator v2 (2026-09-24) - the current packs
+
+Every pack in the manifest is now built by **generator v2** (`gen-ngrams.py` + the shared
+text pipeline `hktext.py`); the v1 steps further down are kept because they rebuild the
+published v1 files byte for byte (with `legacy/gen-ngrams-v1.py`, the generator they were
+built with). What v2 fixes, and the measured effect, are in `RELEASE_NOTES.md` and the
+provenance record beside each pack.
+
+```bash
+# 1. Fetch the exports (keep the .bz2 - the generator streams it; record the SHA-256).
+for L in deu spa fra eng pol por ell ita nld rus tur; do
+  curl -sO "https://downloads.tatoeba.org/exports/per_language/$L/${L}_sentences.tsv.bz2"
+done
+sha256sum *_sentences.tsv.bz2
+
+# 2. Build every input pack + its held-out test sample + a build record
+#    (builds/<code>_ngrams.v<N>.build.json: exact command, input SHA-256, every count).
+#    Settings per language live in languages.json; the version in build-ngram-packs.py.
+python build-inputs.py --corpora <dir> --retrieved de=2026-09-24 --retrieved es=2026-09-24 ...
+
+# 3. Gzip deterministically, write provenance + the manifest (today's date).
+python build-ngram-packs.py --check
+
+# 4. Gate: the tests and the validator must both pass.
+python -m unittest discover -s tests
+python validate.py
+```
+
+`eval-ab.py` prepares the before/after measurement: it trains the v1 generator, v2 with v1's
+cap (the ablation) and v2 on the SAME training sentences and writes the held-out test set;
+HKeyboard's `NgramAbEvaluationTest` scores them through the app's real prediction code.
+
+**Byte-identical rebuilds need the same export.** Tatoeba publishes a new export every
+week and keeps no old ones, so a pack is reproducible from the archive whose SHA-256 its
+provenance names - keep those archives (they are CC BY 2.0 FR and may be redistributed,
+e.g. as release assets). Python and its Unicode database are recorded too.
+
+
 Fully reproducible. Same inputs → byte-identical packs (verified: `build-ngram-packs.py --check`
 and a second run produce identical SHA-256s).
 
@@ -45,7 +83,7 @@ these packs use Tatoeba (CC BY 2.0 FR, unambiguously commercial-safe and primary
 verified). Leipzig can be substituted later if HKeyboard's owner confirms its exact terms -
 the pipeline is identical.
 
-## Steps
+## Steps (generator v1 - the published v1 packs)
 
 ```bash
 # 1. Download + decompress + keep only the sentence text column (col 3):

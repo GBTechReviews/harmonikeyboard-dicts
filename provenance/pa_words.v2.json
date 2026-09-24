@@ -1,0 +1,56 @@
+{
+  "language": "Punjabi",
+  "locale": "pa-IN",
+  "file": "pa_words.txt",
+  "role": "word list (frequency-ordered)",
+  "lines": 7641,
+  "fileSize": 117693,
+  "sha256": "04c65e2eebb9b959e5f8a9261fe78ae4d31013f02294b5fbc100411fd255cf42",
+  "seedOnly": true,
+  "sources": [
+    {
+      "source": "Tatoeba Project",
+      "corpus": "tatoeba pan_sentences",
+      "sourceUrl": "https://downloads.tatoeba.org/exports/per_language/pan/pan_sentences.tsv.bz2",
+      "sourceSha256": "30673a1d9e9b07c9d4e27fbe54ce63bb1beeb716f90dab0687aa63f182cbc3c8",
+      "retrievalDate": "2026-09-24",
+      "licence": "CC BY 2.0 FR",
+      "attribution": "Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR"
+    },
+    {
+      "source": "Mozilla Common Voice sentence data",
+      "corpus": "common-voice/common-voice server/data/pa-IN/sentence-collector.txt",
+      "sourceUrl": "https://raw.githubusercontent.com/common-voice/common-voice/d74285cca88c73ba8c54122bb25d4917d7e04973/server/data/pa-IN/sentence-collector.txt",
+      "sourceSha256": "aee5e8e02164634c132832b4f13f20f869c2b289c1ffe9c59d7fd08afd9463eb",
+      "retrievalDate": "2026-09-24",
+      "licence": "CC0 1.0 (public domain dedication)",
+      "licenceEvidence": "server/data/LICENSE in the same repository is the CC0 1.0 Universal text; the repository README: sentence text in /server/data is released under CC0 (the Europarl-derived files are the stated exception; none is used here)",
+      "attribution": "not required (CC0); credited: Mozilla Common Voice contributors"
+    }
+  ],
+  "licence": "CC BY 2.0 FR (the Tatoeba part; the Common Voice part is CC0)",
+  "attribution": "Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR; Mozilla Common Voice sentence contributors (CC0)",
+  "verification": "VERIFIED",
+  "generationVersion": "gen-tatoeba-words.py (strict decoding, 2026-09-24)",
+  "generationCommand": "python gen-tatoeba-words.py --lang pa --script gurmukhi --min-count 2 --stop 'ਟੌਮ,ਟੋਮ,ਮੈਰੀ' --out pa_words.txt pan_text.txt pa-IN_sentence-collector.txt",
+  "inputPreparation": "pan_text.txt = column 3 of pan_sentences.tsv (one sentence per line); the Common Voice files are used as downloaded",
+  "creationDate": "2026-09-24",
+  "measurement": {
+    "heldOut": "1 in 6 Common Voice sentences held out by SHA-256 of the sentence; lists built from Tatoeba + the other 5 in 6 with the same settings; share of held-out word tokens the list contains",
+    "previousList": {
+      "words": 178,
+      "heldOutTokenCoverage": 0.37
+    },
+    "expandedList": {
+      "words": 6715,
+      "heldOutTokenCoverage": 0.8076
+    },
+    "heldOutTokens": 17466,
+    "note": "the shipped list is built from ALL the sentences (it is larger than the measured one)"
+  },
+  "previousVersion": {
+    "record": "pa_words.v1.json",
+    "sha256": "a26841bacea28887d2638ea94da2dcbfa25405779e42f2cd020feb2bd363ce45",
+    "lines": 178
+  }
+}

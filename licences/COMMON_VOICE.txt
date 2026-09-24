@@ -1,0 +1,20 @@
+Mozilla Common Voice sentence data - licence
+=============================================
+
+Used for: pa_words.txt, ta_words.txt, ky_words.txt (2026-09-24), together with Tatoeba
+sentences (see TATOEBA.txt). Each list's provenance record (provenance/<code>_words.v2.json)
+names the exact files and their SHA-256.
+
+Source:     https://github.com/common-voice/common-voice, directory server/data/
+            (commit d74285cca88c73ba8c54122bb25d4917d7e04973)
+            files: pa-IN/sentence-collector.txt, ta/sentence-collector.txt,
+                   ky/kloop.txt, ky/sentence-collector.txt
+Retrieved:  2026-09-24
+Licence:    CC0 1.0 Universal (public domain dedication)
+Evidence:   server/data/LICENSE in that repository is the CC0 1.0 Universal legal code;
+            the repository README ("Licensing and content source") states that the
+            sentence text in /server/data is released under CC0, naming the Europarl-
+            derived files (europarl-VERSION-LANG.txt) as the exception. No Europarl file
+            is used here.
+
+CC0 requires no attribution. The Common Voice contributors are credited anyway.
