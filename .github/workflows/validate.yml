@@ -5,9 +5,11 @@
 #     manifests (sizes, SHA-256s, versions, tags, aliases, dates), broken pack bodies
 #   - the generator tests: the cap regression, byte-identical output, strict decoding,
 #     the leak-free train/test split, casing, NFC, apostrophes, every writing system
-#   - determinism: validate.py re-gzips every published pack's content and requires
-#     the published bytes back exactly (the builds are deterministic; the plain inputs
-#     are rebuilt from the corpus archives named in provenance, not stored here)
+#   - determinism: validate.py checks every published pack's gzip header field by field
+#     and its content by checksum; the byte-for-byte re-gzip runs only under the packs'
+#     own compressor (zlib-ng - this runner's stock zlib compresses the same content to
+#     different valid bytes, so here it prints a NOTE instead). The plain inputs are
+#     rebuilt from the corpus archives named in provenance, not stored here
 #   - prediction regressions: pack_gate.py scores every v2+ pack on its own held-out
 #     sample and fails below the floors / over the size ceilings in languages.json
 # Python is pinned because the Unicode database (NFC, letter categories) ships with
