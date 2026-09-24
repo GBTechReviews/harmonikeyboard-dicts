@@ -1,0 +1,25 @@
+# The data gate. Runs on every push and pull request; a red run blocks a merge.
+#   - generation/validate.py: malformed word lists, missing provenance, invalid
+#     manifests (sizes, SHA-256s, versions, tags, aliases, dates), broken pack bodies
+#   - the generator tests: the cap regression, byte-identical output, strict decoding,
+#     the leak-free train/test split, casing, NFC, apostrophes, every writing system
+#   - determinism: every published v2+ pack is re-gzipped from its plain input and
+#     must reproduce its manifest SHA-256 byte for byte (build-ngram-packs --verify)
+# Python is pinned because the Unicode database (NFC, letter categories) ships with
+# it and moves the output; provenance records the version each pack was built with.
+name: validate
+on: [push, pull_request]
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+      - name: Unicode version
+        run: python -c "import unicodedata, sys; print(sys.version, unicodedata.unidata_version)"
+      - name: Validate data, manifests and provenance
+        run: python generation/validate.py
+      - name: Generator tests
+        run: python -m unittest discover -s generation/tests -v
