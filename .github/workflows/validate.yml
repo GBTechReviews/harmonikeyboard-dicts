@@ -3,8 +3,11 @@
 #     manifests (sizes, SHA-256s, versions, tags, aliases, dates), broken pack bodies
 #   - the generator tests: the cap regression, byte-identical output, strict decoding,
 #     the leak-free train/test split, casing, NFC, apostrophes, every writing system
-#   - determinism: every published v2+ pack is re-gzipped from its plain input and
-#     must reproduce its manifest SHA-256 byte for byte (build-ngram-packs --verify)
+#   - determinism: validate.py re-gzips every published pack's content and requires
+#     the published bytes back exactly (the builds are deterministic; the plain inputs
+#     are rebuilt from the corpus archives named in provenance, not stored here)
+#   - prediction regressions: pack_gate.py scores every v2+ pack on its own held-out
+#     sample and fails below the floors / over the size ceilings in languages.json
 # Python is pinned because the Unicode database (NFC, letter categories) ships with
 # it and moves the output; provenance records the version each pack was built with.
 name: validate
@@ -23,3 +26,5 @@ jobs:
         run: python generation/validate.py
       - name: Generator tests
         run: python -m unittest discover -s generation/tests -v
+      - name: Pack quality gate
+        run: python generation/pack_gate.py --report

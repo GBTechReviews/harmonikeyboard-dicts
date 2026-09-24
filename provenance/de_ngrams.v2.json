@@ -1,0 +1,67 @@
+{
+  "language": "German",
+  "locale": "de",
+  "packVersion": 2,
+  "minEngineVersion": 1,
+  "minAppVersion": 9,
+  "file": "de_ngrams.v2.txt.gz",
+  "compression": "gzip",
+  "fileSize": 262699,
+  "uncompressedSize": 1022568,
+  "sha256": "048ea8c0a623cf6a8749dc77d1e539fc2c0e918a00affcd54822be4be8b82c38",
+  "uncompressedSha256": "5b99fec9b5d74869a155b99ef666e5719491a91494a944c093cb428cc8766d97",
+  "source": "Tatoeba Project",
+  "corpus": "tatoeba deu_sentences",
+  "sourceUrl": "https://downloads.tatoeba.org/exports/per_language/deu/deu_sentences.tsv.bz2",
+  "sourceVersion": "Tatoeba export 2026-09-24",
+  "licence": "CC BY 2.0 FR",
+  "attribution": "Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR",
+  "generationVersion": "gen-ngrams-2 (generation/gen-ngrams.py + hktext.py) + build-ngram-packs.py v2",
+  "creationDate": "2026-09-24",
+  "retrievalDate": "2026-09-24",
+  "releaseNotes": "German next-word context (bigram+trigram) from Tatoeba example sentences. v2: generator v2 - under the size cap the most frequent contexts are kept (v1 kept the alphabetically first), Unicode-correct words (NFC, apostrophes). Held-out next-word top-1 9.23% -> 12.28% (+33.0% relative; +3.05 pts, 95% CI 2.89 to 3.22), top-3 17.49% -> 22.66%.",
+  "packLocale": "de",
+  "sourceSha256": "6ffc7d9a36aace76345bc98b7e9884ba63ba5575f36597407427419a10d7fba9",
+  "generationCommand": "python gen-ngrams.py --lang de --source tatoeba-deu-2026-09-24 --tsv --scripts latin --holdout 6 --test-keep 400 --min-count 3 --top-followers 8 --max-bi 30000 --max-tri 25000 --out input/de_ngrams.v2.txt --test de_ngrams_test.v2.tsv deu_sentences.tsv.bz2",
+  "generator": {
+    "name": "gen-ngrams-2",
+    "python": "3.14.0",
+    "unicode": "16.0.0"
+  },
+  "counts": {
+    "lines_read": 781130,
+    "decode_errors": 0,
+    "lines_dropped": 0,
+    "train_lines": 650824,
+    "test_lines": 129520,
+    "test_dup_lines_skipped": 784,
+    "test_cases": 1986
+  },
+  "capping": {
+    "bigram": {
+      "contexts_eligible": 15086,
+      "contexts_kept": 4295,
+      "rows_eligible": 47952,
+      "rows_kept": 30000,
+      "support_kept_share": 0.951468
+    },
+    "trigram": {
+      "contexts_eligible": 62685,
+      "contexts_kept": 3213,
+      "rows_eligible": 132172,
+      "rows_kept": 25000,
+      "support_kept_share": 0.553383
+    }
+  },
+  "heldOutTest": {
+    "file": "generation/de_ngrams_test.v2.tsv",
+    "sha256": "75e1d1bcb8f92c3b3882ccec175e20ec7b491a4f844ffee639d1a573011a333b",
+    "split": "1 in 6 sentences by SHA-256 of the sentence's word tokens (hktext.bucket); identical sentences share a side"
+  },
+  "transformations": [
+    "downloaded the Tatoeba per-language export (id<TAB>lang<TAB>text .tsv.bz2), read directly (bz2 stream, strict UTF-8 - an undecodable line fails the build)",
+    "hktext.py: NFC; language casing (Turkic I rules for tr/az); sentences split at every shipped script's sentence ends; words = letters + combining marks joined by an apostrophe (all variants folded to U+0027); tokens with letters outside the language's script dropped",
+    "gen-ngrams.py v2: hold out 1 in 6 sentences for the disjoint test set, min-count 3, top-8 followers, contexts ranked by training support and kept whole until the row cap (generationCommand has the exact arguments)",
+    "deterministic gzip (mtime=0, level 9, OS byte 0xFF)"
+  ]
+}

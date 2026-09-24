@@ -221,6 +221,17 @@ def check_dict_manifest():
             fail("manifest.json %s: no canonical BCP 47 tag" % code)
 
 
+def regzip(data):
+    # build-ngram-packs.py's deterministic_gzip, restated so the gate needs no import
+    import io
+    buf = io.BytesIO()
+    with gzip.GzipFile(fileobj=buf, mode="wb", compresslevel=9, mtime=0) as g:
+        g.write(data)
+    out = bytearray(buf.getvalue())
+    out[9] = 0xFF
+    return bytes(out)
+
+
 def check_pack_body(name, raw):
     text = raw.decode("utf-8")
     header, _, body = text.partition("\n")
@@ -282,6 +293,9 @@ def check_ngram_manifest(prov):
         except Exception as e:  # noqa: BLE001
             fail("ngram-manifest %s: packs/%s does not decompress (%s)" % (lang, f, e))
             continue
+        if regzip(raw) != gz:
+            fail("ngram-manifest %s: packs/%s is not the deterministic gzip of its content "
+                 "(mtime 0, level 9, OS 0xFF) - it cannot be rebuilt byte for byte" % (lang, f))
         if len(raw) != p.get("uncompressedSize"):
             fail("ngram-manifest %s: uncompressedSize mismatch" % lang)
         if sha(raw) != p.get("uncompressedSha256"):

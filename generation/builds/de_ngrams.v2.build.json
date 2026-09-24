@@ -1,0 +1,36 @@
+{
+  "command": "python gen-ngrams.py --lang de --source tatoeba-deu-2026-09-24 --tsv --scripts latin --holdout 6 --test-keep 400 --min-count 3 --top-followers 8 --max-bi 30000 --max-tri 25000 --out input/de_ngrams.v2.txt --test de_ngrams_test.v2.tsv deu_sentences.tsv.bz2",
+  "retrievalDate": "2026-09-24",
+  "sourceVersion": "Tatoeba export 2026-09-24",
+  "inputSha256": "6ffc7d9a36aace76345bc98b7e9884ba63ba5575f36597407427419a10d7fba9",
+  "testFile": "de_ngrams_test.v2.tsv",
+  "testSha256": "75e1d1bcb8f92c3b3882ccec175e20ec7b491a4f844ffee639d1a573011a333b",
+  "stats": {
+    "generator": "gen-ngrams-2",
+    "python": "3.14.0",
+    "unicode": "16.0.0",
+    "lines_read": 781130,
+    "decode_errors": 0,
+    "lines_dropped": 0,
+    "train_lines": 650824,
+    "test_lines": 129520,
+    "test_dup_lines_skipped": 784,
+    "test_cases": 1986,
+    "bigram": {
+      "contexts_eligible": 15086,
+      "contexts_kept": 4295,
+      "rows_eligible": 47952,
+      "rows_kept": 30000,
+      "support_kept_share": 0.951468
+    },
+    "trigram": {
+      "contexts_eligible": 62685,
+      "contexts_kept": 3213,
+      "rows_eligible": 132172,
+      "rows_kept": 25000,
+      "support_kept_share": 0.553383
+    },
+    "body_sha256": "69f83574e6cad183dad9590b80e090d3d74ac770a0312d8fec47f9f3eb8e5e6a"
+  },
+  "builtDate": "2026-09-24"
+}

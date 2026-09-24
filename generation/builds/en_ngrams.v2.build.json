@@ -1,0 +1,36 @@
+{
+  "command": "python gen-ngrams.py --lang en --source tatoeba-eng-2026-09-24 --tsv --scripts latin --holdout 6 --test-keep 400 --min-count 3 --top-followers 8 --max-bi 90000 --max-tri 75000 --stop tom,mary,ziri,yanni,rima,skura,mennad,fadil,baya,walid,farid,salima,taninna,dania,jugurtha,idir,lounes,tanina,akli,massinissa,juba,ferhat,yacine,mourad --out input/en_ngrams.v2.txt --test en_ngrams_test.v2.tsv eng_sentences.tsv.bz2",
+  "retrievalDate": "2026-09-24",
+  "sourceVersion": "Tatoeba export 2026-09-24",
+  "inputSha256": "69a8ff3de808313a75c5305f4f7b3f4c9d3460c1bd9fdf0f375da247c2d02489",
+  "testFile": "en_ngrams_test.v2.tsv",
+  "testSha256": "c64f2cba7492aa04caad56a4450c206ff2bd5032e72b9443ee3afa058b87b159",
+  "stats": {
+    "generator": "gen-ngrams-2",
+    "python": "3.14.0",
+    "unicode": "16.0.0",
+    "lines_read": 2036986,
+    "decode_errors": 0,
+    "lines_dropped": 0,
+    "train_lines": 1698306,
+    "test_lines": 337365,
+    "test_dup_lines_skipped": 1305,
+    "test_cases": 4888,
+    "bigram": {
+      "contexts_eligible": 19640,
+      "contexts_kept": 19640,
+      "rows_eligible": 70660,
+      "rows_kept": 70660,
+      "support_kept_share": 1.0
+    },
+    "trigram": {
+      "contexts_eligible": 122868,
+      "contexts_kept": 10141,
+      "rows_eligible": 274141,
+      "rows_kept": 75000,
+      "support_kept_share": 0.715129
+    },
+    "body_sha256": "ea94b55bdca2cb87a94604f302d6498adb5f0ec5ab00a7c9d8dbbcef9082cd54"
+  },
+  "builtDate": "2026-09-24"
+}

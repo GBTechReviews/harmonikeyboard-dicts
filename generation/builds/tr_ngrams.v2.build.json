@@ -1,0 +1,36 @@
+{
+  "command": "python gen-ngrams.py --lang tr --source tatoeba-tur-2026-09-24 --tsv --scripts latin --holdout 6 --test-keep 400 --min-count 3 --top-followers 8 --max-bi 45000 --max-tri 38000 --stop 'tom,mary,tom'\"'\"'u,tom'\"'\"'un,tom'\"'\"'a,tom'\"'\"'la,tom'\"'\"'dan,tom'\"'\"'da,mary'\"'\"'i,mary'\"'\"'nin,mary'\"'\"'ye,mary'\"'\"'yle' --out input/tr_ngrams.v2.txt --test tr_ngrams_test.v2.tsv tur_sentences.tsv.bz2",
+  "retrievalDate": "2026-09-24",
+  "sourceVersion": "Tatoeba export 2026-09-24",
+  "inputSha256": "7429b784e1a443bf8b818166f0869654350ba264590156b37baa6381bc104e4a",
+  "testFile": "tr_ngrams_test.v2.tsv",
+  "testSha256": "9a0c5a9247ee7c2127f83a17ac76f38e9319c76016d3e84d69383e28253df4c7",
+  "stats": {
+    "generator": "gen-ngrams-2",
+    "python": "3.14.0",
+    "unicode": "16.0.0",
+    "lines_read": 749204,
+    "decode_errors": 0,
+    "lines_dropped": 0,
+    "train_lines": 624685,
+    "test_lines": 123728,
+    "test_dup_lines_skipped": 787,
+    "test_cases": 1085,
+    "bigram": {
+      "contexts_eligible": 17200,
+      "contexts_kept": 16415,
+      "rows_eligible": 45785,
+      "rows_kept": 45000,
+      "support_kept_share": 0.998761
+    },
+    "trigram": {
+      "contexts_eligible": 29708,
+      "contexts_kept": 18200,
+      "rows_eligible": 49541,
+      "rows_kept": 38000,
+      "support_kept_share": 0.931856
+    },
+    "body_sha256": "861727f84f7d225bf5703bdeeaffce7750b46f3c67fede4ba7e3a5ab6b35ac35"
+  },
+  "builtDate": "2026-09-24"
+}

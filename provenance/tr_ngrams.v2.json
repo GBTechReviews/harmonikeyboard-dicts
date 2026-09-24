@@ -1,0 +1,68 @@
+{
+  "language": "Turkish",
+  "locale": "tr",
+  "packVersion": 2,
+  "minEngineVersion": 1,
+  "minAppVersion": 9,
+  "file": "tr_ngrams.v2.txt.gz",
+  "compression": "gzip",
+  "fileSize": 453958,
+  "uncompressedSize": 1883781,
+  "sha256": "f9d56eef9a5ef07e45c467e2a4a67bdfb497a85587eee893a0b07597eee1f5f3",
+  "uncompressedSha256": "fbb0ef603a669c0c244eef7b25e5f017330b9a287a54df1c91132f48608a2c9a",
+  "source": "Tatoeba Project",
+  "corpus": "tatoeba tur_sentences",
+  "sourceUrl": "https://downloads.tatoeba.org/exports/per_language/tur/tur_sentences.tsv.bz2",
+  "sourceVersion": "Tatoeba export 2026-09-24",
+  "licence": "CC BY 2.0 FR",
+  "attribution": "Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR",
+  "generationVersion": "gen-ngrams-2 (generation/gen-ngrams.py + hktext.py) + build-ngram-packs.py v2",
+  "creationDate": "2026-09-24",
+  "retrievalDate": "2026-09-24",
+  "releaseNotes": "Turkish next-word context (bigram+trigram) from Tatoeba example sentences. v2: generator v2 - under the size cap the most frequent contexts are kept (v1 kept the alphabetically first), Unicode-correct words (NFC, apostrophes, Turkish I/i casing). Held-out next-word top-1 15.15% -> 15.42% (+1.8% relative; +0.27 pts, 95% CI 0.20 to 0.35), top-3 23.76% -> 24.24%.",
+  "packLocale": "tr",
+  "sourceSha256": "7429b784e1a443bf8b818166f0869654350ba264590156b37baa6381bc104e4a",
+  "generationCommand": "python gen-ngrams.py --lang tr --source tatoeba-tur-2026-09-24 --tsv --scripts latin --holdout 6 --test-keep 400 --min-count 3 --top-followers 8 --max-bi 45000 --max-tri 38000 --stop 'tom,mary,tom'\"'\"'u,tom'\"'\"'un,tom'\"'\"'a,tom'\"'\"'la,tom'\"'\"'dan,tom'\"'\"'da,mary'\"'\"'i,mary'\"'\"'nin,mary'\"'\"'ye,mary'\"'\"'yle' --out input/tr_ngrams.v2.txt --test tr_ngrams_test.v2.tsv tur_sentences.tsv.bz2",
+  "generator": {
+    "name": "gen-ngrams-2",
+    "python": "3.14.0",
+    "unicode": "16.0.0"
+  },
+  "counts": {
+    "lines_read": 749204,
+    "decode_errors": 0,
+    "lines_dropped": 0,
+    "train_lines": 624685,
+    "test_lines": 123728,
+    "test_dup_lines_skipped": 787,
+    "test_cases": 1085
+  },
+  "capping": {
+    "bigram": {
+      "contexts_eligible": 17200,
+      "contexts_kept": 16415,
+      "rows_eligible": 45785,
+      "rows_kept": 45000,
+      "support_kept_share": 0.998761
+    },
+    "trigram": {
+      "contexts_eligible": 29708,
+      "contexts_kept": 18200,
+      "rows_eligible": 49541,
+      "rows_kept": 38000,
+      "support_kept_share": 0.931856
+    }
+  },
+  "heldOutTest": {
+    "file": "generation/tr_ngrams_test.v2.tsv",
+    "sha256": "9a0c5a9247ee7c2127f83a17ac76f38e9319c76016d3e84d69383e28253df4c7",
+    "split": "1 in 6 sentences by SHA-256 of the sentence's word tokens (hktext.bucket); identical sentences share a side"
+  },
+  "transformations": [
+    "downloaded the Tatoeba per-language export (id<TAB>lang<TAB>text .tsv.bz2), read directly (bz2 stream, strict UTF-8 - an undecodable line fails the build)",
+    "hktext.py: NFC; language casing (Turkic I rules for tr/az); sentences split at every shipped script's sentence ends; words = letters + combining marks joined by an apostrophe (all variants folded to U+0027); tokens with letters outside the language's script dropped",
+    "gen-ngrams.py v2: hold out 1 in 6 sentences for the disjoint test set, min-count 3, top-8 followers, contexts ranked by training support and kept whole until the row cap (generationCommand has the exact arguments)",
+    "--stop: Tatoeba's placeholder names (Tom/Mary and their local forms; English also the Kabyle-corpus stock names) are excluded from every n-gram",
+    "deterministic gzip (mtime=0, level 9, OS byte 0xFF)"
+  ]
+}

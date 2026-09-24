@@ -1,0 +1,36 @@
+{
+  "command": "python gen-ngrams.py --lang el --source tatoeba-ell-2026-09-18 --tsv --scripts greek --holdout 6 --test-keep 40 --min-count 3 --top-followers 8 --max-bi 30000 --max-tri 25000 --stop τομ,θωμάς,θωμά,μαίρη,μαρία --out input/el_ngrams.v2.txt --test el_ngrams_test.v2.tsv ell_sentences.tsv.bz2",
+  "retrievalDate": "2026-09-18",
+  "sourceVersion": "Tatoeba export 2026-09-18",
+  "inputSha256": "f7ddf366f3780a309111e890e97d0dc61517e7c10af570a696ba28a4e7a529d8",
+  "testFile": "el_ngrams_test.v2.tsv",
+  "testSha256": "2df15156647dc76d663a9e09126bc46a892baa5e2a65764c4e014b4825b2eff3",
+  "stats": {
+    "generator": "gen-ngrams-2",
+    "python": "3.14.0",
+    "unicode": "16.0.0",
+    "lines_read": 42482,
+    "decode_errors": 0,
+    "lines_dropped": 0,
+    "train_lines": 35427,
+    "test_lines": 7004,
+    "test_dup_lines_skipped": 51,
+    "test_cases": 697,
+    "bigram": {
+      "contexts_eligible": 1864,
+      "contexts_kept": 1864,
+      "rows_eligible": 4418,
+      "rows_kept": 4418,
+      "support_kept_share": 1.0
+    },
+    "trigram": {
+      "contexts_eligible": 2637,
+      "contexts_kept": 2637,
+      "rows_eligible": 4206,
+      "rows_kept": 4206,
+      "support_kept_share": 1.0
+    },
+    "body_sha256": "05665e042a6b266ed85757fc9a31f184f37d12d6fc86b57b032017bd03d09eb4"
+  },
+  "builtDate": "2026-09-24"
+}

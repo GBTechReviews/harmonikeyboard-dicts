@@ -1,0 +1,36 @@
+{
+  "command": "python gen-ngrams.py --lang it --source tatoeba-ita-2026-09-20 --tsv --scripts latin --holdout 6 --test-keep 400 --min-count 3 --top-followers 8 --max-bi 60000 --max-tri 50000 --stop tom,mary --drop '(?i)^(Non )?(vado|vai|va|andiamo|andate|vanno) a costruire ' --drop '^\"?Di che nazionalit. (sono|erano) (i|le) ' --out input/it_ngrams.v3.txt --test it_ngrams_test.v3.tsv ita_sentences.tsv.bz2",
+  "retrievalDate": "2026-09-20",
+  "sourceVersion": "Tatoeba export 2026-09-20",
+  "inputSha256": "4aa9d2b22e8316894bba71ff31479d757bc507ca508d9f5e9aec491ec38547a4",
+  "testFile": "it_ngrams_test.v3.tsv",
+  "testSha256": "b428fa02ccc3c2ef459b934a0ab66e065a4fdb614d6563e90088f6347fdb1e52",
+  "stats": {
+    "generator": "gen-ngrams-2",
+    "python": "3.14.0",
+    "unicode": "16.0.0",
+    "lines_read": 987629,
+    "decode_errors": 0,
+    "lines_dropped": 53840,
+    "train_lines": 778060,
+    "test_lines": 149105,
+    "test_dup_lines_skipped": 6624,
+    "test_cases": 1853,
+    "bigram": {
+      "contexts_eligible": 16503,
+      "contexts_kept": 16503,
+      "rows_eligible": 50042,
+      "rows_kept": 50042,
+      "support_kept_share": 1.0
+    },
+    "trigram": {
+      "contexts_eligible": 66959,
+      "contexts_kept": 8203,
+      "rows_eligible": 131774,
+      "rows_kept": 50000,
+      "support_kept_share": 0.710724
+    },
+    "body_sha256": "09232387c3e84a891245703a6e2a6fe31e87d10449a7bccde9d92193f2e762c9"
+  },
+  "builtDate": "2026-09-24"
+}

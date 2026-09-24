@@ -11,6 +11,7 @@
 # (the one table); a language already at that version with a different body is
 # REFUSED - a published version is never rebuilt into different bytes.
 import argparse
+import datetime
 import hashlib
 import importlib.util
 import io
@@ -76,6 +77,7 @@ def main():
                        + " --out input/%s --test %s %s" % (os.path.basename(out), os.path.basename(test),
                                                             os.path.basename(corpus)),
             "retrievalDate": date,
+            "builtDate": datetime.date.today().isoformat(),
             "sourceVersion": "Tatoeba export %s" % date,
             "inputSha256": stats["inputs"][os.path.basename(corpus)],
             "testFile": os.path.basename(test),

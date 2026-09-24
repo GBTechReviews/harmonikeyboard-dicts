@@ -1,8 +1,14 @@
 {
   "_comment": "Per-language n-gram pack settings. v1letters is the legacy generator's --letters (kept so v1 packs stay reproducible); scripts is the v2 generator's --scripts. stop = placeholder names kept out of every n-gram (English also drops the Kabyle-corpus stock names struck by hand from the bundled v1 pack on 2026-09-20). Caps scale with corpus size.",
+  "_gate": "pack_gate.py floors, set 2026-09-24 from the v2 packs on their own held-out samples: coverage and top-3 3 points under the measured value (samples of 441-4,888 cases), size 1.25x. A later version is scored on ITS sample; lowering a floor needs a reason in the commit.",
   "languages": {
     "de": {
       "drop": [],
+      "gate": {
+        "coverage": 88.74,
+        "maxBytes": 328373,
+        "top3": 19.0
+      },
       "holdout": 6,
       "language": "German",
       "maxBi": 30000,
@@ -17,6 +23,11 @@
     },
     "el": {
       "drop": [],
+      "gate": {
+        "coverage": 79.64,
+        "maxBytes": 64012,
+        "top3": 23.54
+      },
       "holdout": 6,
       "language": "Greek",
       "maxBi": 30000,
@@ -31,6 +42,11 @@
     },
     "en": {
       "drop": [],
+      "gate": {
+        "coverage": 95.77,
+        "maxBytes": 890586,
+        "top3": 29.88
+      },
       "holdout": 6,
       "language": "English",
       "maxBi": 90000,
@@ -45,6 +61,11 @@
     },
     "es": {
       "drop": [],
+      "gate": {
+        "coverage": 89.25,
+        "maxBytes": 314793,
+        "top3": 21.46
+      },
       "holdout": 6,
       "language": "Spanish",
       "maxBi": 30000,
@@ -59,6 +80,11 @@
     },
     "fr": {
       "drop": [],
+      "gate": {
+        "coverage": 88.55,
+        "maxBytes": 328613,
+        "top3": 24.75
+      },
       "holdout": 6,
       "language": "French",
       "maxBi": 30000,
@@ -76,6 +102,11 @@
         "(?i)^(Non )?(vado|vai|va|andiamo|andate|vanno) a costruire ",
         "^\"?Di che nazionalit. (sono|erano) (i|le) "
       ],
+      "gate": {
+        "coverage": 93.33,
+        "maxBytes": 603080,
+        "top3": 28.52
+      },
       "holdout": 6,
       "language": "Italian",
       "maxBi": 60000,
@@ -90,6 +121,11 @@
     },
     "nl": {
       "drop": [],
+      "gate": {
+        "coverage": 89.29,
+        "maxBytes": 236668,
+        "top3": 26.25
+      },
       "holdout": 6,
       "language": "Dutch",
       "maxBi": 30000,
@@ -104,6 +140,11 @@
     },
     "pl": {
       "drop": [],
+      "gate": {
+        "coverage": 82.66,
+        "maxBytes": 148973,
+        "top3": 18.32
+      },
       "holdout": 6,
       "language": "Polish",
       "maxBi": 30000,
@@ -118,6 +159,11 @@
     },
     "pt": {
       "drop": [],
+      "gate": {
+        "coverage": 91.5,
+        "maxBytes": 316487,
+        "top3": 24.32
+      },
       "holdout": 6,
       "language": "Portuguese (Brazil)",
       "maxBi": 30000,
@@ -132,6 +178,11 @@
     },
     "ru": {
       "drop": [],
+      "gate": {
+        "coverage": 91.24,
+        "maxBytes": 943180,
+        "top3": 23.0
+      },
       "holdout": 6,
       "language": "Russian",
       "maxBi": 75000,
@@ -146,6 +197,11 @@
     },
     "tr": {
       "drop": [],
+      "gate": {
+        "coverage": 83.82,
+        "maxBytes": 567447,
+        "top3": 19.95
+      },
       "holdout": 6,
       "language": "Turkish",
       "maxBi": 45000,

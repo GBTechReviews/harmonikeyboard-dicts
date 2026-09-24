@@ -1,0 +1,36 @@
+{
+  "command": "python gen-ngrams.py --lang pl --source tatoeba-pol-2026-09-24 --tsv --scripts latin --holdout 6 --test-keep 40 --min-count 3 --top-followers 8 --max-bi 30000 --max-tri 25000 --stop tom,mary --out input/pl_ngrams.v2.txt --test pl_ngrams_test.v2.tsv pol_sentences.tsv.bz2",
+  "retrievalDate": "2026-09-24",
+  "sourceVersion": "Tatoeba export 2026-09-24",
+  "inputSha256": "aa8b5e8bdbcec5261a26f39141ef447e74c07b02c1af751d619a615b7e16320f",
+  "testFile": "pl_ngrams_test.v2.tsv",
+  "testSha256": "644487c0e450ead87dcd01339085a11da83b89d08e2806f64e9ea6482b9f60b4",
+  "stats": {
+    "generator": "gen-ngrams-2",
+    "python": "3.14.0",
+    "unicode": "16.0.0",
+    "lines_read": 137173,
+    "decode_errors": 0,
+    "lines_dropped": 0,
+    "train_lines": 114326,
+    "test_lines": 22647,
+    "test_dup_lines_skipped": 200,
+    "test_cases": 2308,
+    "bigram": {
+      "contexts_eligible": 5251,
+      "contexts_kept": 5251,
+      "rows_eligible": 11908,
+      "rows_kept": 11908,
+      "support_kept_share": 1.0
+    },
+    "trigram": {
+      "contexts_eligible": 6418,
+      "contexts_kept": 6418,
+      "rows_eligible": 9887,
+      "rows_kept": 9887,
+      "support_kept_share": 1.0
+    },
+    "body_sha256": "7be597bdfaaf2d9fa4e3d4ddb1585de2bd30330bb894eac3c7d42befd7c572b1"
+  },
+  "builtDate": "2026-09-24"
+}

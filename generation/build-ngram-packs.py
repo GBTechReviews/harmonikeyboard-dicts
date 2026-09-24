@@ -92,7 +92,38 @@ GEN_VERSION = "gen-ngrams.py v1 + build-ngram-packs.py v1"
 #   Grecia", "Di che nazionalita sono i tuoi genitori?" - 53,840 sentences)
 #   that made "costruire" the top follower of "a" and "nazionalita" of "che"
 #   in v1. Same export line, retrieved 2026-09-20.
-PACK_VERSION = {"it": 2}
+#   every language v2 (it v3) (2026-09-24): generator v2 (gen-ngrams-2) - the capped
+#   tables keep the MOST FREQUENT contexts (v1 kept the alphabetically first), plus
+#   the Unicode text handling. Italian's corrected pack is v3 because v2 already
+#   exists (the --drop build above). Built from the exports of builds/*.build.json.
+PACK_VERSION = {"de": 2, "es": 2, "fr": 2, "en": 2, "pl": 2, "pt": 2, "el": 2, "it": 3,
+                "nl": 2, "ru": 2, "tr": 2}
+GEN_VERSION_2 = "gen-ngrams-2 (generation/gen-ngrams.py + hktext.py) + build-ngram-packs.py v2"
+# The keyboard language ids each pack is offered under, with each entry's canonical
+# BCP 47 tag. Several ids may share one file: they are ALIASES of the pack, whose own
+# language is META[code]["locale"] (recorded as packLocale). Both apps look entries up
+# by `language`, so an alias is a whole entry, not a field.
+ENTRY_LOCALES = {
+    "en": [("English (UK)", "en-GB"), ("English (US)", "en-US")],
+    "pt": [("Portuguese (Brazil)", "pt-BR")],
+}
+# The manifest's release note for each v2+ pack, from the measured before/after
+# (HKeyboard NgramAbEvaluationTest over eval-ab.py's packs: v1 and v2 generators on the
+# SAME training sentences, scored through the app's ContextModel on held-out sentences;
+# reports/2026-09-24-generator-v2.md). A v2 entry without one fails the build.
+RELEASE_NOTES = {
+    ("de", 2): "German next-word context (bigram+trigram) from Tatoeba example sentences. v2: generator v2 - under the size cap the most frequent contexts are kept (v1 kept the alphabetically first), Unicode-correct words (NFC, apostrophes). Held-out next-word top-1 9.23% -> 12.28% (+33.0% relative; +3.05 pts, 95% CI 2.89 to 3.22), top-3 17.49% -> 22.66%.",
+    ("es", 2): "Spanish next-word context (bigram+trigram) from Tatoeba example sentences. v2: generator v2 - under the size cap the most frequent contexts are kept (v1 kept the alphabetically first), Unicode-correct words (NFC, apostrophes). Held-out next-word top-1 13.38% -> 15.49% (+15.8% relative; +2.11 pts, 95% CI 1.95 to 2.27), top-3 23.02% -> 26.57%.",
+    ("fr", 2): "French next-word context (bigram+trigram) from Tatoeba example sentences. v2: generator v2 - under the size cap the most frequent contexts are kept (v1 kept the alphabetically first), Unicode-correct words (NFC, apostrophes). Held-out next-word top-1 12.26% -> 16.98% (+38.5% relative; +4.72 pts, 95% CI 4.53 to 4.91), top-3 21.10% -> 28.84%.",
+    ("en", 2): "English next-word context (bigram+trigram) from Tatoeba example sentences. v2: generator v2 - under the size cap the most frequent contexts are kept (v1 kept the alphabetically first), Unicode-correct words (NFC, apostrophes). Held-out next-word top-1 17.79% -> 19.73% (+10.9% relative; +1.95 pts, 95% CI 1.78 to 2.11), top-3 29.90% -> 32.87%.",
+    ("pl", 2): "Polish next-word context (bigram+trigram) from Tatoeba example sentences. v2: generator v2 - under the size cap the most frequent contexts are kept (v1 kept the alphabetically first), Unicode-correct words (NFC, apostrophes). Held-out next-word accuracy unchanged (top-1 14.28%, top-3 22.54%): this pack was never capped.",
+    ("pt", 2): "Portuguese next-word context (bigram+trigram) from Tatoeba example sentences. v2: generator v2 - under the size cap the most frequent contexts are kept (v1 kept the alphabetically first), Unicode-correct words (NFC, apostrophes). Held-out next-word top-1 13.56% -> 15.06% (+11.0% relative; +1.49 pts, 95% CI 1.34 to 1.66), top-3 23.68% -> 26.76%.",
+    ("el", 2): "Greek next-word context (bigram+trigram) from Tatoeba example sentences. v2: generator v2 - under the size cap the most frequent contexts are kept (v1 kept the alphabetically first), Unicode-correct words (NFC, apostrophes). Held-out next-word top-1 14.90% -> 15.18% (+1.9% relative; +0.29 pts, 95% CI 0.22 to 0.36), top-3 24.42% -> 24.86%.",
+    ("it", 3): "Italian next-word context (bigram+trigram) from Tatoeba example sentences. v3: generator v2 - under the size cap the most frequent contexts are kept (v1 kept the alphabetically first), Unicode-correct words (NFC, apostrophes). Held-out next-word top-1 17.33% -> 18.27% (+5.4% relative; +0.94 pts, 95% CI 0.80 to 1.07), top-3 29.87% -> 31.62%.",
+    ("nl", 2): "Dutch next-word context (bigram+trigram) from Tatoeba example sentences. v2: generator v2 - under the size cap the most frequent contexts are kept (v1 kept the alphabetically first), Unicode-correct words (NFC, apostrophes). Held-out next-word top-1 16.57% -> 16.73% (+0.9% relative; +0.15 pts, 95% CI 0.10 to 0.21), top-3 27.86% -> 28.05%.",
+    ("ru", 2): "Russian next-word context (bigram+trigram) from Tatoeba example sentences. v2: generator v2 - under the size cap the most frequent contexts are kept (v1 kept the alphabetically first), Unicode-correct words (NFC, apostrophes). Held-out next-word top-1 15.96% -> 16.52% (+3.5% relative; +0.56 pts, 95% CI 0.45 to 0.67), top-3 25.81% -> 27.09%.",
+    ("tr", 2): "Turkish next-word context (bigram+trigram) from Tatoeba example sentences. v2: generator v2 - under the size cap the most frequent contexts are kept (v1 kept the alphabetically first), Unicode-correct words (NFC, apostrophes, Turkish I/i casing). Held-out next-word top-1 15.15% -> 15.42% (+1.8% relative; +0.27 pts, 95% CI 0.20 to 0.35), top-3 23.76% -> 24.24%.",
+}
 # Languages whose pack was built with --stop (placeholder names); the list per
 # language is in generation/README.md.
 STOP_LANGS = ("en", "pl", "pt", "el", "it", "nl", "ru", "tr")
@@ -177,6 +208,55 @@ def build(lang, retrieval_date, source_version, notes, check=False):
     ] if lang in STOP_LANGS else []) + ([DROPS[(lang, ver)]] if (lang, ver) in DROPS else []) + [
         "deterministic gzip (mtime=0, level 9, OS byte 0xFF)",
     ]
+    entry["packLocale"] = m["locale"]
+    if ver >= 2 and (lang, ver) != ("it", 2):   # it v2 is the legacy-generator --drop build
+        rec_path = os.path.join(REPO, "generation", "builds", f"{lang}_ngrams.v{ver}.build.json")
+        if not os.path.isfile(rec_path):
+            sys.exit(f"missing {rec_path} (run build-inputs.py)")
+        rec = json.load(open(rec_path, encoding="utf-8"))
+        if rec["stats"]["body_sha256"] != hashlib.sha256(raw.split(b"\n", 1)[1]).hexdigest():
+            sys.exit(f"{lang}: input pack does not match its build record")
+        if (lang, ver) not in RELEASE_NOTES:
+            sys.exit(f"{lang} v{ver}: no release note (RELEASE_NOTES)")
+        entry.update({
+            "generationVersion": GEN_VERSION_2,
+            "sourceVersion": rec["sourceVersion"],
+            "creationDate": rec.get("builtDate", rec["retrievalDate"]),
+            "retrievalDate": rec["retrievalDate"],
+            "releaseNotes": RELEASE_NOTES[(lang, ver)],
+        })
+        prov = dict(entry)
+        prov.update({
+            "sourceSha256": rec["inputSha256"],
+            "generationCommand": rec["command"],
+            "generator": {"name": rec["stats"]["generator"], "python": rec["stats"]["python"],
+                          "unicode": rec["stats"]["unicode"]},
+            "counts": {k: rec["stats"][k] for k in ("lines_read", "decode_errors", "lines_dropped", "train_lines",
+                                                     "test_lines", "test_dup_lines_skipped", "test_cases")},
+            "capping": {"bigram": rec["stats"]["bigram"], "trigram": rec["stats"]["trigram"]},
+            "heldOutTest": {"file": "generation/" + rec["testFile"], "sha256": rec["testSha256"],
+                            "split": "1 in %s sentences by SHA-256 of the sentence's word tokens "
+                                     "(hktext.bucket); identical sentences share a side" % "6"},
+            "transformations": [
+                "downloaded the Tatoeba per-language export (id<TAB>lang<TAB>text .tsv.bz2), read "
+                "directly (bz2 stream, strict UTF-8 - an undecodable line fails the build)",
+                "hktext.py: NFC; language casing (Turkic I rules for tr/az); sentences split at every "
+                "shipped script's sentence ends; words = letters + combining marks joined by an "
+                "apostrophe (all variants folded to U+0027); tokens with letters outside the "
+                "language's script dropped",
+                "gen-ngrams.py v2: hold out 1 in 6 sentences for the disjoint test set, min-count 3, "
+                "top-8 followers, contexts ranked by training support and kept whole until the row "
+                "cap (generationCommand has the exact arguments)",
+            ] + ([
+                "--stop: Tatoeba's placeholder names (Tom/Mary and their local forms; English also "
+                "the Kabyle-corpus stock names) are excluded from every n-gram"
+            ] if lang in STOP_LANGS else []) + ([
+                "--drop: corpus lines matching the language's drop patterns (languages.json) are "
+                "skipped whole before counting - Italian's two machine-generated sentence grids"
+            ] if lang == "it" else []) + [
+                "deterministic gzip (mtime=0, level 9, OS byte 0xFF)",
+            ],
+        })
     with open(os.path.join(REPO, "provenance", f"{lang}_ngrams.v{ver}.json"), "w", encoding="utf-8", newline="\n") as f:
         json.dump(prov, f, ensure_ascii=False, indent=2)
         f.write("\n")
@@ -192,6 +272,8 @@ def main():
     # Every pack the manifest carries. The manifest is rewritten WHOLE from this
     # list, so a short list here silently unpublishes the packs it omits.
     ALL = ["de", "es", "fr", "en", "pl", "pt", "el", "it", "nl", "ru", "tr"]
+    ap.add_argument("--date", default=datetime.date.today().isoformat(),
+                    help="the manifest's generated date (default today)")
     ap.add_argument("langs", nargs="*", default=ALL)
     a = ap.parse_args()
     langs = a.langs or ALL
@@ -215,16 +297,23 @@ def main():
                 "nl": "Tatoeba export 2026-09-18", "ru": "Tatoeba export 2026-09-18", "tr": "Tatoeba export 2026-09-18"}
     packs = [build(l, retrieved.get(l, a.retrieval_date),
                    versions.get(l, a.source_version), notes[l], a.check) for l in langs]
-    # English ships one physical pack served to BOTH regional ids: add an English (US)
-    # manifest alias pointing at the same file/checksum so either variant can fetch it.
-    extra = []
-    for e in packs:
-        if e["language"] == "English (UK)":
-            us = dict(e); us["language"] = "English (US)"; extra.append(us)
-    packs = packs + extra
+    # One entry per keyboard language id. A pack offered under several ids (English (UK)
+    # and English (US) share the "en" pack) gets one entry per id, each with its own
+    # canonical tag in `locale` and the pack's language in `packLocale` - never two
+    # entries both saying "en".
+    out = []
+    for code, e in zip(langs, packs):
+        for language, tag in ENTRY_LOCALES.get(code, [(e["language"], META[code]["locale"])]):
+            x = dict(e)
+            x["language"] = language
+            x["locale"] = tag
+            x["packLocale"] = META[code]["locale"]
+            out.append(x)
+    packs = out
     manifest = {
         "schemaVersion": SCHEMA_VERSION,
-        "generated": a.retrieval_date,
+        # the day the manifest was BUILT - never older than an entry (validate.py checks)
+        "generated": a.date,
         "packs": packs,
     }
     with open(os.path.join(REPO, "manifests", "ngram-manifest.json"), "w", encoding="utf-8", newline="\n") as f:

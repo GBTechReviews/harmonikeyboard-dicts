@@ -1,0 +1,36 @@
+{
+  "command": "python gen-ngrams.py --lang ru --source tatoeba-rus-2026-09-24 --tsv --scripts cyrillic --holdout 6 --test-keep 400 --min-count 3 --top-followers 8 --max-bi 75000 --max-tri 60000 --stop том,тома,тому,томом,томе,мэри,мэрии,мэрией --out input/ru_ngrams.v2.txt --test ru_ngrams_test.v2.tsv rus_sentences.tsv.bz2",
+  "retrievalDate": "2026-09-24",
+  "sourceVersion": "Tatoeba export 2026-09-24",
+  "inputSha256": "e6406a4b2ea74efb37267b70a83ed00eb8e7c5ff34d15ed3e30b2e55077ffd07",
+  "testFile": "ru_ngrams_test.v2.tsv",
+  "testSha256": "fa61ba1d7b0f16d6dd8ff191c85d4baccce678bd621b108895b7e4239360a096",
+  "stats": {
+    "generator": "gen-ngrams-2",
+    "python": "3.14.0",
+    "unicode": "16.0.0",
+    "lines_read": 1225086,
+    "decode_errors": 0,
+    "lines_dropped": 0,
+    "train_lines": 1021284,
+    "test_lines": 200306,
+    "test_dup_lines_skipped": 3492,
+    "test_cases": 2050,
+    "bigram": {
+      "contexts_eligible": 24883,
+      "contexts_kept": 24883,
+      "rows_eligible": 66184,
+      "rows_kept": 66184,
+      "support_kept_share": 1.0
+    },
+    "trigram": {
+      "contexts_eligible": 70837,
+      "contexts_kept": 12065,
+      "rows_eligible": 132095,
+      "rows_kept": 60000,
+      "support_kept_share": 0.761172
+    },
+    "body_sha256": "f6e7cbf7df68f38e539b992947c4fae4c6342129cd07e2c2787cf5301e883c1e"
+  },
+  "builtDate": "2026-09-24"
+}
