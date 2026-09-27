@@ -56,12 +56,44 @@ and a second run produce identical SHA-256s).
 | nl | Tatoeba `nld_sentences` | https://downloads.tatoeba.org/exports/per_language/nld/nld_sentences.tsv.bz2 | CC BY 2.0 FR |
 | ru | Tatoeba `rus_sentences` | https://downloads.tatoeba.org/exports/per_language/rus/rus_sentences.tsv.bz2 | CC BY 2.0 FR |
 | tr | Tatoeba `tur_sentences` | https://downloads.tatoeba.org/exports/per_language/tur/tur_sentences.tsv.bz2 | CC BY 2.0 FR |
+| ar | Tatoeba `ara_sentences` | https://downloads.tatoeba.org/exports/per_language/ara/ara_sentences.tsv.bz2 | CC BY 2.0 FR |
 
 Italian, Dutch, Russian and Turkish were added 2026-09-18 (retrieved that day; SHA-256 of the
 archives: ita 71887aea917160bd71e492fd616f576ea3fa21df38fafa8e8361f2ced621d3b0, nld
 01e3002d07398832f71afd2265975308e0b2c3707a7a93f6f733c73c1bed7c24, rus
 b66604f9f87530eddf24d905ca07e89fa5b7f451460d675cfe62a56b0ef8b036, tur
 ea5e5c7dc551866407f69e08641ccfb6004b585ab2e1dc38fc6d481b14075bbf).
+
+Arabic was added 2026-09-27 (retrieved that day; archive SHA-256
+252ec2eaf8c79916c12e7572cd5c8c69f32faf632377270a520b36e3c9a8977b, 68,568 sentences). It is the
+first language whose FIRST pack (`ar_ngrams.v1`) is built by generator v2, so its v1 has a
+build record and is gated like the v2 packs (`gen2_built()` in build-ngram-packs.py). Three
+Arabic-specific choices:
+- **Bare words.** `hktext.ARABIC_BARE`: the harakat (U+064B-U+065F), the superscript alef
+  (U+0670) and the tatweel (U+0640) are dropped after NFC, because the keyboard's Arabic
+  word list is undiacritised and people type without them (about 1 corpus line in 5 carries
+  marks). Letters are never folded: alef/hamza forms, ta marbuta and alef maqsura keep their
+  spelling, since a follower is inserted into the text as the pack stores it.
+- **Placeholder names.** Tatoeba's Arabic is mostly translated from the English and Kabyle
+  sets, so their stock names dominate it: Sami 4,657, Ziri 4,401, Tom 3,049, Yanni 1,699,
+  Layla 1,630, Mary 909, Fadil 635, Rima 552, Skura 254, Mennad 198 - each stopped with the
+  clitic forms seen 10+ times (li-/bi-/wa- Tom, Mary, Layla ...). The list is in languages.json.
+  The same corpus leans Algerian (al-jaza'ir 879, al-amazighiyya 427); those are ordinary
+  words and are kept.
+- **min-count 2.** Arabic attaches clitics to words, so a 68k-sentence corpus repeats few
+  pairs 3 times: at min-count 3 the pack kept 2,251 bigram contexts (top-3 13.99%, coverage
+  67.8% on all 32,078 held-out cases); at 2 it keeps 4,957 (top-3 16.05%, coverage 76.5%)
+  for 100 KB gzipped. The caps are not reached either way.
+
+Measured through the app's lookup (NgramPackData.next, trigram then bigram): held-out top-1
+10.75%, top-3 16.05% (before the pack: nothing - the bar is empty after an Arabic word).
+On Tatoeba's 1,584 Egyptian Arabic (arz) sentences, none used in training, the MSA pack
+reaches only top-3 3.40% (coverage 44.3%) - it is not an Egyptian model.
+
+```bash
+python build-inputs.py --corpora <dir> --retrieved ar=2026-09-27 ar
+python build-ngram-packs.py --check
+```
 
 Portuguese (P14) was added for the Portuguese (Brazil) engine migration; `por_sentences` is
 mixed pt-BR / pt-PT, which matches the shared word list both versions use. Retrieved 2026-09-05.

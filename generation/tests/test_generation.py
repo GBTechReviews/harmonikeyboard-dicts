@@ -215,6 +215,24 @@ class CasingTest(unittest.TestCase):
         self.assertIn(self.DOTLESS + "stanbul", ctx)
         self.assertNotIn("i" + u(0x307) + "stanbul", ctx)
 
+    def test_arabic_is_bare(self):
+        # qamusan with a tanwin fath, a shadda'd word and a tatweel-stretched one lose
+        # the marks; alef-hamza, ta marbuta and alef maqsura keep their letters
+        self.assertEqual(hktext.lower(u(0x642, 0x627, 0x645, 0x648, 0x633, 0x627, 0x64B), "ar"),
+                         u(0x642, 0x627, 0x645, 0x648, 0x633, 0x627))
+        self.assertEqual(hktext.lower(u(0x623, 0x646, 0x651, 0x64E), "ar"), u(0x623, 0x646))
+        self.assertEqual(hktext.lower(u(0x62C, 0x640, 0x645, 0x64A, 0x644, 0x629), "ar"),
+                         u(0x62C, 0x645, 0x64A, 0x644, 0x629))
+        self.assertEqual(hktext.lower(u(0x639, 0x644, 0x649), "ar"), u(0x639, 0x644, 0x649))
+        # a decomposed alef + hamza above composes first, so the hamza survives
+        self.assertEqual(hktext.lower(u(0x627, 0x654, 0x646, 0x627), "ar"), u(0x623, 0x646, 0x627))
+
+    def test_only_arabic_drops_marks(self):
+        # the same marks in an Urdu or Farsi text are untouched (not an 'ar' pack)
+        s = u(0x645, 0x64E, 0x646)
+        self.assertEqual(hktext.lower(s, "ur"), s)
+        self.assertEqual(hktext.lower(s, "fa"), s)
+
     def test_greek_final_sigma(self):
         # ODOS -> odos with a final sigma
         self.assertEqual(hktext.lower(u(0x39F, 0x394, 0x39F, 0x3A3), "el"), u(0x3BF, 0x3B4, 0x3BF, 0x3C2))

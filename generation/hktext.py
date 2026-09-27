@@ -84,10 +84,24 @@ _CAP_I_DOT = chr(0x0130)
 _SMALL_DOTLESS_I = chr(0x0131)
 
 
+# Arabic is typed BARE: the keyboard's Arabic word list is undiacritised and people
+# type without vowel marks, so an Arabic pack stores its words without the harakat
+# (U+064B-U+065F), the superscript alef (U+0670) and the tatweel (U+0640, a stretching
+# stroke with no sound). They are dropped AFTER NFC, so a decomposed alef + hamza has
+# already become its own letter. Letters are never folded - the alef/hamza forms, ta
+# marbuta and alef maqsura keep their spelling, because a follower is inserted into
+# the text exactly as the pack stores it.
+ARABIC_BARE = frozenset({"ar"})
+_ARABIC_MARKS = frozenset([chr(c) for c in range(0x064B, 0x0660)] + [chr(0x0670), chr(0x0640)])
+
+
 def lower(text, lang):
     if lang in TURKIC:
         text = text.replace(_CAP_I_DOT, "i").replace(_CAP_I, _SMALL_DOTLESS_I)
-    return unicodedata.normalize("NFC", text.lower())
+    text = unicodedata.normalize("NFC", text.lower())
+    if lang in ARABIC_BARE:
+        text = unicodedata.normalize("NFC", "".join(ch for ch in text if ch not in _ARABIC_MARKS))
+    return text
 
 
 # ---------------------------------------------------------------- scripts

@@ -17,6 +17,7 @@ CC BY 2.0 FR with the Tatoeba attribution.
 |---|---|---|---|---|
 | `af_words.txt` | CC BY 2.0 FR | VERIFIED | Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR | `provenance/af_words.v1.json` |
 | `am_words.txt` | HProductions original work - all rights reserved (data; not covered by the repository's MIT licence) | VERIFIED |  | `provenance/am_words.legacy.json` |
+| `packs/ar_ngrams.v1.txt.gz` | CC BY 2.0 FR | VERIFIED | Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR | `provenance/ar_ngrams.v1.json` |
 | `ar_words.txt` | UNLICENSED (origin unresolved - no licence is granted for this file; it is not covered by the repository's MIT licence) | UNVERIFIED | - | `provenance/ar_words.legacy.json` |
 | `az_words.txt` | UNLICENSED (origin unresolved - no licence is granted for this file; it is not covered by the repository's MIT licence) | UNVERIFIED | - | `provenance/az_words.legacy.json` |
 | `be_words.txt` | CC BY 2.0 FR | VERIFIED | Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR | `provenance/be_words.v1.json` |

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # pack_gate.py - the prediction-regression gate for the PUBLISHED n-gram packs.
 #
-# For every manifest entry at generator v2 or later it loads the gzipped pack and its
+# For every manifest entry built by generator v2 it loads the gzipped pack and its
 # held-out test sample (the provenance names both) and scores next-word prediction the
 # way HKeyboard's ContextModel.predict ranks pack evidence: the trigram (prev2, prev1)
 # followers at weight 1.0 plus the bigram (prev1) followers at weight 0.4, each
@@ -77,7 +77,9 @@ def main():
     seen = set()
     for e in man["packs"]:
         f = e["file"]
-        if f in seen or e.get("packVersion", 1) < 2 or f.startswith("it_ngrams.v2"):
+        # every generator-v2 build (all v2+ packs, and the v1 of a language added after
+        # generator v2 - Arabic); the legacy-generator packs have no build record
+        if f in seen or not e.get("generationVersion", "").startswith("gen-ngrams-2"):
             continue
         seen.add(f)
         code = f.split("_", 1)[0]

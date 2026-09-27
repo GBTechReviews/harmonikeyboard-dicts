@@ -43,7 +43,7 @@ def main():
     for code in a.langs or sorted(cfg):
         c = cfg[code]
         ver = bnp.PACK_VERSION.get(code, 1)
-        if ver < 2:
+        if not bnp.gen2_built(code, ver):
             print("%s: still at v1 (legacy generator) - skipped" % code)
             continue
         date = dates.get(code)

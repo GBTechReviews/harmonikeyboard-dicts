@@ -78,6 +78,13 @@ META = {
                source="Tatoeba Project", corpus="tatoeba tur_sentences",
                source_url="https://downloads.tatoeba.org/exports/per_language/tur/tur_sentences.tsv.bz2",
                licence="CC BY 2.0 FR", attribution="Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR"),
+    # 2026-09-27: Arabic, the first language whose FIRST pack is built by generator v2
+    # (68,568 sentences, Greek-scale caps). Words are stored bare - no harakat or tatweel
+    # (hktext.ARABIC_BARE) - as the keyboard's undiacritised word list stores them.
+    "ar": dict(language="Arabic", locale="ar",
+               source="Tatoeba Project", corpus="tatoeba ara_sentences",
+               source_url="https://downloads.tatoeba.org/exports/per_language/ara/ara_sentences.tsv.bz2",
+               licence="CC BY 2.0 FR", attribution="Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR"),
 }
 
 SCHEMA_VERSION = 1
@@ -97,7 +104,18 @@ GEN_VERSION = "gen-ngrams.py v1 + build-ngram-packs.py v1"
 #   the Unicode text handling. Italian's corrected pack is v3 because v2 already
 #   exists (the --drop build above). Built from the exports of builds/*.build.json.
 PACK_VERSION = {"de": 2, "es": 2, "fr": 2, "en": 2, "pl": 2, "pt": 2, "el": 2, "it": 3,
-                "nl": 2, "ru": 2, "tr": 2}
+                "nl": 2, "ru": 2, "tr": 2, "ar": 1}
+# The languages whose v1 pack was built by the LEGACY generator. A language added after
+# generator v2 (Arabic, 2026-09-27) is built by v2 from its first version, so its v1
+# goes through build-inputs.py, carries a build record and is gated like any v2 pack.
+LEGACY_V1 = frozenset({"de", "es", "fr", "en", "pl", "pt", "el", "it", "nl", "ru", "tr"})
+
+
+def gen2_built(lang, ver):
+    """True when this (language, version) is a generator-v2 build."""
+    if (lang, ver) == ("it", 2):   # the legacy-generator --drop build
+        return False
+    return ver >= 2 or lang not in LEGACY_V1
 GEN_VERSION_2 = "gen-ngrams-2 (generation/gen-ngrams.py + hktext.py) + build-ngram-packs.py v2"
 # The keyboard language ids each pack is offered under, with each entry's canonical
 # BCP 47 tag. Several ids may share one file: they are ALIASES of the pack, whose own
@@ -123,10 +141,15 @@ RELEASE_NOTES = {
     ("nl", 2): "Dutch next-word context (bigram+trigram) from Tatoeba example sentences. v2: generator v2 - under the size cap the most frequent contexts are kept (v1 kept the alphabetically first), Unicode-correct words (NFC, apostrophes). Held-out next-word top-1 16.57% -> 16.73% (+0.9% relative; +0.15 pts, 95% CI 0.10 to 0.21), top-3 27.86% -> 28.05%.",
     ("ru", 2): "Russian next-word context (bigram+trigram) from Tatoeba example sentences. v2: generator v2 - under the size cap the most frequent contexts are kept (v1 kept the alphabetically first), Unicode-correct words (NFC, apostrophes). Held-out next-word top-1 15.96% -> 16.52% (+3.5% relative; +0.56 pts, 95% CI 0.45 to 0.67), top-3 25.81% -> 27.09%.",
     ("tr", 2): "Turkish next-word context (bigram+trigram) from Tatoeba example sentences. v2: generator v2 - under the size cap the most frequent contexts are kept (v1 kept the alphabetically first), Unicode-correct words (NFC, apostrophes, Turkish I/i casing). Held-out next-word top-1 15.15% -> 15.42% (+1.8% relative; +0.27 pts, 95% CI 0.20 to 0.35), top-3 23.76% -> 24.24%.",
+    # ar v1: the FIRST Arabic pack, scored through the app's NgramPackData.next (trigram then
+    # bigram) on all 32,078 held-out cases (test-keep 1; the published sample is 1 in 10).
+    # min-count 2, not 3: on this 68,568-sentence corpus it scored top-3 16.05% vs 13.99%
+    # (coverage 76.5% vs 67.8%) on the same held-out sentences.
+    ("ar", 1): "Arabic next-word context (bigram+trigram) from Tatoeba example sentences: the first Arabic pack (generator v2), words stored without harakat or tatweel, Tatoeba's placeholder names left out. Held-out next-word top-1 10.75%, top-3 16.05% (95% CI 15.65 to 16.45), context coverage 76.5% (32,078 cases); before it the bar offered nothing after an Arabic word.",
 }
 # Languages whose pack was built with --stop (placeholder names); the list per
 # language is in generation/README.md.
-STOP_LANGS = ("en", "pl", "pt", "el", "it", "nl", "ru", "tr")
+STOP_LANGS = ("en", "pl", "pt", "el", "it", "nl", "ru", "tr", "ar")
 # --drop patterns recorded in the provenance, per (lang, version).
 DROPS = {("it", 2): "--drop '(?i)^(Non )?(vado|vai|va|andiamo|andate|vanno) a costruire ' "
                     "--drop '^\"?Di che nazionalit. (sono|erano) (i|le) ': 53,840 machine-"
@@ -209,7 +232,7 @@ def build(lang, retrieval_date, source_version, notes, check=False):
         "deterministic gzip (mtime=0, level 9, OS byte 0xFF)",
     ]
     entry["packLocale"] = m["locale"]
-    if ver >= 2 and (lang, ver) != ("it", 2):   # it v2 is the legacy-generator --drop build
+    if gen2_built(lang, ver):
         rec_path = os.path.join(REPO, "generation", "builds", f"{lang}_ngrams.v{ver}.build.json")
         if not os.path.isfile(rec_path):
             sys.exit(f"missing {rec_path} (run build-inputs.py)")
@@ -253,7 +276,11 @@ def build(lang, retrieval_date, source_version, notes, check=False):
             ] if lang in STOP_LANGS else []) + ([
                 "--drop: corpus lines matching the language's drop patterns (languages.json) are "
                 "skipped whole before counting - Italian's two machine-generated sentence grids"
-            ] if lang == "it" else []) + [
+            ] if lang == "it" else []) + ([
+                "Arabic words stored bare: the harakat (U+064B-U+065F), the superscript alef "
+                "(U+0670) and the tatweel (U+0640) dropped after NFC (hktext.ARABIC_BARE); letters "
+                "never folded - alef/hamza forms, ta marbuta and alef maqsura keep their spelling"
+            ] if lang in ("ar",) else []) + [
                 "deterministic gzip (mtime=0, level 9, OS byte 0xFF)",
             ],
         })
@@ -271,7 +298,7 @@ def main():
     ap.add_argument("--check", action="store_true", help="verify gzip determinism + round-trip")
     # Every pack the manifest carries. The manifest is rewritten WHOLE from this
     # list, so a short list here silently unpublishes the packs it omits.
-    ALL = ["de", "es", "fr", "en", "pl", "pt", "el", "it", "nl", "ru", "tr"]
+    ALL = ["de", "es", "fr", "en", "pl", "pt", "el", "it", "nl", "ru", "tr", "ar"]
     ap.add_argument("--date", default=datetime.date.today().isoformat(),
                     help="the manifest's generated date (default today)")
     ap.add_argument("langs", nargs="*", default=ALL)
@@ -290,11 +317,14 @@ def main():
     notes.setdefault("nl", "Dutch next-word context (bigram+trigram) from Tatoeba example sentences.")
     notes.setdefault("ru", "Russian next-word context (bigram+trigram) from Tatoeba example sentences.")
     notes.setdefault("tr", "Turkish next-word context (bigram+trigram) from Tatoeba example sentences.")
+    notes.setdefault("ar", "Arabic next-word context (bigram+trigram) from Tatoeba example sentences.")
     # Packs retrieved outside the original batch carry their own dates, so
     # rebuilding does not relabel the existing entries.
-    retrieved = {"pt": "2026-09-05", "el": "2026-09-18", "it": "2026-09-20", "nl": "2026-09-18", "ru": "2026-09-18", "tr": "2026-09-18"}
+    retrieved = {"pt": "2026-09-05", "el": "2026-09-18", "it": "2026-09-20", "nl": "2026-09-18", "ru": "2026-09-18", "tr": "2026-09-18",
+                 "ar": "2026-09-27"}
     versions = {"pt": "Tatoeba export 2026-09-05", "el": "Tatoeba export 2026-09-18", "it": "Tatoeba export 2026-09-20",
-                "nl": "Tatoeba export 2026-09-18", "ru": "Tatoeba export 2026-09-18", "tr": "Tatoeba export 2026-09-18"}
+                "nl": "Tatoeba export 2026-09-18", "ru": "Tatoeba export 2026-09-18", "tr": "Tatoeba export 2026-09-18",
+                "ar": "Tatoeba export 2026-09-27"}
     packs = [build(l, retrieved.get(l, a.retrieval_date),
                    versions.get(l, a.source_version), notes[l], a.check) for l in langs]
     # One entry per keyboard language id. A pack offered under several ids (English (UK)

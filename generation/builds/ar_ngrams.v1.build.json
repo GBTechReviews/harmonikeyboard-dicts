@@ -1,0 +1,36 @@
+{
+  "command": "python gen-ngrams.py --lang ar --source tatoeba-ara-2026-09-27 --tsv --scripts arabic --holdout 6 --test-keep 10 --min-count 2 --top-followers 8 --max-bi 30000 --max-tri 25000 --stop توم,لتوم,بتوم,وتوم,ماري,وماري,لماري,بماري,سامي,لسامي,بسامي,زيري,لزيري,ياني,لياني,ليلى,لليلى,بليلى,وليلى,فاضل,لفاضل,ريمة,لريمة,بريمة,سكورة,لسكورة,مناد --out input/ar_ngrams.v1.txt --test ar_ngrams_test.v1.tsv ara_sentences.tsv.bz2",
+  "retrievalDate": "2026-09-27",
+  "builtDate": "2026-09-27",
+  "sourceVersion": "Tatoeba export 2026-09-27",
+  "inputSha256": "252ec2eaf8c79916c12e7572cd5c8c69f32faf632377270a520b36e3c9a8977b",
+  "testFile": "ar_ngrams_test.v1.tsv",
+  "testSha256": "083d80b0d8642c4dcd3c5f60ca79c2a2c1dd20d7778cfbee2a64041ef120a85c",
+  "stats": {
+    "generator": "gen-ngrams-2",
+    "python": "3.14.0",
+    "unicode": "16.0.0",
+    "lines_read": 68568,
+    "decode_errors": 0,
+    "lines_dropped": 0,
+    "train_lines": 56969,
+    "test_lines": 11408,
+    "test_dup_lines_skipped": 142,
+    "test_cases": 3013,
+    "bigram": {
+      "contexts_eligible": 4957,
+      "contexts_kept": 4957,
+      "rows_eligible": 10151,
+      "rows_kept": 10151,
+      "support_kept_share": 1.0
+    },
+    "trigram": {
+      "contexts_eligible": 4858,
+      "contexts_kept": 4858,
+      "rows_eligible": 6457,
+      "rows_kept": 6457,
+      "support_kept_share": 1.0
+    },
+    "body_sha256": "841b67ec6c71124efccfde3894a7cad3790687cd37b60bb19b15b6c2f90350ba"
+  }
+}

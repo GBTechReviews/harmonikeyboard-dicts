@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generated": "2026-09-24",
+  "generated": "2026-09-27",
   "packs": [
     {
       "language": "German",
@@ -289,6 +289,30 @@
       "retrievalDate": "2026-09-24",
       "releaseNotes": "Turkish next-word context (bigram+trigram) from Tatoeba example sentences. v2: generator v2 - under the size cap the most frequent contexts are kept (v1 kept the alphabetically first), Unicode-correct words (NFC, apostrophes, Turkish I/i casing). Held-out next-word top-1 15.15% -> 15.42% (+1.8% relative; +0.27 pts, 95% CI 0.20 to 0.35), top-3 23.76% -> 24.24%.",
       "packLocale": "tr"
+    },
+    {
+      "language": "Arabic",
+      "locale": "ar",
+      "packVersion": 1,
+      "minEngineVersion": 1,
+      "minAppVersion": 9,
+      "file": "ar_ngrams.v1.txt.gz",
+      "compression": "gzip",
+      "fileSize": 100439,
+      "uncompressedSize": 428088,
+      "sha256": "d030875edbe80bb9cc09f436ced1f36f4eb89938460c7f3bcb028869ca92afe9",
+      "uncompressedSha256": "de3934898559ae84da052245b28220874bd7798edad20279e5c2c2b4c4d7ae8b",
+      "source": "Tatoeba Project",
+      "corpus": "tatoeba ara_sentences",
+      "sourceUrl": "https://downloads.tatoeba.org/exports/per_language/ara/ara_sentences.tsv.bz2",
+      "sourceVersion": "Tatoeba export 2026-09-27",
+      "licence": "CC BY 2.0 FR",
+      "attribution": "Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR",
+      "generationVersion": "gen-ngrams-2 (generation/gen-ngrams.py + hktext.py) + build-ngram-packs.py v2",
+      "creationDate": "2026-09-27",
+      "retrievalDate": "2026-09-27",
+      "releaseNotes": "Arabic next-word context (bigram+trigram) from Tatoeba example sentences: the first Arabic pack (generator v2), words stored without harakat or tatweel, Tatoeba's placeholder names left out. Held-out next-word top-1 10.75%, top-3 16.05% (95% CI 15.65 to 16.45), context coverage 76.5% (32,078 cases); before it the bar offered nothing after an Arabic word.",
+      "packLocale": "ar"
     }
   ]
 }
