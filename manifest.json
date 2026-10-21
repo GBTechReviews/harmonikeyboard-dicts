@@ -1,6 +1,27 @@
 {
   "version": 2,
   "dicts": {
+    "HU": {
+      "url": "https://raw.githubusercontent.com/GBTechReviews/harmonikeyboard-dicts/refs/heads/main/hu_words.v2.txt",
+      "sha256": "900d10bc489f4710621edf7908072609d58e7482f75900b07362a27bcce82528",
+      "minBytes": 300000,
+      "version": 2,
+      "tag": "hu"
+    },
+    "FI": {
+      "url": "https://raw.githubusercontent.com/GBTechReviews/harmonikeyboard-dicts/refs/heads/main/fi_words.v2.txt",
+      "sha256": "6016698067b6fcaa7eea28dd789a469a7a7d117c600eade45c2751ed4fc07442",
+      "minBytes": 230000,
+      "version": 2,
+      "tag": "fi"
+    },
+    "UK": {
+      "url": "https://raw.githubusercontent.com/GBTechReviews/harmonikeyboard-dicts/refs/heads/main/uk_words.v2.txt",
+      "sha256": "d78871d7ac2757cc2ec91ff840e0ae0708aba0d3623b183fcc51e3e0efd4f88d",
+      "minBytes": 280000,
+      "version": 2,
+      "tag": "uk"
+    },
     "PT": {
       "url": "https://raw.githubusercontent.com/GBTechReviews/harmonikeyboard-dicts/refs/heads/main/pt_words.txt",
       "sha256": "c469dd583ec167c1fca3290d58005450b9096a0313d6470dcf59c0a046f327ea",

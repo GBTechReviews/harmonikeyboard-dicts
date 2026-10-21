@@ -1,0 +1,17 @@
+{
+  "file": "uk_words.v2.txt",
+  "sha256": "d78871d7ac2757cc2ec91ff840e0ae0708aba0d3623b183fcc51e3e0efd4f88d",
+  "bytes": 332393,
+  "entries": 20724,
+  "verification": "VERIFIED",
+  "licence": "CC BY 2.0 FR",
+  "attribution": "Tatoeba contributors; see licences/TATOEBA.txt",
+  "sourceUrl": "https://downloads.tatoeba.org/exports/per_language/ukr/ukr_sentences.tsv.bz2",
+  "sourceArchiveSha256": "0e207656138252ba77bd528598d9f4f96e8887a990c92f73ddf00d51cc85a893",
+  "bundledBaseSha256": "155d91e11a4e4a80d62053319517ebb010cb5dc691955836b3a03656b8d213f0",
+  "generationCommand": "python generation/build-typing32-v2.py --archives <pinned-archive-dir> --bundled <HarmoniKeyboard2/entry/src/main/resources/rawfile/typing32>",
+  "ranking": "15,724 licensed bundled typing32 words in original frequency order, then 5,000 additional Tatoeba training words with count >= 2, ranked by count descending and first occurrence",
+  "split": "SHA-256 of NFC lowercase stripped sentence modulo 10; buckets 0 and 1 excluded before counting",
+  "creationDate": "2026-10-21",
+  "historicalList": "uk_words.txt remains separate; its unresolved origin was not used"
+}

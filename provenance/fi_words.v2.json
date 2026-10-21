@@ -1,0 +1,17 @@
+{
+  "file": "fi_words.v2.txt",
+  "sha256": "6016698067b6fcaa7eea28dd789a469a7a7d117c600eade45c2751ed4fc07442",
+  "bytes": 271971,
+  "entries": 27114,
+  "verification": "VERIFIED",
+  "licence": "CC BY 2.0 FR",
+  "attribution": "Tatoeba contributors; see licences/TATOEBA.txt",
+  "sourceUrl": "https://downloads.tatoeba.org/exports/per_language/fin/fin_sentences.tsv.bz2",
+  "sourceArchiveSha256": "f8dc2ada2038b7c1c4c813f3e0418ad55c68506baed7c28ed2558ca11f4f12a7",
+  "bundledBaseSha256": "3b8b86d34f74a091fd24dd4d15aaa13979c11cdb66c389d47092b59f25788dce",
+  "generationCommand": "python generation/build-typing32-v2.py --archives <pinned-archive-dir> --bundled <HarmoniKeyboard2/entry/src/main/resources/rawfile/typing32>",
+  "ranking": "22,114 licensed bundled typing32 words in original frequency order, then 5,000 additional Tatoeba training words with count >= 2, ranked by count descending and first occurrence",
+  "split": "SHA-256 of NFC lowercase stripped sentence modulo 10; bucket 0 excluded before counting",
+  "creationDate": "2026-10-21",
+  "historicalList": "fi_words.txt remains separate; its unresolved origin was not used"
+}

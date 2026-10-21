@@ -46,6 +46,7 @@ CC BY 2.0 FR with the Tatoeba attribution.
 | `eu_words.txt` | CC BY 2.0 FR | VERIFIED | Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR | `provenance/eu_words.v1.json` |
 | `fa_words.txt` | UNLICENSED (origin unresolved - no licence is granted for this file; it is not covered by the repository's MIT licence) | UNVERIFIED | - | `provenance/fa_words.legacy.json` |
 | `fi_words.txt` | UNLICENSED (origin unresolved - no licence is granted for this file; it is not covered by the repository's MIT licence) | UNVERIFIED | - | `provenance/fi_words.legacy.json` |
+| `fi_words.v2.txt` | CC BY 2.0 FR | VERIFIED | Tatoeba contributors; see licences/TATOEBA.txt | `provenance/fi_words.v2.json` |
 | `packs/fr_ngrams.v1.txt.gz` | CC BY 2.0 FR | VERIFIED | Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR | `provenance/fr_ngrams.v1.json` |
 | `packs/fr_ngrams.v2.txt.gz` | CC BY 2.0 FR | VERIFIED | Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR | `provenance/fr_ngrams.v2.json` |
 | `fr_words.txt` | UNLICENSED (origin unresolved - no licence is granted for this file; it is not covered by the repository's MIT licence) | UNVERIFIED | - | `provenance/fr_words.legacy.json` |
@@ -57,6 +58,7 @@ CC BY 2.0 FR with the Tatoeba attribution.
 | `hi_words.txt` | CC BY 2.0 FR | VERIFIED | Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR | `provenance/hi_words.v1.json` |
 | `hr_words.txt` | UNLICENSED (origin unresolved - no licence is granted for this file; it is not covered by the repository's MIT licence) | UNVERIFIED | - | `provenance/hr_words.legacy.json` |
 | `hu_words.txt` | UNLICENSED (origin unresolved - no licence is granted for this file; it is not covered by the repository's MIT licence) | UNVERIFIED | - | `provenance/hu_words.legacy.json` |
+| `hu_words.v2.txt` | CC BY 2.0 FR | VERIFIED | Tatoeba contributors; see licences/TATOEBA.txt | `provenance/hu_words.v2.json` |
 | `hy_words.txt` | CC BY 2.0 FR | VERIFIED | Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR | `provenance/hy_words.v1.json` |
 | `id_words.txt` | UNLICENSED (origin unresolved - no licence is granted for this file; it is not covered by the repository's MIT licence) | UNVERIFIED | - | `provenance/id_words.legacy.json` |
 | `is_words.txt` | UNLICENSED (origin unresolved - no licence is granted for this file; it is not covered by the repository's MIT licence) | UNVERIFIED | - | `provenance/is_words.legacy.json` |
@@ -116,6 +118,7 @@ CC BY 2.0 FR with the Tatoeba attribution.
 | `tr_words.txt` | UNLICENSED (origin unresolved - no licence is granted for this file; it is not covered by the repository's MIT licence) | UNVERIFIED | - | `provenance/tr_words.legacy.json` |
 | `tt_words.txt` | CC BY 2.0 FR | VERIFIED | Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR | `provenance/tt_words.v1.json` |
 | `uk_words.txt` | UNLICENSED (origin unresolved - no licence is granted for this file; it is not covered by the repository's MIT licence) | UNVERIFIED | - | `provenance/uk_words.legacy.json` |
+| `uk_words.v2.txt` | CC BY 2.0 FR | VERIFIED | Tatoeba contributors; see licences/TATOEBA.txt | `provenance/uk_words.v2.json` |
 | `ur_roman.txt` | UNLICENSED (origin unresolved - no licence is granted for this file; it is not covered by the repository's MIT licence) | UNVERIFIED | - | `provenance/ur_roman.legacy.json` |
 | `ur_words.txt` | UNLICENSED (origin unresolved - no licence is granted for this file; it is not covered by the repository's MIT licence) | UNVERIFIED | - | `provenance/ur_words.legacy.json` |
 | `uz_words.txt` | CC BY 2.0 FR | VERIFIED | Tatoeba Project (https://tatoeba.org), CC BY 2.0 FR | `provenance/uz_words.v1.json` |

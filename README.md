@@ -36,6 +36,22 @@ licences/                Data-source licence notices + required attribution.
 generation/              Reproducible generation scripts (gen-ngrams.py + build-ngram-packs.py).
 ```
 
+## Hungarian, Finnish and Ukrainian typing32 downloads (2026-10-21)
+
+`hu_words.v2.txt`, `fi_words.v2.txt` and `uk_words.v2.txt` replace the older
+downloads for supported app versions. The v2 lists preserve the rank order of
+the licensed typing32 bundled lists, then append up to 5,000 additional words
+seen at least twice in the training portion of the same pinned Tatoeba export.
+The original held-out sentence buckets are excluded before counting. The old
+`*_words.txt` files remain for historical clients; their unresolved origin is
+recorded separately and none of their content was used to make v2.
+
+Build with `generation/build-typing32-v2.py` and the archive hashes in that
+script. Exact output hashes, source licence and attribution are in
+`provenance/{hu,fi,uk}_words.v2.json`. The new lists use versioned filenames
+and a version 2 manifest entry so an opted-in client can replace its verified
+older cache without changing a published file in place.
+
 ## Next-word packs (added P12)
 
 - **Licence: CC BY 2.0 FR**, derived from Tatoeba example sentences (attribution-only,

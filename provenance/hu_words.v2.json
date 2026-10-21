@@ -1,0 +1,17 @@
+{
+  "file": "hu_words.v2.txt",
+  "sha256": "900d10bc489f4710621edf7908072609d58e7482f75900b07362a27bcce82528",
+  "bytes": 352958,
+  "entries": 35000,
+  "verification": "VERIFIED",
+  "licence": "CC BY 2.0 FR",
+  "attribution": "Tatoeba contributors; see licences/TATOEBA.txt",
+  "sourceUrl": "https://downloads.tatoeba.org/exports/per_language/hun/hun_sentences.tsv.bz2",
+  "sourceArchiveSha256": "cf1f9b738bc27320a0f0a6cea103968cd0fc23e81dd4c391250c8cefe89da124",
+  "bundledBaseSha256": "50b7492b45c263f53ad19552a846349a64498602c642e27a1c7340394186b5ea",
+  "generationCommand": "python generation/build-typing32-v2.py --archives <pinned-archive-dir> --bundled <HarmoniKeyboard2/entry/src/main/resources/rawfile/typing32>",
+  "ranking": "30,000 licensed bundled typing32 words in original frequency order, then 5,000 additional Tatoeba training words with count >= 2, ranked by count descending and first occurrence",
+  "split": "SHA-256 of NFC lowercase stripped sentence modulo 10; bucket 0 excluded before counting",
+  "creationDate": "2026-10-21",
+  "historicalList": "hu_words.txt remains separate; its unresolved origin was not used"
+}
